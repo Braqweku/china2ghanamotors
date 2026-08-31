@@ -7,8 +7,8 @@ export function Logo() {
       <Image
         src="/logo/china2ghana-logo.png"
         alt="China2Ghana Motors"
-        width={160}
-        height={160}
+        width={1027}
+        height={537}
         className="h-10 w-auto"
         priority
       />

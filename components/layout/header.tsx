@@ -6,6 +6,7 @@ import { Logo } from "@/components/layout/logo";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetTrigger,
   SheetTitle,
@@ -61,18 +62,22 @@ export function Header() {
             <SheetTitle>Menu</SheetTitle>
             <nav className="mt-8 flex flex-col gap-4">
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="text-base font-medium">
-                  {link.label}
-                </Link>
+                <SheetClose asChild key={link.href}>
+                  <Link href={link.href} className="text-base font-medium">
+                    {link.label}
+                  </Link>
+                </SheetClose>
               ))}
-              <a
-                href={whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4"
-              >
-                <Button className="w-full">Chat with a Sourcing Specialist</Button>
-              </a>
+              <SheetClose asChild>
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4"
+                >
+                  <Button className="w-full">Chat with a Sourcing Specialist</Button>
+                </a>
+              </SheetClose>
             </nav>
           </SheetContent>
         </Sheet>
