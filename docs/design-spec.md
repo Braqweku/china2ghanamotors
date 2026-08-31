@@ -87,7 +87,18 @@ Request received → Vehicle sourcing → Vehicle selected → Verification → 
 
 **Typeface:** Geist (Sans) for all UI/body text; Geist Mono reserved narrowly for tracking reference codes (e.g. `C2G-8837XJ`) where a monospace read aids scanability. The logo's own wordmark is a fixed brand asset and is never reset in Geist — it stays as supplied artwork.
 
-**Type scale:** Display, H1, H2, H3, Body, Small, Label, Caption — implemented as Tailwind utilities backed by CSS variable tokens, not ad hoc font-size values per component.
+**Type scale:** Display, H1, H2, H3, Body, Small, Label, Caption — implemented as Tailwind utilities backed by CSS variable tokens (`--text-display`, `--text-h1`, etc. in `app/globals.css`'s `@theme`), not ad hoc font-size values per component. Values:
+
+| Token | Size | Line height | Use |
+|---|---|---|---|
+| `display` | 3.5rem (56px) | 1.1 | Hero-level headlines only |
+| `h1` | 2.5rem (40px) | 1.15 | Page-level headings |
+| `h2` | 1.875rem (30px) | 1.2 | Section headings |
+| `h3` | 1.5rem (24px) | 1.3 | Sub-section headings |
+| `body` | 1rem (16px) | 1.6 | Default body text — comfortable line height |
+| `small` | 0.875rem (14px) | 1.5 | Secondary/supporting text |
+| `label` | 0.875rem (14px) | 1.4 | Form labels, UI chrome (medium weight) |
+| `caption` | 0.75rem (12px) | 1.4 | Timestamps, fine print |
 
 **Color tokens** (sampled from the provided logo; exact hex refined in code, not fabricated beyond what the logo shows):
 
@@ -124,7 +135,7 @@ Dark mode is out of scope for Foundation — not a stated requirement, and autom
 
 **Principle:** every animation must answer at least one of — improves comprehension, communicates hierarchy, gives feedback, establishes spatial relationship, or makes an interaction feel responsive. If none apply, it doesn't ship.
 
-**Tokens:** duration `fast` ≈150ms, `base` ≈250ms, `slow` ≈400ms. One deliberately chosen primary easing curve (not the default `cubic-bezier(0.4,0,0.2,1)` used reflexively) — finalized during implementation and recorded in `styles/globals.css` as the source of truth.
+**Tokens:** duration `fast` ≈150ms, `base` ≈250ms, `slow` ≈400ms. One deliberately chosen primary easing curve (not the default `cubic-bezier(0.4,0,0.2,1)` used reflexively) — finalized during implementation and recorded in `app/globals.css` as the source of truth.
 
 **Reduced motion:** `prefers-reduced-motion` is handled at the token layer itself (durations collapse / transforms simplify), not as an afterthought per component.
 
@@ -152,6 +163,8 @@ lib/mock/         local TS/JSON the repository functions currently read from
 ```
 
 Repository functions are `async` from day one even though they only read local arrays today, so call sites never change when real persistence is introduced.
+
+`getTrackingEvents(reference)` returns `Promise<TrackingEvent[] | null>` — `null` for an unknown reference (failed lookup, per §2's mandatory error state), `[]` only for a valid reference with no events yet recorded. These are distinct states the `/track` page must render differently.
 
 ```ts
 type Vehicle = {
