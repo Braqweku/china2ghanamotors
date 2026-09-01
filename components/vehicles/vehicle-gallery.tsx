@@ -10,7 +10,7 @@ export function VehicleGallery({ images, alt }: { images: string[]; alt: string 
 
   if (images.length === 0) {
     return (
-      <div className="flex aspect-[4/3] items-center justify-center rounded-lg bg-muted">
+      <div className="flex aspect-[3/4] max-w-md items-center justify-center rounded-lg bg-muted">
         <Car className="h-20 w-20 text-muted-foreground" aria-hidden="true" />
       </div>
     );
@@ -18,19 +18,19 @@ export function VehicleGallery({ images, alt }: { images: string[]; alt: string 
 
   return (
     <div>
-      <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-lg bg-muted">
+      <div className="relative aspect-[3/4] max-w-md overflow-hidden rounded-lg bg-muted">
         <Image
           src={images[activeIndex]}
           alt={alt}
           fill
-          sizes="(min-width: 1024px) 640px, 100vw"
+          sizes="(min-width: 1024px) 448px, 100vw"
           priority
-          className="object-contain p-6"
+          className="object-cover"
         />
       </div>
 
       {images.length > 1 && (
-        <div className="mt-4 flex gap-2 overflow-x-auto pb-1">
+        <div className="mt-4 flex max-w-md gap-2 overflow-x-auto pb-1">
           {images.map((image, index) => (
             <button
               key={image}
@@ -48,7 +48,7 @@ export function VehicleGallery({ images, alt }: { images: string[]; alt: string 
                 alt=""
                 fill
                 sizes="64px"
-                className="object-contain p-1"
+                className="object-cover"
                 aria-hidden="true"
               />
             </button>

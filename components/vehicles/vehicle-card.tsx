@@ -12,14 +12,14 @@ export function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
       href={`/vehicles/${vehicle.id}`}
       className="group block overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-shadow hover:shadow-md"
     >
-      <div className="relative flex aspect-[4/3] items-center justify-center bg-muted">
+      <div className="relative flex aspect-[3/4] items-center justify-center bg-muted">
         {image ? (
           <Image
             src={image}
             alt={`${vehicle.year} ${vehicle.make} ${vehicle.model}`}
             fill
             sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
-            className="object-contain p-4"
+            className="object-cover"
           />
         ) : (
           <Car className="h-12 w-12 text-muted-foreground" aria-hidden="true" />
