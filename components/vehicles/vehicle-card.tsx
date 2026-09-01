@@ -1,16 +1,29 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Car } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import type { Vehicle } from "@/types";
 
 export function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
+  const image = vehicle.images[0];
+
   return (
     <Link
       href={`/vehicles/${vehicle.id}`}
       className="group block overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-shadow hover:shadow-md"
     >
-      <div className="flex aspect-[4/3] items-center justify-center bg-muted">
-        <Car className="h-12 w-12 text-muted-foreground" aria-hidden="true" />
+      <div className="relative flex aspect-[4/3] items-center justify-center bg-muted">
+        {image ? (
+          <Image
+            src={image}
+            alt={`${vehicle.year} ${vehicle.make} ${vehicle.model}`}
+            fill
+            sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="object-contain p-4"
+          />
+        ) : (
+          <Car className="h-12 w-12 text-muted-foreground" aria-hidden="true" />
+        )}
       </div>
       <div className="p-4">
         <div className="flex items-start justify-between gap-2">

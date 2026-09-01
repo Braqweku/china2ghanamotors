@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import { Car } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { VehicleGallery } from "@/components/vehicles/vehicle-gallery";
 import { getVehicleById } from "@/lib/data/vehicles";
 import { estimateLandedCost } from "@/lib/pricing";
 import { buildWhatsAppLink, siteConfig } from "@/lib/config";
@@ -26,9 +26,7 @@ export default async function VehicleDetailPage({
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="flex aspect-video items-center justify-center rounded-lg bg-muted">
-        <Car className="h-20 w-20 text-muted-foreground" aria-hidden="true" />
-      </div>
+      <VehicleGallery images={vehicle.images} alt={vehicleName} />
 
       <div className="mt-8 flex flex-wrap items-start justify-between gap-4">
         <div>
