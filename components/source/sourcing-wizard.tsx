@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -313,7 +314,7 @@ export function SourcingWizard() {
               Save your reference to track progress once tracking is available.
             </p>
             <Button asChild className="mt-6">
-              <a href="/">Back to homepage</a>
+              <Link href="/">Back to homepage</Link>
             </Button>
           </div>
         )}
