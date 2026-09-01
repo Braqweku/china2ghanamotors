@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -152,7 +153,7 @@ function FilterFields() {
       </Select>
 
       <Button variant="outline" asChild>
-        <a href={pathname}>Clear filters</a>
+        <Link href={pathname}>Clear filters</Link>
       </Button>
     </div>
   );

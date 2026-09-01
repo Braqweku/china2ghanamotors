@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import Link from "next/link";
 import { getVehicles } from "@/lib/data/vehicles";
 import { VehicleFilters } from "@/components/vehicles/vehicle-filters";
 import { VehicleCard } from "@/components/vehicles/vehicle-card";
@@ -57,9 +58,9 @@ export default async function VehiclesPage({
         {vehicles.length === 0 ? (
           <div className="rounded-lg border border-border p-12 text-center">
             <p className="text-body text-foreground">No vehicles match your filters.</p>
-            <a href="/vehicles" className="mt-2 inline-block text-small text-accent underline">
+            <Link href="/vehicles" className="mt-2 inline-block text-small text-accent underline">
               Clear filters
-            </a>
+            </Link>
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
