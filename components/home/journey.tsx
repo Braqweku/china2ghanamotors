@@ -37,46 +37,38 @@ const phases: Phase[] = [
   },
 ];
 
-function PhaseGroup({ icon: Icon, label, steps, isLast }: Phase & { isLast: boolean }) {
-  const { ref, isVisible } = useRevealOnScroll<HTMLLIElement>();
+function PhaseColumn({ icon: Icon, label, steps }: Phase) {
+  const { ref, isVisible } = useRevealOnScroll<HTMLDivElement>();
   return (
-    <li
+    <div
       ref={ref}
       className={cn(
-        "relative flex gap-4 pb-10 last:pb-0 transition-all duration-[var(--motion-base)] ease-[var(--motion-ease)]",
+        "border-t-2 border-accent pt-4 transition-all duration-[var(--motion-base)] ease-[var(--motion-ease)]",
         isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
       )}
     >
-      {!isLast && (
-        <span className="absolute top-10 left-5 h-[calc(100%-2.5rem)] w-px bg-border" />
-      )}
-      <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary">
-        <Icon className="h-5 w-5 text-primary-foreground" aria-hidden="true" />
-      </span>
-      <div className="flex-1 pt-1.5">
-        <h3 className="text-h3 font-semibold text-foreground">{label}</h3>
-        <ul className="mt-3 space-y-2">
-          {steps.map((step) => (
-            <li key={step} className="flex items-center gap-2 text-body text-muted-foreground">
-              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-              {step}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </li>
+      <Icon className="h-6 w-6 text-primary" aria-hidden="true" />
+      <h3 className="mt-2 text-h3 font-semibold text-foreground">{label}</h3>
+      <ul className="mt-2 space-y-1">
+        {steps.map((step) => (
+          <li key={step} className="text-small text-muted-foreground">
+            {step}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
 export function Journey() {
   return (
-    <section className="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
+    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <h2 className="text-h2 font-semibold text-foreground">How it works</h2>
-      <ol className="mt-10">
-        {phases.map((phase, index) => (
-          <PhaseGroup key={phase.label} {...phase} isLast={index === phases.length - 1} />
+      <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {phases.map((phase) => (
+          <PhaseColumn key={phase.label} {...phase} />
         ))}
-      </ol>
+      </div>
     </section>
   );
 }

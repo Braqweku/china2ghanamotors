@@ -21,24 +21,24 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border bg-background">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4">
           <div className="col-span-2 sm:col-span-1">
             <Image
               src="/logo/china2ghana-logo.png"
               alt="China2Ghana Motors"
               width={1027}
               height={537}
-              className="h-9 w-auto"
+              className="h-8 w-auto"
             />
-            <p className="mt-4 text-small text-muted-foreground">{siteConfig.tagline}</p>
+            <p className="mt-2 text-small text-muted-foreground">{siteConfig.tagline}</p>
           </div>
 
           <div>
             <p className="text-label font-semibold tracking-wide text-foreground uppercase">
               Explore
             </p>
-            <ul className="mt-4 space-y-3">
+            <ul className="mt-3 space-y-2">
               {exploreLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -56,7 +56,7 @@ export function Footer() {
             <p className="text-label font-semibold tracking-wide text-foreground uppercase">
               Company
             </p>
-            <ul className="mt-4 space-y-3">
+            <ul className="mt-3 space-y-2">
               {companyLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -74,7 +74,7 @@ export function Footer() {
             <p className="text-label font-semibold tracking-wide text-foreground uppercase">
               Contact
             </p>
-            <ul className="mt-4 space-y-3">
+            <ul className="mt-3 space-y-2">
               <li>
                 <a
                   href={`mailto:${siteConfig.contactEmail}`}
@@ -97,7 +97,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-2 border-t border-border pt-6 text-caption text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-8 flex flex-col gap-1 border-t border-border pt-5 text-caption text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>
