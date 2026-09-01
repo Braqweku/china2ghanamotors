@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { HeroSlideshow } from "@/components/home/hero-slideshow";
 
 const stats = [
   { value: "15+", label: "Verified suppliers" },
@@ -46,16 +46,7 @@ export function Hero() {
           </div>
         </div>
         <div className="relative animate-in fade-in slide-in-from-right-6 fill-mode-both duration-700 delay-150">
-          <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-2xl border border-border bg-muted shadow-lg">
-            <Image
-              src="/vehicles/veh_001/veh_001_angle_03.jpg"
-              alt="BYD Song Plus SUV, one of the vehicles sourced by China2Ghana Motors"
-              fill
-              sizes="(min-width: 1024px) 448px, 90vw"
-              className="object-cover"
-              priority
-            />
-          </div>
+          <HeroSlideshow />
         </div>
       </div>
     </section>
