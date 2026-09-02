@@ -1,15 +1,15 @@
 const brands = [
-  "BYD",
-  "Geely",
-  "Chery",
-  "Haval",
-  "MG",
-  "Wuling",
-  "JAC",
-  "Changan",
-  "GAC",
-  "Dongfeng",
-  "FAW",
+  { name: "BYD", logo: "/brands/byd.svg" },
+  { name: "Geely", logo: "/brands/geely.svg" },
+  { name: "Chery", logo: "/brands/chery.svg" },
+  { name: "Haval", logo: "/brands/haval.svg" },
+  { name: "MG", logo: "/brands/mg.svg" },
+  { name: "Wuling", logo: "/brands/wuling.svg" },
+  { name: "JAC", logo: "/brands/jac.png" },
+  { name: "Changan", logo: "/brands/changan.svg" },
+  { name: "GAC", logo: "/brands/gac.svg" },
+  { name: "Dongfeng", logo: "/brands/dongfeng.svg" },
+  { name: "FAW", logo: null },
 ];
 
 export function TopBrands() {
@@ -34,10 +34,21 @@ export function TopBrands() {
         <div className="flex w-max animate-[marquee-scroll_32s_linear_infinite] group-hover:[animation-play-state:paused]">
           {track.map((brand, i) => (
             <span
-              key={`${brand}-${i}`}
-              className="flex shrink-0 items-center px-8 text-h3 font-semibold tracking-tight text-muted-foreground/70 transition-colors hover:text-foreground"
+              key={`${brand.name}-${i}`}
+              className="flex shrink-0 items-center gap-2.5 px-8 opacity-60 grayscale transition-all hover:opacity-100 hover:grayscale-0"
             >
-              {brand}
+              {brand.logo ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={brand.logo}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-7 w-auto max-w-[88px] object-contain"
+                />
+              ) : null}
+              <span className="text-h3 font-semibold tracking-tight text-foreground">
+                {brand.name}
+              </span>
             </span>
           ))}
         </div>
