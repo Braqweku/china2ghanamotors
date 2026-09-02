@@ -12,7 +12,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+  SheetTitle,
+} from "@/components/ui/sheet";
 import type { FuelType, Transmission, VehicleType } from "@/types";
 
 const vehicleTypes: VehicleType[] = ["sedan", "suv", "pickup", "van", "hatchback", "truck"];
@@ -173,10 +179,21 @@ export function VehicleFilters() {
               Filters
             </Button>
           </SheetTrigger>
-          <SheetContent side="left">
-            <SheetTitle>Filters</SheetTitle>
-            <div className="mt-8">
+          <SheetContent side="right" className="flex w-full flex-col gap-0 p-0 sm:max-w-sm">
+            <div className="flex h-16 shrink-0 items-center border-b border-border px-6">
+              <SheetTitle>Filters</SheetTitle>
+            </div>
+
+            <div className="flex-1 overflow-y-auto p-4">
               <FilterFields />
+            </div>
+
+            <div className="shrink-0 border-t border-border p-4">
+              <SheetClose asChild>
+                <Button className="w-full" size="lg">
+                  Show results
+                </Button>
+              </SheetClose>
             </div>
           </SheetContent>
         </Sheet>
