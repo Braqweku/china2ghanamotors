@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
+const SLIDE_DURATION = 5000;
+
 const slides = [
   {
     src: "/vehicles/veh_001/veh_001_angle_03.jpg",
@@ -35,7 +37,7 @@ export function HeroSlideshow() {
     if (paused) return;
     const id = setInterval(() => {
       setActive((i) => (i + 1) % slides.length);
-    }, 5000);
+    }, SLIDE_DURATION);
     return () => clearInterval(id);
   }, [paused]);
 
@@ -47,21 +49,29 @@ export function HeroSlideshow() {
         onMouseLeave={() => setPaused(false)}
       >
         {slides.map((slide, i) => (
-          <Image
+          <div
             key={slide.src}
-            src={slide.src}
-            alt={slide.alt}
-            fill
-            sizes="(min-width: 1024px) 448px, 90vw"
             className={cn(
-              "object-cover transition-opacity duration-[var(--motion-slow)] ease-[var(--motion-ease)]",
+              "absolute inset-0 transition-opacity duration-[var(--motion-slow)] ease-[var(--motion-ease)]",
               i === active ? "opacity-100" : "opacity-0"
             )}
-            priority={i === 0}
-          />
+          >
+            <Image
+              key={i === active ? `${slide.src}-active` : slide.src}
+              src={slide.src}
+              alt={slide.alt}
+              fill
+              sizes="(min-width: 1024px) 448px, 90vw"
+              className={cn(
+                "object-cover",
+                i === active && "animate-[hero-kenburns_5000ms_linear_forwards]"
+              )}
+              priority={i === 0}
+            />
+          </div>
         ))}
       </div>
-      <div className="mt-4 flex items-center justify-center gap-2">
+      <div className="mt-4 flex items-center justify-center gap-1.5">
         {slides.map((slide, i) => (
           <button
             key={slide.src}
@@ -69,13 +79,21 @@ export function HeroSlideshow() {
             onClick={() => setActive(i)}
             aria-label={`Show slide ${i + 1} of ${slides.length}`}
             aria-current={i === active}
-            className={cn(
-              "h-1.5 rounded-full transition-all duration-[var(--motion-base)] ease-[var(--motion-ease)]",
-              i === active
-                ? "w-8 bg-accent"
-                : "w-4 bg-border hover:bg-muted-foreground/40"
-            )}
-          />
+            className="h-1 w-8 overflow-hidden rounded-full bg-border"
+          >
+            <span
+              key={i === active ? "active" : "inactive"}
+              className={cn(
+                "block h-full rounded-full bg-accent",
+                i < active && "w-full",
+                i > active && "w-0",
+                i === active &&
+                  (paused
+                    ? "w-full transition-[width] duration-300"
+                    : "w-0 animate-[hero-progress_5000ms_linear_forwards]")
+              )}
+            />
+          </button>
         ))}
       </div>
     </div>
