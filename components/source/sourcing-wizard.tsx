@@ -119,10 +119,17 @@ export function SourcingWizard() {
       },
       status: "submitted",
     };
-    const result = await submitSourcingRequest(request);
-    setReference(result.reference);
-    setSubmitting(false);
-    setStep(6);
+    try {
+      const result = await submitSourcingRequest(request);
+      setReference(result.reference);
+      setStep(6);
+    } catch {
+      setError(
+        "Something went wrong submitting your request. Please try again or reach us on WhatsApp."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   const progressPercent = ((step + 1) / (steps.length - 1)) * 100;
