@@ -14,6 +14,11 @@ export async function submitFleetEnquiry(
       _subject: `New fleet quote request — ${enquiry.companyName} (${reference})`,
       _template: "table",
       _captcha: "false",
+      ...(enquiry.email
+        ? {
+            _autoresponse: `Thanks for your fleet quote request with China2Ghana Motors. Your reference number is ${reference} — track its status anytime at https://china2ghana-motors.vercel.app/track?ref=${reference}. Our team will be in touch shortly.`,
+          }
+        : {}),
       reference,
       companyName: enquiry.companyName,
       contactName: enquiry.contactName,

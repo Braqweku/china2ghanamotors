@@ -14,6 +14,11 @@ export async function submitSourcingRequest(
       _subject: `New sourcing request — ${request.customer.name} (${reference})`,
       _template: "table",
       _captcha: "false",
+      ...(request.customer.email
+        ? {
+            _autoresponse: `Thanks for your vehicle sourcing request with China2Ghana Motors. Your reference number is ${reference} — track its status anytime at https://china2ghana-motors.vercel.app/track?ref=${reference}. Our team will be in touch shortly.`,
+          }
+        : {}),
       reference,
       vehicleQuery: request.vehicleQuery,
       budget: `$${request.budgetUsd.min.toLocaleString()} – $${request.budgetUsd.max.toLocaleString()}`,
