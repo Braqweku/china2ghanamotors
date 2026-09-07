@@ -34,6 +34,10 @@ function validate(form: FormState): string | null {
   if (!form.companyName.trim()) return "Company name is required.";
   if (!form.contactName.trim()) return "Contact name is required.";
   if (!form.phone.trim()) return "A phone number is required.";
+  if (!form.email.trim()) return "An email address is required.";
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+    return "Enter a valid email address.";
+  }
   const size = Number(form.fleetSize);
   if (!Number.isInteger(size) || size < 1) return "Fleet size must be at least 1.";
   return null;
@@ -63,7 +67,7 @@ export function FleetEnquiryForm() {
       companyName: form.companyName,
       contactName: form.contactName,
       phone: form.phone,
-      email: form.email || undefined,
+      email: form.email,
       fleetSize: Number(form.fleetSize),
       vehicleTypesNeeded: form.vehicleTypesNeeded,
       notes: form.notes || undefined,
@@ -133,10 +137,11 @@ export function FleetEnquiryForm() {
           <Input id="phone" value={form.phone} onChange={(e) => update("phone", e.target.value)} />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="email">Email (optional)</Label>
+          <Label htmlFor="email">Email</Label>
           <Input
             id="email"
             type="email"
+            required
             value={form.email}
             onChange={(e) => update("email", e.target.value)}
           />
