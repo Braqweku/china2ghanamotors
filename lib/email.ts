@@ -6,6 +6,11 @@ import type { FleetEnquiry } from "@/types";
 const FROM_EMAIL =
   process.env.RESEND_FROM_EMAIL ?? "China2Ghana Motors <onboarding@resend.dev>";
 
+// Resend blocks unverified accounts from sending to anyone but the account's
+// own signup email. Until a sending domain is verified, notifications route
+// here instead of siteConfig.contactEmail so they actually get delivered.
+const NOTIFY_EMAIL = process.env.FLEET_NOTIFICATION_EMAIL ?? siteConfig.contactEmail;
+
 function getResendClient(): Resend | null {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) return null;
@@ -27,7 +32,7 @@ export async function sendFleetEnquiryEmails(
 
   const notifyResult = await resend.emails.send({
     from: FROM_EMAIL,
-    to: siteConfig.contactEmail,
+    to: NOTIFY_EMAIL,
     replyTo: enquiry.email,
     subject: `New fleet quote request — ${enquiry.companyName} (${reference})`,
     html: `
