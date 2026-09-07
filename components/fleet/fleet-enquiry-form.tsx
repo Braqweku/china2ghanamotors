@@ -67,9 +67,16 @@ export function FleetEnquiryForm() {
       notes: form.notes || undefined,
       status: "submitted",
     };
-    const result = await submitFleetEnquiry(enquiry);
-    setReference(result.reference);
-    setSubmitting(false);
+    try {
+      const result = await submitFleetEnquiry(enquiry);
+      setReference(result.reference);
+    } catch {
+      setError(
+        "Something went wrong submitting your enquiry. Please try again or reach us on WhatsApp."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (reference) {
