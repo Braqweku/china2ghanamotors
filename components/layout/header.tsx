@@ -32,29 +32,30 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Logo />
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
+              className="text-sm font-medium whitespace-nowrap text-foreground/80 transition-colors hover:text-foreground"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <Button asChild>
             <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-              Chat with a Sourcing Specialist
+              <span className="xl:hidden">Chat with Us</span>
+              <span className="hidden xl:inline">Chat with a Sourcing Specialist</span>
             </a>
           </Button>
         </div>
 
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="md:hidden" aria-label="Open menu">
+            <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Open menu">
               <Menu className="h-5 w-5" />
             </Button>
           </SheetTrigger>
