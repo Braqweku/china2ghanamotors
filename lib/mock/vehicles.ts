@@ -13,6 +13,7 @@ export const mockVehicles: Vehicle[] = [
     condition: "new",
     priceUsd: 18500,
     images: [
+      "/vehicles/veh_021/veh_021_primary.jpg",
       "/vehicles/veh_021/veh_021_front.jpg",
       "/vehicles/veh_021/veh_021_side.jpg",
       "/vehicles/veh_021/veh_021_rear.jpg",
@@ -33,6 +34,7 @@ export const mockVehicles: Vehicle[] = [
     condition: "new",
     priceUsd: 25500,
     images: [
+      "/vehicles/veh_022/veh_022_primary.jpg",
       "/vehicles/veh_022/veh_022_front.jpg",
       "/vehicles/veh_022/veh_022_side.jpg",
       "/vehicles/veh_022/veh_022_rear.jpg",
