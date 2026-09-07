@@ -1,9 +1,8 @@
 import type { TrackingEvent } from "@/types";
-import { mockTrackingEvents } from "@/lib/mock/tracking";
+import { getOrder, getOrderTrackingEvents } from "@/lib/data/orders";
 
 export async function getTrackingEvents(reference: string): Promise<TrackingEvent[] | null> {
-  if (!(reference in mockTrackingEvents)) {
-    return null;
-  }
-  return mockTrackingEvents[reference];
+  const order = await getOrder(reference);
+  if (!order) return null;
+  return getOrderTrackingEvents(reference);
 }

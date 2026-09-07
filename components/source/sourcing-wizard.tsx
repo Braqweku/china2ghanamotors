@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { submitSourcingRequest } from "@/lib/data/sourcing";
+import { createOrderAction } from "@/lib/actions/orders";
 import type { SourcingRequest } from "@/types";
 
 const steps = [
@@ -123,6 +124,19 @@ export function SourcingWizard() {
       const result = await submitSourcingRequest(request);
       setReference(result.reference);
       setStep(6);
+
+      try {
+        await createOrderAction({
+          reference: result.reference,
+          source: "sourcing",
+          customerName: request.customer.name,
+          customerPhone: request.customer.phone,
+          customerEmail: request.customer.email,
+          summary: request.vehicleQuery,
+        });
+      } catch (err) {
+        console.error("Failed to create order for tracking:", err);
+      }
     } catch {
       setError(
         "Something went wrong submitting your request. Please try again or reach us on WhatsApp."
@@ -318,11 +332,16 @@ export function SourcingWizard() {
             <p className="mt-2 font-mono text-body text-foreground">{reference}</p>
             <p className="mt-4 text-body text-muted-foreground">
               A sourcing specialist will review your request and follow up with options.
-              Save your reference to track progress once tracking is available.
+              Save your reference to track progress at any time.
             </p>
-            <Button asChild className="mt-6">
-              <Link href="/">Back to homepage</Link>
-            </Button>
+            <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+              <Button asChild>
+                <Link href={`/track?ref=${encodeURIComponent(reference)}`}>Track this request</Link>
+              </Button>
+              <Button asChild variant="outline">
+                <Link href="/">Back to homepage</Link>
+              </Button>
+            </div>
           </div>
         )}
 

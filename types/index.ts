@@ -3,3 +3,4 @@ export * from "./sourcing";
 export * from "./tracking";
 export * from "./fleet";
 export * from "./article";
+export * from "./order";

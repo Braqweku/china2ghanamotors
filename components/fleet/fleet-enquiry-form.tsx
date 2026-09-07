@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { submitFleetEnquiry } from "@/lib/data/fleet";
+import { createOrderAction } from "@/lib/actions/orders";
 import type { FleetEnquiry } from "@/types";
 
 type FormState = {
@@ -70,6 +72,19 @@ export function FleetEnquiryForm() {
     try {
       const result = await submitFleetEnquiry(enquiry);
       setReference(result.reference);
+
+      try {
+        await createOrderAction({
+          reference: result.reference,
+          source: "fleet",
+          customerName: enquiry.contactName,
+          customerPhone: enquiry.phone,
+          customerEmail: enquiry.email,
+          summary: `${enquiry.companyName} — fleet of ${enquiry.fleetSize}`,
+        });
+      } catch (err) {
+        console.error("Failed to create order for tracking:", err);
+      }
     } catch {
       setError(
         "Something went wrong submitting your enquiry. Please try again or reach us on WhatsApp."
@@ -87,6 +102,9 @@ export function FleetEnquiryForm() {
         <p className="mt-4 text-body text-muted-foreground">
           A member of our fleet team will review your enquiry and follow up with next steps.
         </p>
+        <Button asChild className="mt-6">
+          <Link href={`/track?ref=${encodeURIComponent(reference)}`}>Track this enquiry</Link>
+        </Button>
       </div>
     );
   }
