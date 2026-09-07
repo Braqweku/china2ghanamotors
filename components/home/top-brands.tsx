@@ -4,11 +4,11 @@ const brands = [
   { name: "Chery", logo: "/brands/chery.svg" },
   { name: "Haval", logo: "/brands/haval.svg" },
   { name: "MG", logo: "/brands/mg.svg" },
-  { name: "Wuling", logo: "/brands/wuling.svg" },
   { name: "JAC", logo: "/brands/jac.png" },
   { name: "Changan", logo: "/brands/changan.svg" },
   { name: "GAC", logo: "/brands/gac.svg" },
   { name: "Dongfeng", logo: "/brands/dongfeng.svg" },
+  { name: "Jetour", logo: null },
   { name: "FAW", logo: null },
 ];
 

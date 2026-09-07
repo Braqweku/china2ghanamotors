@@ -6,7 +6,15 @@ import { Journey } from "@/components/home/journey";
 import { CtaBand } from "@/components/home/cta-band";
 import { getVehicles } from "@/lib/data/vehicles";
 
-const DEAL_VEHICLE_IDS = ["veh_002", "veh_010", "veh_006", "veh_004", "veh_011", "veh_007"];
+const DEAL_VEHICLE_IDS = [
+  "veh_021",
+  "veh_022",
+  "veh_010",
+  "veh_006",
+  "veh_004",
+  "veh_011",
+  "veh_007",
+];
 
 export default async function Home() {
   const vehicles = await getVehicles();

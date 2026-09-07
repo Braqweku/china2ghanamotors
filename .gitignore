@@ -44,3 +44,5 @@ yarn-error.log*
 
 # raw source image packs (not app assets, kept locally only)
 /vehicles_all_angles_4k/
+/Dongfeng Nammi/
+/Jetour/
