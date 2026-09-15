@@ -161,6 +161,15 @@
   }
 }
 
+@keyframes hero-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
 @keyframes hero-progress {
   from {
     width: 0%;

@@ -66,11 +66,15 @@ export function HeroSlideshow() {
             )}
           >
             <Image
+              key={i === active ? `${slide.src}-active` : slide.src}
               src={slide.src}
               alt={slide.alt}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-contain p-6"
+              className={cn(
+                "object-cover",
+                i === active && "animate-[hero-kenburns_5000ms_linear_forwards]"
+              )}
               priority={i === 0}
             />
           </div>
