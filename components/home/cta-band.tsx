@@ -25,7 +25,7 @@ export function CtaBand() {
             className="border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
           >
             <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-              Chat with a Sourcing Specialist
+              Contact a Specialist
             </a>
           </Button>
         </div>
