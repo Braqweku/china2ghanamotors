@@ -48,7 +48,7 @@ export function Header() {
           <Button asChild>
             <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
               <span className="xl:hidden">Contact Us</span>
-              <span className="hidden xl:inline">Contact a Specialist</span>
+              <span className="hidden xl:inline">Contact Specialist</span>
             </a>
           </Button>
         </div>
@@ -83,7 +83,7 @@ export function Header() {
             <div className="border-t border-border p-4">
               <SheetClose asChild>
                 <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full">Contact a Specialist</Button>
+                  <Button className="w-full">Contact Specialist</Button>
                 </a>
               </SheetClose>
             </div>

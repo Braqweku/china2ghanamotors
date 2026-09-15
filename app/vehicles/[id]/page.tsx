@@ -47,12 +47,47 @@ export default async function VehicleDetailPage({
   }
 
   const vehicleName = `${vehicle.year} ${vehicle.make} ${vehicle.model}`;
+  const vehicleUrl = `${siteConfig.url}/vehicles/${vehicle.id}`;
   const whatsappHref = buildWhatsAppLink(
     `I'm interested in the ${vehicleName} listed by ${siteConfig.name}.`
   );
 
+  const vehicleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Car",
+    name: vehicleName,
+    brand: { "@type": "Brand", name: vehicle.make },
+    model: vehicle.model,
+    vehicleModelDate: String(vehicle.year),
+    fuelType: vehicle.fuelType,
+    vehicleTransmission: vehicle.transmission,
+    mileageFromOdometer: { "@type": "QuantitativeValue", value: vehicle.mileageKm, unitCode: "KMT" },
+    itemCondition:
+      vehicle.condition === "new" ? "https://schema.org/NewCondition" : "https://schema.org/UsedCondition",
+    image: vehicle.images.map((src) => `${siteConfig.url}${src}`),
+    url: vehicleUrl,
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+      { "@type": "ListItem", position: 2, name: "Vehicles", item: `${siteConfig.url}/vehicles` },
+      { "@type": "ListItem", position: 3, name: vehicleName, item: vehicleUrl },
+    ],
+  };
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(vehicleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <VehicleGallery images={vehicle.images} alt={vehicleName} />
 
       <div className="mt-8 flex flex-wrap items-start justify-between gap-4">

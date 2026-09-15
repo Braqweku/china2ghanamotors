@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
 import { getVehicles } from "@/lib/data/vehicles";
 import { getArticles } from "@/lib/data/articles";
+import { siteConfig } from "@/lib/config";
 
-const BASE_URL = "https://china2ghana-motors.com";
+const BASE_URL = siteConfig.url;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [vehicles, articles] = await Promise.all([getVehicles(), getArticles()]);
@@ -14,6 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/fleet`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/ev`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/insights`, changeFrequency: "weekly", priority: 0.6 },
+    { url: `${BASE_URL}/faq`, changeFrequency: "monthly", priority: 0.6 },
   ];
 
   const vehicleRoutes: MetadataRoute.Sitemap = vehicles.map((vehicle) => ({

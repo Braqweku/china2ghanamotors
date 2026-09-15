@@ -12,6 +12,7 @@ const exploreLinks = [
 const companyLinks = [
   { href: "/fleet", label: "Corporate & Fleet" },
   { href: "/insights", label: "Insights" },
+  { href: "/faq", label: "FAQ" },
 ];
 
 export function Footer() {

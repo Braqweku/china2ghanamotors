@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { siteConfig } from "@/lib/config";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,12 +15,31 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_NAME = "China2Ghana Motors";
+const SITE_NAME = siteConfig.name;
 const SITE_DESCRIPTION =
   "Source, verify, ship and clear vehicles from trusted suppliers in China — delivered to Ghana. Sedans, SUVs, pickups and EVs, with a personalized quote for every request.";
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  logo: `${siteConfig.url}/logo/china2ghana-logo.png`,
+  image: `${siteConfig.url}/opengraph-image.png`,
+  description: SITE_DESCRIPTION,
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      email: siteConfig.contactEmail,
+      areaServed: "GH",
+      availableLanguage: ["English"],
+    },
+  ],
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://china2ghana-motors.com"),
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: `${SITE_NAME} | Import Vehicles from China to Ghana`,
     template: `%s | ${SITE_NAME}`,
@@ -55,6 +75,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <Header />
         <main>{children}</main>
         <Footer />
