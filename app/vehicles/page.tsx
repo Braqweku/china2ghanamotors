@@ -24,8 +24,6 @@ function buildFilters(searchParams: SearchParams): VehicleFiltersType {
     fuelType: first(searchParams.fuelType) as VehicleFiltersType["fuelType"],
     transmission: first(searchParams.transmission) as VehicleFiltersType["transmission"],
     condition: first(searchParams.condition) as VehicleFiltersType["condition"],
-    minPrice: toNumber(first(searchParams.minPrice)),
-    maxPrice: toNumber(first(searchParams.maxPrice)),
     minYear: toNumber(first(searchParams.minYear)),
     maxYear: toNumber(first(searchParams.maxYear)),
     sort: first(searchParams.sort) as VehicleSort | undefined,

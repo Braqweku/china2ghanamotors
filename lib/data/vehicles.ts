@@ -22,12 +22,6 @@ export async function getVehicles(filters?: VehicleFilters): Promise<Vehicle[]> 
   if (filters?.condition) {
     results = results.filter((v) => v.condition === filters.condition);
   }
-  if (filters?.minPrice !== undefined) {
-    results = results.filter((v) => v.priceUsd >= filters.minPrice!);
-  }
-  if (filters?.maxPrice !== undefined) {
-    results = results.filter((v) => v.priceUsd <= filters.maxPrice!);
-  }
   if (filters?.minYear !== undefined) {
     results = results.filter((v) => v.year >= filters.minYear!);
   }
@@ -36,8 +30,6 @@ export async function getVehicles(filters?: VehicleFilters): Promise<Vehicle[]> 
   }
 
   results = [...results];
-  if (filters?.sort === "price-asc") results.sort((a, b) => a.priceUsd - b.priceUsd);
-  if (filters?.sort === "price-desc") results.sort((a, b) => b.priceUsd - a.priceUsd);
   if (filters?.sort === "year-desc") results.sort((a, b) => b.year - a.year);
 
   return results;

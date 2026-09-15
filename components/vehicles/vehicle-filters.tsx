@@ -116,21 +116,6 @@ function FilterFields() {
       <div className="grid grid-cols-2 gap-2">
         <Input
           type="number"
-          placeholder="Min price"
-          defaultValue={searchParams.get("minPrice") ?? ""}
-          onBlur={(e) => updateParam("minPrice", e.target.value)}
-        />
-        <Input
-          type="number"
-          placeholder="Max price"
-          defaultValue={searchParams.get("maxPrice") ?? ""}
-          onBlur={(e) => updateParam("maxPrice", e.target.value)}
-        />
-      </div>
-
-      <div className="grid grid-cols-2 gap-2">
-        <Input
-          type="number"
           placeholder="Min year"
           defaultValue={searchParams.get("minYear") ?? ""}
           onBlur={(e) => updateParam("minYear", e.target.value)}
@@ -152,8 +137,6 @@ function FilterFields() {
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="default">Sort</SelectItem>
-          <SelectItem value="price-asc">Price: low to high</SelectItem>
-          <SelectItem value="price-desc">Price: high to low</SelectItem>
           <SelectItem value="year-desc">Year: newest first</SelectItem>
         </SelectContent>
       </Select>

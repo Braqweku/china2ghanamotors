@@ -41,9 +41,7 @@ export function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
         <p className="mt-1 text-small text-muted-foreground">
           {vehicle.fuelType} · {vehicle.transmission} · {vehicle.mileageKm.toLocaleString()} km
         </p>
-        <p className="mt-3 text-h3 font-semibold text-foreground">
-          ${vehicle.priceUsd.toLocaleString()}
-        </p>
+        <p className="mt-3 text-small font-medium text-accent">Contact us for pricing</p>
       </div>
     </Link>
   );

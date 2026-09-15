@@ -15,7 +15,7 @@ export function HotDeals({ vehicles }: { vehicles: Vehicle[] }) {
             Hot deals
           </p>
           <h2 className="mt-2 text-h2 font-semibold text-foreground">
-            Priced to move right now
+            High-demand vehicles, ready to source
           </h2>
         </div>
         <Link
@@ -54,9 +54,7 @@ export function HotDeals({ vehicles }: { vehicles: Vehicle[] }) {
               <p className="mt-1 text-small text-muted-foreground">
                 {vehicle.fuelType} · {vehicle.transmission}
               </p>
-              <p className="mt-3 text-h3 font-semibold text-foreground">
-                ${vehicle.priceUsd.toLocaleString()}
-              </p>
+              <p className="mt-3 text-small font-medium text-accent">Contact us for pricing</p>
             </div>
           </Link>
         ))}

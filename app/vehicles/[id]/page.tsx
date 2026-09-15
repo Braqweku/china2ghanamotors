@@ -3,7 +3,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { VehicleGallery } from "@/components/vehicles/vehicle-gallery";
 import { getVehicleById } from "@/lib/data/vehicles";
-import { estimateLandedCost } from "@/lib/pricing";
 import { buildWhatsAppLink, siteConfig } from "@/lib/config";
 
 export default async function VehicleDetailPage({
@@ -18,7 +17,6 @@ export default async function VehicleDetailPage({
     notFound();
   }
 
-  const { shippingUsd, inspectionUsd, clearingUsd, totalUsd } = estimateLandedCost(vehicle);
   const vehicleName = `${vehicle.year} ${vehicle.make} ${vehicle.model}`;
   const whatsappHref = buildWhatsAppLink(
     `I'm interested in the ${vehicleName} listed by ${siteConfig.name}.`
@@ -60,48 +58,23 @@ export default async function VehicleDetailPage({
       </section>
 
       <section className="mt-8 rounded-lg border border-border p-6">
-        <div className="flex items-center justify-between">
-          <h2 className="text-h3 font-semibold text-foreground">Estimated Landed Cost</h2>
-          <Badge variant="outline">Estimate</Badge>
-        </div>
-        <dl className="mt-4 space-y-2 text-body">
-          <div className="flex justify-between">
-            <dt className="text-muted-foreground">Vehicle Price</dt>
-            <dd className="text-foreground">${vehicle.priceUsd.toLocaleString()}</dd>
-          </div>
-          <div className="flex justify-between">
-            <dt className="text-muted-foreground">Estimated Shipping</dt>
-            <dd className="text-foreground">${shippingUsd.toLocaleString()}</dd>
-          </div>
-          <div className="flex justify-between">
-            <dt className="text-muted-foreground">Inspection Fee</dt>
-            <dd className="text-foreground">${inspectionUsd.toLocaleString()}</dd>
-          </div>
-          <div className="flex justify-between">
-            <dt className="text-muted-foreground">Estimated Clearing & Documentation</dt>
-            <dd className="text-foreground">${clearingUsd.toLocaleString()}</dd>
-          </div>
-          <div className="flex justify-between border-t border-border pt-2 text-h3 font-semibold">
-            <dt className="text-foreground">Estimated Landed Cost</dt>
-            <dd className="text-foreground">${totalUsd.toLocaleString()}</dd>
-          </div>
-        </dl>
-        <p className="mt-4 text-caption text-muted-foreground">
-          This is an estimate. Final costs depend on actual quotations, shipping,
-          exchange rates, customs and applicable charges.
+        <h2 className="text-h3 font-semibold text-foreground">Get a Quote</h2>
+        <p className="mt-2 text-body text-muted-foreground">
+          Pricing depends on specification, shipping and current exchange rates.
+          Reach out and we&apos;ll get back to you with a full quote, including
+          shipping, inspection and clearing.
         </p>
+        <div className="mt-6 flex flex-col gap-4 sm:flex-row">
+          <Button asChild size="lg">
+            <a href="/source">Request this vehicle</a>
+          </Button>
+          <Button asChild size="lg" variant="outline">
+            <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
+              Ask about this vehicle
+            </a>
+          </Button>
+        </div>
       </section>
-
-      <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-        <Button asChild size="lg">
-          <a href="/source">Request this vehicle</a>
-        </Button>
-        <Button asChild size="lg" variant="outline">
-          <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-            Ask about this vehicle
-          </a>
-        </Button>
-      </div>
     </div>
   );
 }

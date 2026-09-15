@@ -21,7 +21,7 @@ export type Vehicle = {
   specs: Record<string, string>;
 };
 
-export type VehicleSort = "price-asc" | "price-desc" | "year-desc";
+export type VehicleSort = "year-desc";
 
 export type VehicleFilters = {
   query?: string;
@@ -29,8 +29,6 @@ export type VehicleFilters = {
   fuelType?: FuelType;
   transmission?: Transmission;
   condition?: Condition;
-  minPrice?: number;
-  maxPrice?: number;
   minYear?: number;
   maxYear?: number;
   sort?: VehicleSort;
