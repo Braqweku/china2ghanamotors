@@ -12,7 +12,7 @@ export function Hero() {
   return (
     <section className="relative w-full overflow-hidden bg-primary">
       <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8 lg:py-24">
-        <div className="animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-700">
+        <div className="order-last animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-700 lg:order-none">
           <p className="text-label font-medium uppercase tracking-wide text-accent">
             China to Ghana. Driven by trust.
           </p>
@@ -51,7 +51,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-700 delay-150 mx-auto w-full max-w-sm lg:max-w-none">
+        <div className="order-first mx-auto w-full max-w-sm animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-700 delay-150 lg:order-none lg:max-w-none">
           <HeroSlideshow />
         </div>
       </div>

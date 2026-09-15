@@ -32,23 +32,14 @@ const slides = [
 export function HeroSlideshow() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(query.matches);
-    const onChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
-    query.addEventListener("change", onChange);
-    return () => query.removeEventListener("change", onChange);
-  }, []);
-
-  useEffect(() => {
-    if (paused || reducedMotion) return;
+    if (paused) return;
     const id = setInterval(() => {
       setActive((i) => (i + 1) % slides.length);
     }, SLIDE_DURATION);
     return () => clearInterval(id);
-  }, [paused, reducedMotion]);
+  }, [paused]);
 
   return (
     <div>
