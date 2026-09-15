@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "China2Ghana Motors",
   tagline: "China to Ghana. Driven by Trust.",
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "233203270251",
-  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "jacob.knorr@ev3africa.com",
+  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "quotes@china2ghana-motors.com",
 };
 
 export function buildWhatsAppLink(message: string): string {
