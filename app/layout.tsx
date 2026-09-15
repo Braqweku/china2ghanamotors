@@ -14,9 +14,37 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_NAME = "China2Ghana Motors";
+const SITE_DESCRIPTION =
+  "Source, verify, ship and clear vehicles from trusted suppliers in China — delivered to Ghana. Sedans, SUVs, pickups and EVs, with a personalized quote for every request.";
+
 export const metadata: Metadata = {
-  title: "China2Ghana Motors",
-  description: "China to Ghana. Driven by Trust.",
+  metadataBase: new URL("https://china2ghana-motors.com"),
+  title: {
+    default: `${SITE_NAME} | Import Vehicles from China to Ghana`,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  keywords: [
+    "import cars from China to Ghana",
+    "vehicle sourcing Ghana",
+    "buy cars in Ghana",
+    "China to Ghana motors",
+    "electric vehicles Ghana",
+    "car shipping Ghana",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_GH",
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} | Import Vehicles from China to Ghana`,
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_NAME} | Import Vehicles from China to Ghana`,
+    description: SITE_DESCRIPTION,
+  },
 };
 
 export default function RootLayout({

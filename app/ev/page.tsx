@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import { Battery, Zap, Gauge, FileCheck } from "lucide-react";
 import { getVehicles } from "@/lib/data/vehicles";
 import { VehicleCard } from "@/components/vehicles/vehicle-card";
+
+export const metadata: Metadata = {
+  title: "Electric & Hybrid Vehicles from China",
+  description:
+    "Electric and hybrid vehicles sourced from China's manufacturers — range, battery and charging details for every model, verified and delivered to Ghana.",
+};
 
 const infoCards = [
   {

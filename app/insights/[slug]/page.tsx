@@ -1,7 +1,8 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
-import { getArticleBySlug } from "@/lib/data/articles";
+import { getArticleBySlug, getArticles } from "@/lib/data/articles";
 import type { ArticleCategory } from "@/types";
 
 const categoryLabels: Record<ArticleCategory, string> = {
@@ -13,6 +14,33 @@ const categoryLabels: Record<ArticleCategory, string> = {
   "vehicle-reviews": "Vehicle Reviews",
   "china-automotive-market": "China Automotive Market",
 };
+
+export async function generateStaticParams() {
+  const articles = await getArticles();
+  return articles.map((article) => ({ slug: article.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const article = await getArticleBySlug(slug);
+
+  if (!article) {
+    return { title: "Article not found" };
+  }
+
+  return {
+    title: article.title,
+    description: article.excerpt,
+    openGraph: {
+      type: "article",
+      publishedTime: article.publishedAt,
+    },
+  };
+}
 
 export default async function ArticlePage({
   params,

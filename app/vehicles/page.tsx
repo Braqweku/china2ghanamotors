@@ -1,9 +1,16 @@
 import { Suspense } from "react";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { getVehicles } from "@/lib/data/vehicles";
 import { VehicleFilters } from "@/components/vehicles/vehicle-filters";
 import { VehicleCard } from "@/components/vehicles/vehicle-card";
 import type { VehicleFilters as VehicleFiltersType, VehicleSort } from "@/types";
+
+export const metadata: Metadata = {
+  title: "Vehicles for Sale — Sourced from China",
+  description:
+    "Browse sedans, SUVs, pickups and EVs we can source from verified suppliers in China. Filter by type, fuel, condition and year, then request a personalized quote.",
+};
 
 type SearchParams = Record<string, string | string[] | undefined>;
 

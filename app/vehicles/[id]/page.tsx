@@ -1,9 +1,38 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { VehicleGallery } from "@/components/vehicles/vehicle-gallery";
-import { getVehicleById } from "@/lib/data/vehicles";
+import { getVehicleById, getVehicles } from "@/lib/data/vehicles";
 import { buildWhatsAppLink, siteConfig } from "@/lib/config";
+
+export async function generateStaticParams() {
+  const vehicles = await getVehicles();
+  return vehicles.map((vehicle) => ({ id: vehicle.id }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const vehicle = await getVehicleById(id);
+
+  if (!vehicle) {
+    return { title: "Vehicle not found" };
+  }
+
+  const vehicleName = `${vehicle.year} ${vehicle.make} ${vehicle.model}`;
+  const description = `${vehicleName} — a ${vehicle.condition === "new" ? "new" : "used"} ${vehicle.vehicleType} with ${vehicle.fuelType} fuel and ${vehicle.transmission} transmission. Sourced from verified suppliers in China and delivered to Ghana.`;
+
+  return {
+    title: `${vehicleName} — ${vehicle.vehicleType.toUpperCase()} Sourced from China`,
+    description,
+    openGraph: { images: vehicle.images.length > 0 ? [vehicle.images[0]] : undefined },
+    twitter: { images: vehicle.images.length > 0 ? [vehicle.images[0]] : undefined },
+  };
+}
 
 export default async function VehicleDetailPage({
   params,

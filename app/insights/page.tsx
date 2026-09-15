@@ -1,7 +1,14 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { getArticles } from "@/lib/data/articles";
 import type { ArticleCategory } from "@/types";
+
+export const metadata: Metadata = {
+  title: "Insights — Buying, Import & Shipping Guides",
+  description:
+    "Buying guides, step-by-step import and shipping basics, customs clearing in Ghana, and background on China's automotive market.",
+};
 
 const categoryLabels: Record<ArticleCategory, string> = {
   "buying-guides": "Buying Guides",

@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import { getTrackingEvents } from "@/lib/data/tracking";
 import { ReferenceLookupForm } from "@/components/tracking/reference-lookup-form";
 import { TrackingTimeline } from "@/components/tracking/tracking-timeline";
+
+export const metadata: Metadata = {
+  title: "Track Your Vehicle",
+  description: "Enter your tracking reference to see the status of your request.",
+  robots: { index: false, follow: false },
+};
 
 export default async function TrackPage({
   searchParams,
