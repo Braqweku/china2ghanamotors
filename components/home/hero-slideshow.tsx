@@ -61,10 +61,7 @@ export function HeroSlideshow() {
             alt={slide.alt}
             fill
             sizes="100vw"
-            className={cn(
-              "object-cover",
-              i === active && "animate-[hero-kenburns_5000ms_linear_forwards]"
-            )}
+            className="object-cover"
             priority={i === 0}
           />
         </div>
