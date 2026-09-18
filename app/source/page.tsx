@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Source My Vehicle",
   description:
     "Tell us the vehicle you want, your budget and specifications — we'll source options from verified suppliers in China and send you a personalized quote.",
+  alternates: { canonical: "/source" },
 };
 
 export default function SourcePage() {

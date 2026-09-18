@@ -29,6 +29,7 @@ export async function generateMetadata({
   return {
     title: `${vehicleName} — ${vehicle.vehicleType.toUpperCase()} Sourced from China`,
     description,
+    alternates: { canonical: `/vehicles/${id}` },
     openGraph: { images: vehicle.images.length > 0 ? [vehicle.images[0]] : undefined },
     twitter: { images: vehicle.images.length > 0 ? [vehicle.images[0]] : undefined },
   };

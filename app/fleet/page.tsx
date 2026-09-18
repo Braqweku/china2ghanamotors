@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Fleet & Corporate Sourcing",
   description:
     "Vehicle sourcing for ride-hailing operators, logistics businesses, dealers, corporate organisations and institutions — sourced, verified, shipped and delivered from China to Ghana.",
+  alternates: { canonical: "/fleet" },
 };
 
 export default function FleetPage() {

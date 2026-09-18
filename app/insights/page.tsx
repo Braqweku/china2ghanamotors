@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Insights — Buying, Import & Shipping Guides",
   description:
     "Buying guides, step-by-step import and shipping basics, customs clearing in Ghana, and background on China's automotive market.",
+  alternates: { canonical: "/insights" },
 };
 
 const categoryLabels: Record<ArticleCategory, string> = {

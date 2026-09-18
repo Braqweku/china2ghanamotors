@@ -1,4 +1,5 @@
 import type { FleetEnquiry } from "@/types";
+import { siteConfig } from "@/lib/config";
 
 const FLEET_NOTIFY_EMAIL = "quotes@china2ghana-motors.com";
 
@@ -16,7 +17,7 @@ export async function submitFleetEnquiry(
       _captcha: "false",
       ...(enquiry.email
         ? {
-            _autoresponse: `Thanks for your fleet quote request with China2Ghana Motors. Your reference number is ${reference} — track its status anytime at https://china2ghana-motors.com/track?ref=${reference}. Our team will be in touch shortly.`,
+            _autoresponse: `Thanks for your fleet quote request with China2Ghana Motors. Your reference number is ${reference} — track its status anytime at ${siteConfig.url}/track?ref=${reference}. Our team will be in touch shortly.`,
           }
         : {}),
       reference,

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Electric & Hybrid Vehicles from China",
   description:
     "Electric and hybrid vehicles sourced from China's manufacturers — range, battery and charging details for every model, verified and delivered to Ghana.",
+  alternates: { canonical: "/ev" },
 };
 
 const infoCards = [

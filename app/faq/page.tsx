@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
     "Answers to common questions about sourcing, shipping, tracking and importing a vehicle from China to Ghana with China2Ghana Motors.",
+  alternates: { canonical: "/faq" },
 };
 
 type Faq = {

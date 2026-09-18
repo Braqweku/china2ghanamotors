@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Hero } from "@/components/home/hero";
 import { TopBrands } from "@/components/home/top-brands";
 import { HotDeals } from "@/components/home/hot-deals";
@@ -5,6 +6,10 @@ import { TrustLayer } from "@/components/home/trust-layer";
 import { Journey } from "@/components/home/journey";
 import { CtaBand } from "@/components/home/cta-band";
 import { getVehicles } from "@/lib/data/vehicles";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const DEAL_VEHICLE_IDS = [
   "veh_021",

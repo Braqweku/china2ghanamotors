@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Vehicles for Sale — Sourced from China",
   description:
     "Browse sedans, SUVs, pickups and EVs we can source from verified suppliers in China. Filter by type, fuel, condition and year, then request a personalized quote.",
+  alternates: { canonical: "/vehicles" },
 };
 
 type SearchParams = Record<string, string | string[] | undefined>;
