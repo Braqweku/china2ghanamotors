@@ -54,7 +54,6 @@ export function HotDeals({ vehicles }: { vehicles: Vehicle[] }) {
               <p className="mt-1 text-small text-muted-foreground">
                 {vehicle.fuelType} · {vehicle.transmission}
               </p>
-              <p className="mt-3 text-small font-medium text-accent">Contact us for pricing</p>
             </div>
           </Link>
         ))}
