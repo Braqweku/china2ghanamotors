@@ -86,6 +86,14 @@ export function Footer() {
               </li>
               <li>
                 <a
+                  href={`mailto:${siteConfig.infoEmail}`}
+                  className="text-small text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {siteConfig.infoEmail}
+                </a>
+              </li>
+              <li>
+                <a
                   href={whatsappHref}
                   target="_blank"
                   rel="noopener noreferrer"

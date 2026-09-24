@@ -35,6 +35,13 @@ const organizationJsonLd = {
       areaServed: "GH",
       availableLanguage: ["English"],
     },
+    {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      email: siteConfig.infoEmail,
+      areaServed: "GH",
+      availableLanguage: ["English"],
+    },
   ],
 };
 
