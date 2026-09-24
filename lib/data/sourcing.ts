@@ -1,14 +1,12 @@
 import type { SourcingRequest } from "@/types";
 import { siteConfig } from "@/lib/config";
 
-const SOURCING_NOTIFY_EMAIL = "quotes@china2ghana-motors.com";
-
 export async function submitSourcingRequest(
   request: SourcingRequest
 ): Promise<{ reference: string }> {
   const reference = `C2G-${Math.random().toString(36).slice(2, 8).toUpperCase()}`;
 
-  const response = await fetch(`https://formsubmit.co/ajax/${SOURCING_NOTIFY_EMAIL}`, {
+  const response = await fetch(`https://formsubmit.co/ajax/${siteConfig.infoEmail}`, {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify({
