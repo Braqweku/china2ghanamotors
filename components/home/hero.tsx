@@ -51,7 +51,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="order-first mx-auto w-full max-w-sm animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-700 delay-150 lg:order-none lg:max-w-none">
+        <div className="order-first mx-auto w-full max-w-xl animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-700 delay-150 lg:order-none lg:max-w-none">
           <HeroSlideshow />
         </div>
       </div>

@@ -44,7 +44,7 @@ export function HeroSlideshow() {
   return (
     <div>
       <div
-        className="relative aspect-[3/4] w-full overflow-hidden rounded-lg border border-border bg-card shadow-sm"
+        className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-border bg-card shadow-sm"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
@@ -57,15 +57,11 @@ export function HeroSlideshow() {
             )}
           >
             <Image
-              key={i === active ? `${slide.src}-active` : slide.src}
               src={slide.src}
               alt={slide.alt}
               fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className={cn(
-                "object-cover",
-                i === active && "animate-[hero-kenburns_5000ms_linear_forwards]"
-              )}
+              sizes="(min-width: 1024px) 600px, 100vw"
+              className="object-contain"
               priority={i === 0}
             />
           </div>

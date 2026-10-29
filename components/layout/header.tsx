@@ -15,10 +15,10 @@ import { siteConfig, buildWhatsAppLink } from "@/lib/config";
 
 const navLinks = [
   { href: "/vehicles", label: "Vehicles", icon: Car },
-  { href: "/source", label: "Source My Vehicle", icon: Search },
-  { href: "/track", label: "Track", icon: MapPin },
-  { href: "/fleet", label: "Fleet", icon: Building2 },
   { href: "/ev", label: "EV", icon: Zap },
+  { href: "/fleet", label: "Fleet", icon: Building2 },
+  { href: "/source", label: "Source a Vehicle", icon: Search },
+  { href: "/track", label: "Track", icon: MapPin },
   { href: "/insights", label: "Insights", icon: BookOpen },
 ];
 
@@ -37,7 +37,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium whitespace-nowrap text-foreground/80 transition-colors hover:text-foreground"
+              className="rounded-sm text-sm font-medium whitespace-nowrap text-foreground/80 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               {link.label}
             </Link>
@@ -46,10 +46,7 @@ export function Header() {
 
         <div className="hidden lg:block">
           <Button asChild>
-            <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-              <span className="xl:hidden">Contact Us</span>
-              <span className="hidden xl:inline">Contact Specialist</span>
-            </a>
+            <Link href="/source">Request a vehicle</Link>
           </Button>
         </div>
 
@@ -80,11 +77,18 @@ export function Header() {
               ))}
             </nav>
 
-            <div className="border-t border-border p-4">
+            <div className="flex flex-col gap-2 border-t border-border p-4">
               <SheetClose asChild>
-                <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full">Contact Specialist</Button>
-                </a>
+                <Button asChild className="w-full">
+                  <Link href="/source">Request a vehicle</Link>
+                </Button>
+              </SheetClose>
+              <SheetClose asChild>
+                <Button asChild variant="outline" className="w-full">
+                  <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
+                    WhatsApp us
+                  </a>
+                </Button>
               </SheetClose>
             </div>
           </SheetContent>
