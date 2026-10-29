@@ -5,142 +5,137 @@ import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetTrigger,
-  SheetTitle,
-} from "@/components/ui/sheet";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Sheet, SheetClose, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import type { FuelType, Transmission, VehicleType } from "@/types";
+import { fuelTypeLabels, transmissionLabels, vehicleTypeLabels } from "@/lib/vehicle-format";
 
-const vehicleTypes: VehicleType[] = ["sedan", "suv", "mpv", "pickup", "van", "hatchback", "truck"];
-const fuelTypes: FuelType[] = ["petrol", "hybrid", "electric", "diesel"];
-const transmissions: Transmission[] = ["automatic", "manual"];
+const vehicleTypes = Object.keys(vehicleTypeLabels) as VehicleType[];
+const fuelTypes = Object.keys(fuelTypeLabels) as FuelType[];
+const transmissions = Object.keys(transmissionLabels) as Transmission[];
 
-function FilterFields() {
+function useUpdateParam() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   function updateParam(key: string, value: string) {
     const params = new URLSearchParams(searchParams.toString());
-    if (value === "" || value === "all" || value === "default") {
-      params.delete(key);
-    } else {
-      params.set(key, value);
-    }
-    router.push(`${pathname}?${params.toString()}`);
+    if (value === "" || value === "all") params.delete(key);
+    else params.set(key, value);
+    const qs = params.toString();
+    router.push(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
   }
 
+  return { updateParam, searchParams, pathname };
+}
+
+function FilterSelect({
+  id,
+  label,
+  param,
+  allLabel,
+  options,
+}: {
+  id: string;
+  label: string;
+  param: string;
+  allLabel: string;
+  options: { value: string; label: string }[];
+}) {
+  const { updateParam, searchParams } = useUpdateParam();
   return (
-    <div className="flex flex-col gap-4">
-      <Input
-        placeholder="Search make or model"
-        defaultValue={searchParams.get("query") ?? ""}
-        onBlur={(e) => updateParam("query", e.target.value)}
-      />
-
-      <Select
-        value={searchParams.get("vehicleType") ?? "all"}
-        onValueChange={(v) => updateParam("vehicleType", v)}
-      >
-        <SelectTrigger className="w-full">
-          <SelectValue placeholder="Vehicle type" />
+    <div className="flex flex-col gap-1.5">
+      <Label htmlFor={id} className="text-small text-muted-foreground">
+        {label}
+      </Label>
+      <Select value={searchParams.get(param) ?? "all"} onValueChange={(v) => updateParam(param, v)}>
+        <SelectTrigger id={id} className="w-full">
+          <SelectValue />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="all">All types</SelectItem>
-          {vehicleTypes.map((type) => (
-            <SelectItem key={type} value={type}>
-              {type}
+          <SelectItem value="all">{allLabel}</SelectItem>
+          {options.map((o) => (
+            <SelectItem key={o.value} value={o.value}>
+              {o.label}
             </SelectItem>
           ))}
         </SelectContent>
       </Select>
+    </div>
+  );
+}
 
-      <Select
-        value={searchParams.get("fuelType") ?? "all"}
-        onValueChange={(v) => updateParam("fuelType", v)}
-      >
-        <SelectTrigger className="w-full">
-          <SelectValue placeholder="Fuel type" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="all">All fuel types</SelectItem>
-          {fuelTypes.map((type) => (
-            <SelectItem key={type} value={type}>
-              {type}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
+function FilterFields({ makes, idPrefix }: { makes: string[]; idPrefix: string }) {
+  const { updateParam, searchParams, pathname } = useUpdateParam();
 
-      <Select
-        value={searchParams.get("transmission") ?? "all"}
-        onValueChange={(v) => updateParam("transmission", v)}
-      >
-        <SelectTrigger className="w-full">
-          <SelectValue placeholder="Transmission" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="all">Any transmission</SelectItem>
-          {transmissions.map((t) => (
-            <SelectItem key={t} value={t}>
-              {t}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-
-      <Select
-        value={searchParams.get("condition") ?? "all"}
-        onValueChange={(v) => updateParam("condition", v)}
-      >
-        <SelectTrigger className="w-full">
-          <SelectValue placeholder="Condition" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="all">New or used</SelectItem>
-          <SelectItem value="new">New</SelectItem>
-          <SelectItem value="used">Used</SelectItem>
-        </SelectContent>
-      </Select>
-
-      <div className="grid grid-cols-2 gap-2">
+  return (
+    <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-1.5">
+        <Label htmlFor={`${idPrefix}-query`} className="text-small text-muted-foreground">
+          Search
+        </Label>
         <Input
-          type="number"
-          placeholder="Min year"
-          defaultValue={searchParams.get("minYear") ?? ""}
-          onBlur={(e) => updateParam("minYear", e.target.value)}
-        />
-        <Input
-          type="number"
-          placeholder="Max year"
-          defaultValue={searchParams.get("maxYear") ?? ""}
-          onBlur={(e) => updateParam("maxYear", e.target.value)}
+          id={`${idPrefix}-query`}
+          type="search"
+          placeholder="Make, model or trim"
+          defaultValue={searchParams.get("query") ?? ""}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") updateParam("query", e.currentTarget.value);
+          }}
+          onBlur={(e) => updateParam("query", e.target.value)}
         />
       </div>
-
-      <Select
-        value={searchParams.get("sort") ?? "default"}
-        onValueChange={(v) => updateParam("sort", v)}
-      >
-        <SelectTrigger className="w-full">
-          <SelectValue placeholder="Sort" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="default">Sort</SelectItem>
-          <SelectItem value="year-desc">Year: newest first</SelectItem>
-        </SelectContent>
-      </Select>
-
+      <FilterSelect
+        id={`${idPrefix}-make`}
+        label="Brand"
+        param="make"
+        allLabel="All brands"
+        options={makes.map((m) => ({ value: m, label: m }))}
+      />
+      <FilterSelect
+        id={`${idPrefix}-type`}
+        label="Body type"
+        param="vehicleType"
+        allLabel="All body types"
+        options={vehicleTypes.map((t) => ({ value: t, label: vehicleTypeLabels[t] }))}
+      />
+      <FilterSelect
+        id={`${idPrefix}-fuel`}
+        label="Fuel"
+        param="fuelType"
+        allLabel="All fuel types"
+        options={fuelTypes.map((t) => ({ value: t, label: fuelTypeLabels[t] }))}
+      />
+      <FilterSelect
+        id={`${idPrefix}-gearbox`}
+        label="Gearbox"
+        param="transmission"
+        allLabel="Any gearbox"
+        options={transmissions.map((t) => ({ value: t, label: transmissionLabels[t] }))}
+      />
+      <fieldset className="flex flex-col gap-1.5">
+        <legend className="mb-1.5 text-small text-muted-foreground">Year</legend>
+        <div className="grid grid-cols-2 gap-2">
+          <Input
+            type="number"
+            inputMode="numeric"
+            aria-label="Minimum year"
+            placeholder="From"
+            defaultValue={searchParams.get("minYear") ?? ""}
+            onBlur={(e) => updateParam("minYear", e.target.value)}
+          />
+          <Input
+            type="number"
+            inputMode="numeric"
+            aria-label="Maximum year"
+            placeholder="To"
+            defaultValue={searchParams.get("maxYear") ?? ""}
+            onBlur={(e) => updateParam("maxYear", e.target.value)}
+          />
+        </div>
+      </fieldset>
       <Button variant="outline" asChild>
         <Link href={pathname}>Clear filters</Link>
       </Button>
@@ -148,17 +143,41 @@ function FilterFields() {
   );
 }
 
-export function VehicleFilters() {
+export function VehicleSortSelect() {
+  const { updateParam, searchParams } = useUpdateParam();
+  return (
+    <div className="flex items-center gap-2">
+      <Label htmlFor="vehicle-sort" className="text-small text-muted-foreground">
+        Sort
+      </Label>
+      <Select
+        value={searchParams.get("sort") ?? "recent"}
+        onValueChange={(v) => updateParam("sort", v === "recent" ? "" : v)}
+      >
+        <SelectTrigger id="vehicle-sort" className="w-44">
+          <SelectValue />
+        </SelectTrigger>
+        <SelectContent align="end">
+          <SelectItem value="recent">Recently added</SelectItem>
+          <SelectItem value="year-desc">Newest year</SelectItem>
+          <SelectItem value="mileage-asc">Lowest mileage</SelectItem>
+        </SelectContent>
+      </Select>
+    </div>
+  );
+}
+
+export function VehicleFilters({ makes }: { makes: string[] }) {
   return (
     <>
       <div className="hidden lg:block">
-        <FilterFields />
+        <FilterFields makes={makes} idPrefix="desktop" />
       </div>
       <div className="lg:hidden">
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="outline" className="w-full">
-              <SlidersHorizontal className="mr-2 h-4 w-4" />
+              <SlidersHorizontal className="mr-2 h-4 w-4" aria-hidden="true" />
               Filters
             </Button>
           </SheetTrigger>
@@ -166,11 +185,9 @@ export function VehicleFilters() {
             <div className="flex h-16 shrink-0 items-center border-b border-border px-6">
               <SheetTitle>Filters</SheetTitle>
             </div>
-
-            <div className="flex-1 overflow-y-auto p-4">
-              <FilterFields />
+            <div className="flex-1 overflow-y-auto p-6">
+              <FilterFields makes={makes} idPrefix="mobile" />
             </div>
-
             <div className="shrink-0 border-t border-border p-4">
               <SheetClose asChild>
                 <Button className="w-full" size="lg">
