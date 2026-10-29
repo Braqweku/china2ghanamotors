@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { getTrackingEvents } from "@/lib/data/tracking";
+import { stageLabels, stageOrder } from "@/lib/tracking-stages";
 import { ReferenceLookupForm } from "@/components/tracking/reference-lookup-form";
 import { TrackingTimeline } from "@/components/tracking/tracking-timeline";
+import { PageHeader } from "@/components/layout/page-header";
+import { AsideSection, FormPage } from "@/components/layout/form-page";
+import { NextSteps } from "@/components/layout/next-steps";
 
 export const metadata: Metadata = {
   title: "Track Your Vehicle",
@@ -18,38 +22,52 @@ export default async function TrackPage({
   const events = ref ? await getTrackingEvents(ref) : undefined;
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-12 sm:px-6 lg:px-8">
-      <h1 className="text-h1 font-semibold text-foreground">Track Your Vehicle</h1>
-      <p className="mt-2 text-body text-muted-foreground">
-        Enter your tracking reference to see the status of your request.
-      </p>
+    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <PageHeader
+        title="Track your vehicle"
+        intro="Enter your tracking reference to see where your vehicle is in the process."
+      />
 
-      <div className="mt-8">
+      <FormPage
+        aside={
+          <>
+            <AsideSection title="Where to find your reference">
+              <p>
+                Your reference starts with <span className="font-mono text-foreground">C2G-</span>. It
+                is shown when you submit a request and sent to your email if you gave one.
+              </p>
+            </AsideSection>
+            <AsideSection title="Tracking stages">
+              <NextSteps steps={stageOrder.map((stage) => stageLabels[stage])} />
+            </AsideSection>
+          </>
+        }
+      >
         <ReferenceLookupForm defaultValue={ref} />
-      </div>
 
-      {ref && events === null && (
-        <p className="mt-6 text-body text-destructive">
-          We couldn&apos;t find that reference. Check it and try again.
-        </p>
-      )}
-
-      {ref && events && events.length === 0 && (
-        <p className="mt-6 text-body text-muted-foreground">
-          This reference exists but has no updates recorded yet.
-        </p>
-      )}
-
-      {ref && events && events.length > 0 && (
-        <div className="mt-10">
-          <p className="text-small text-muted-foreground">
-            Reference: <span className="font-mono text-foreground">{ref}</span>
+        {ref && events === null && (
+          <p className="mt-6 text-body text-destructive" role="alert">
+            We couldn&apos;t find that reference. Check it and try again.
           </p>
-          <div className="mt-6">
-            <TrackingTimeline events={events} />
+        )}
+
+        {ref && events && events.length === 0 && (
+          <p className="mt-6 text-body text-muted-foreground">
+            This reference exists but has no updates recorded yet.
+          </p>
+        )}
+
+        {ref && events && events.length > 0 && (
+          <div className="mt-8 border-t border-border pt-6">
+            <p className="text-small text-muted-foreground">
+              Reference: <span className="font-mono text-foreground">{ref}</span>
+            </p>
+            <div className="mt-6">
+              <TrackingTimeline events={events} />
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </FormPage>
     </div>
   );
 }

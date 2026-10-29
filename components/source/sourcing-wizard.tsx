@@ -149,14 +149,9 @@ export function SourcingWizard() {
   const progressPercent = ((step + 1) / (steps.length - 1)) * 100;
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-12 sm:px-6 lg:px-8">
-      <h1 className="text-h1 font-semibold text-foreground">Source My Vehicle</h1>
-      <p className="mt-2 text-body text-muted-foreground">
-        Tell us what you need. We&apos;ll find it, verify it, ship it and deliver it.
-      </p>
-
+    <div>
       {step < 6 && (
-        <div className="mt-8">
+        <div>
           <p className="text-label text-muted-foreground">
             Step {step + 1} of {steps.length - 1}: {steps[step]}
           </p>
@@ -175,7 +170,7 @@ export function SourcingWizard() {
             <Label htmlFor="vehicleQuery">What vehicle are you looking for?</Label>
             <Input
               id="vehicleQuery"
-              placeholder="e.g. BYD Song Plus, or a reliable SUV under $20,000"
+              placeholder="e.g. Toyota Corolla Cross, or a hybrid SUV under 60,000 km"
               value={form.vehicleQuery}
               onChange={(e) => update("vehicleQuery", e.target.value)}
             />
