@@ -1,19 +1,10 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Badge } from "@/components/ui/badge";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { getArticleBySlug, getArticles } from "@/lib/data/articles";
-import type { ArticleCategory } from "@/types";
-
-const categoryLabels: Record<ArticleCategory, string> = {
-  "buying-guides": "Buying Guides",
-  "import-guides": "Import Guides",
-  ev: "EV",
-  shipping: "Shipping",
-  customs: "Customs",
-  "vehicle-reviews": "Vehicle Reviews",
-  "china-automotive-market": "China Automotive Market",
-};
+import { ArticleMeta, categoryLabels } from "@/components/insights/article-meta";
 
 export async function generateStaticParams() {
   const articles = await getArticles();
@@ -55,31 +46,86 @@ export default async function ArticlePage({
     notFound();
   }
 
+  const more = (await getArticles())
+    .filter((a) => a.slug !== article.slug)
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+    .slice(0, 3);
+
   return (
-    <div className="mx-auto max-w-2xl px-4 py-12 sm:px-6 lg:px-8">
-      <Badge variant="secondary">{categoryLabels[article.category]}</Badge>
-      <h1 className="mt-3 text-h1 font-semibold text-foreground">{article.title}</h1>
-      <p className="mt-2 text-caption text-muted-foreground">
-        {new Date(article.publishedAt).toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        })}
-        {" · "}
-        {article.readMinutes} min read
-      </p>
+    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <article className="mx-auto max-w-2xl">
+        <nav aria-label="Breadcrumb" className="text-small text-muted-foreground">
+          <ol className="flex flex-wrap items-center gap-1.5">
+            <li>
+              <Link href="/insights" className="hover:text-foreground">
+                Insights
+              </Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" className="text-foreground">
+              {categoryLabels[article.category]}
+            </li>
+          </ol>
+        </nav>
 
-      <div className="mt-8 space-y-4">
-        {article.content.map((paragraph, i) => (
-          <p key={i} className="text-body text-foreground">
-            {paragraph}
+        <h1 className="mt-4 text-h1 font-semibold tracking-tight text-foreground">{article.title}</h1>
+        <div className="mt-3">
+          <ArticleMeta article={article} />
+        </div>
+        <p className="mt-6 text-body text-muted-foreground">{article.excerpt}</p>
+
+        <div className="mt-8 flex flex-col gap-5 border-t border-border pt-8">
+          {article.content.map((paragraph, i) => (
+            <p key={i} className="text-body leading-relaxed text-foreground">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        <aside className="mt-12 rounded-lg border border-border bg-card p-6">
+          <h2 className="text-h3 font-semibold text-foreground">Ready to find your vehicle?</h2>
+          <p className="mt-2 text-small text-muted-foreground">
+            Browse used vehicles available now, or tell us what you need and we will source it.
           </p>
-        ))}
-      </div>
+          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+            <Button asChild>
+              <Link href="/vehicles">Browse vehicles</Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href="/source">Source a vehicle</Link>
+            </Button>
+          </div>
+        </aside>
+      </article>
 
-      <Link href="/insights" className="mt-10 inline-block text-small text-accent underline">
-        Back to Insights
-      </Link>
+      {more.length > 0 && (
+        <section aria-labelledby="more-heading" className="mx-auto mt-16 max-w-2xl">
+          <div className="flex items-baseline justify-between gap-4">
+            <h2 id="more-heading" className="text-h3 font-semibold text-foreground">
+              More insights
+            </h2>
+            <Link
+              href="/insights"
+              className="inline-flex items-center gap-1 text-small font-medium text-foreground underline-offset-4 hover:underline"
+            >
+              All articles
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+          <ul className="mt-4 border-t border-border">
+            {more.map((a) => (
+              <li key={a.slug} className="border-b border-border">
+                <Link href={`/insights/${a.slug}`} className="group block py-5">
+                  <ArticleMeta article={a} />
+                  <p className="mt-1 text-body font-semibold text-foreground underline-offset-4 group-hover:underline">
+                    {a.title}
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </div>
   );
 }
