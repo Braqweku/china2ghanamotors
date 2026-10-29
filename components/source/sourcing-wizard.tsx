@@ -170,7 +170,7 @@ export function SourcingWizard() {
             <Label htmlFor="vehicleQuery">What vehicle are you looking for?</Label>
             <Input
               id="vehicleQuery"
-              placeholder="e.g. Toyota Corolla Cross, or a hybrid SUV under 60,000 km"
+              placeholder="e.g. Toyota Corolla Cross or a hybrid SUV"
               value={form.vehicleQuery}
               onChange={(e) => update("vehicleQuery", e.target.value)}
             />

@@ -5,7 +5,7 @@ import { buildWhatsAppLink, siteConfig } from "@/lib/config";
 const exploreLinks = [
   { href: "/vehicles", label: "Vehicles" },
   { href: "/ev", label: "Electric & Hybrid" },
-  { href: "/source", label: "Source My Vehicle" },
+  { href: "/source", label: "Source a Vehicle" },
   { href: "/track", label: "Track an Order" },
 ];
 

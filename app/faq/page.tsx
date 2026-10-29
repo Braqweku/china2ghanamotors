@@ -101,8 +101,8 @@ export default function FaqPage() {
       <Accordion type="single" collapsible className="mt-8 border-t border-border">
         {faqs.map((faq) => (
           <AccordionItem key={faq.question} value={faq.question} className="border-b border-border">
-            <AccordionTrigger className="gap-4 py-5 text-left text-body font-semibold text-foreground hover:no-underline">
-              {faq.question}
+            <AccordionTrigger className="gap-4 py-5 text-left hover:no-underline">
+              <span className="text-body font-semibold text-foreground">{faq.question}</span>
             </AccordionTrigger>
             <AccordionContent className="pb-5">
               <p className="text-body text-muted-foreground">{faq.answer}</p>
