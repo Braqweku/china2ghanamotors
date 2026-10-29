@@ -143,19 +143,26 @@ function FilterFields({ makes, idPrefix }: { makes: string[]; idPrefix: string }
   );
 }
 
+const sortLabels: Record<string, string> = {
+  recent: "Recently added",
+  "year-desc": "Newest year",
+  "mileage-asc": "Lowest mileage",
+};
+
 export function VehicleSortSelect() {
   const { updateParam, searchParams } = useUpdateParam();
+  const current = searchParams.get("sort") ?? "recent";
   return (
     <div className="flex items-center gap-2">
       <Label htmlFor="vehicle-sort" className="text-small text-muted-foreground">
         Sort
       </Label>
       <Select
-        value={searchParams.get("sort") ?? "recent"}
+        value={current}
         onValueChange={(v) => updateParam("sort", v === "recent" ? "" : v)}
       >
         <SelectTrigger id="vehicle-sort" className="w-44">
-          <SelectValue />
+          <SelectValue>{sortLabels[current] ?? sortLabels.recent}</SelectValue>
         </SelectTrigger>
         <SelectContent align="end">
           <SelectItem value="recent">Recently added</SelectItem>
