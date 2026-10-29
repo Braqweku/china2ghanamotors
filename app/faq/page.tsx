@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Separator } from "@/components/ui/separator";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { PageHeader } from "@/components/layout/page-header";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -43,7 +44,7 @@ const faqs: Faq[] = [
   {
     question: "Do you source electric and hybrid vehicles?",
     answer:
-      "Yes. Electric and hybrid vehicles sourced from China, with range, battery and charging details available for each model.",
+      "Yes. We have used electric, hybrid and plug-in hybrid vehicles available now, with range and battery details on each listing where available.",
     link: { href: "/ev", label: "Electric & Hybrid vehicles" },
   },
   {
@@ -66,7 +67,7 @@ const faqs: Faq[] = [
   {
     question: "Are the vehicles new or used?",
     answer:
-      "Both. You can filter by condition on the Vehicles page, and specify your preference when submitting a sourcing request.",
+      "The vehicles listed now are used, from our partner in China, and each one is inspected before purchase. If you want a new vehicle, tell us in a sourcing request and we will find options for you. On the Vehicles page you can filter by brand, body type, fuel and year.",
     link: { href: "/vehicles", label: "Browse vehicles" },
   },
   {
@@ -87,31 +88,36 @@ export default function FaqPage() {
   };
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-12 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <h1 className="text-h1 font-semibold text-foreground">Frequently Asked Questions</h1>
-      <p className="mt-2 text-body text-muted-foreground">
-        Common questions about sourcing, shipping, tracking and importing a vehicle from
-        China to Ghana.
-      </p>
+      <PageHeader
+        title="Frequently asked questions"
+        intro="Common questions about sourcing, shipping, tracking and importing a vehicle from China to Ghana."
+      />
 
-      <div className="mt-10 space-y-8">
-        {faqs.map((faq, i) => (
-          <div key={faq.question}>
-            <h2 className="text-h3 font-semibold text-foreground">{faq.question}</h2>
-            <p className="mt-2 text-body text-muted-foreground">{faq.answer}</p>
-            {faq.link && (
-              <Link href={faq.link.href} className="mt-2 inline-block text-small text-accent underline">
-                {faq.link.label}
-              </Link>
-            )}
-            {i < faqs.length - 1 && <Separator className="mt-8" />}
-          </div>
+      <Accordion type="single" collapsible className="mt-8 border-t border-border">
+        {faqs.map((faq) => (
+          <AccordionItem key={faq.question} value={faq.question} className="border-b border-border">
+            <AccordionTrigger className="gap-4 py-5 text-left text-body font-semibold text-foreground hover:no-underline">
+              {faq.question}
+            </AccordionTrigger>
+            <AccordionContent className="pb-5">
+              <p className="text-body text-muted-foreground">{faq.answer}</p>
+              {faq.link && (
+                <Link
+                  href={faq.link.href}
+                  className="mt-3 inline-block text-small font-medium text-foreground underline underline-offset-4"
+                >
+                  {faq.link.label}
+                </Link>
+              )}
+            </AccordionContent>
+          </AccordionItem>
         ))}
-      </div>
+      </Accordion>
     </div>
   );
 }

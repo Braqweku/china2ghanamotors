@@ -1,83 +1,79 @@
 import type { Metadata } from "next";
-import { Battery, Zap, Gauge, FileCheck } from "lucide-react";
 import { getVehicles } from "@/lib/data/vehicles";
 import { VehicleCard } from "@/components/vehicles/vehicle-card";
+import { PageHeader } from "@/components/layout/page-header";
+import type { Vehicle } from "@/types";
 
 export const metadata: Metadata = {
   title: "Electric & Hybrid Vehicles from China",
   description:
-    "Electric and hybrid vehicles sourced from China's manufacturers — range, battery and charging details for every model, verified and delivered to Ghana.",
+    "Used electric and hybrid vehicles available now from China — BYD, Toyota, Geely and more, inspected and shipped to Ghana.",
   alternates: { canonical: "/ev" },
 };
 
-const infoCards = [
+const facts = [
   {
-    icon: Battery,
-    title: "Range & Battery",
-    copy: "Electric vehicles we can source vary in battery capacity and range depending on the model — check each vehicle's specifications for the manufacturer's figures.",
+    term: "Range and battery",
+    detail:
+      "Each listing shows the manufacturer's range where we have it. Real-world range is usually lower, especially with air conditioning in Ghana's heat.",
   },
   {
-    icon: Zap,
-    title: "Charging",
-    copy: "Most electric and plug-in hybrid vehicles support standard home charging, with faster charging available on select models.",
+    term: "Charging",
+    detail:
+      "Electric vehicles charge from a standard home socket overnight. Hybrids charge themselves while driving and need no charging at all.",
   },
   {
-    icon: Gauge,
-    title: "Efficiency",
-    copy: "Hybrid vehicles combine a combustion engine with an electric motor for improved fuel efficiency without requiring charging infrastructure.",
+    term: "Plug-in hybrids",
+    detail:
+      "Plug-in hybrids drive short distances on electric power, then switch to petrol, so you are never stuck without a charger.",
   },
   {
-    icon: FileCheck,
-    title: "Import Considerations",
-    copy: "Electric and hybrid vehicles are subject to the same sourcing, verification, shipping and clearing process as any other vehicle we source.",
+    term: "Importing",
+    detail:
+      "Electric and hybrid vehicles go through the same inspection, shipping and clearing as any other vehicle we source.",
   },
 ];
+
+function VehicleSection({ title, vehicles }: { title: string; vehicles: Vehicle[] }) {
+  if (vehicles.length === 0) return null;
+  return (
+    <section className="mt-14" aria-labelledby={`${title}-heading`}>
+      <h2 id={`${title}-heading`} className="text-h2 font-semibold text-foreground">
+        {title} <span className="font-normal text-muted-foreground">({vehicles.length})</span>
+      </h2>
+      <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        {vehicles.map((vehicle) => (
+          <VehicleCard key={vehicle.id} vehicle={vehicle} />
+        ))}
+      </div>
+    </section>
+  );
+}
 
 export default async function EvPage() {
   const [electric, hybrid] = await Promise.all([
     getVehicles({ fuelType: "electric" }),
     getVehicles({ fuelType: "hybrid" }),
   ]);
-  const seen = new Set<string>();
-  const vehicles = [...electric, ...hybrid].filter((v) => {
-    if (seen.has(v.id)) return false;
-    seen.add(v.id);
-    return true;
-  });
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <h1 className="text-h1 font-semibold text-foreground">Electric & Hybrid Vehicles</h1>
-      <p className="mt-2 max-w-2xl text-body text-muted-foreground">
-        A growing share of the vehicles we can source from China are electric or
-        hybrid. Here&apos;s what to know before you import one.
-      </p>
+    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <PageHeader
+        title="Electric and hybrid vehicles"
+        intro="Used electric and hybrid vehicles available now from our partner in China, inspected before purchase and shipped to Ghana."
+      />
 
-      <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {infoCards.map((card) => (
-          <div key={card.title} className="rounded-lg border border-border p-5">
-            <card.icon className="h-6 w-6 text-accent" aria-hidden="true" />
-            <h3 className="mt-3 text-h3 font-semibold text-foreground">{card.title}</h3>
-            <p className="mt-2 text-small text-muted-foreground">{card.copy}</p>
+      <dl className="mt-8 grid border-t border-border sm:grid-cols-2 sm:gap-x-10">
+        {facts.map((fact) => (
+          <div key={fact.term} className="border-b border-border py-5">
+            <dt className="text-body font-semibold text-foreground">{fact.term}</dt>
+            <dd className="mt-1 text-small text-muted-foreground">{fact.detail}</dd>
           </div>
         ))}
-      </div>
+      </dl>
 
-      <h2 className="mt-16 text-h2 font-semibold text-foreground">
-        Electric & Hybrid Vehicles We Can Source
-      </h2>
-
-      {vehicles.length === 0 ? (
-        <p className="mt-6 text-body text-muted-foreground">
-          No electric or hybrid vehicles are currently listed as examples.
-        </p>
-      ) : (
-        <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {vehicles.map((vehicle) => (
-            <VehicleCard key={vehicle.id} vehicle={vehicle} />
-          ))}
-        </div>
-      )}
+      <VehicleSection title="Electric" vehicles={electric} />
+      <VehicleSection title="Hybrid" vehicles={hybrid} />
     </div>
   );
 }
