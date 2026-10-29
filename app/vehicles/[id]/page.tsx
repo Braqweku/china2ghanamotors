@@ -1,9 +1,21 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Badge } from "@/components/ui/badge";
+import { MessageCircle, SearchCheck, Ship } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { VehicleCard } from "@/components/vehicles/vehicle-card";
 import { VehicleGallery } from "@/components/vehicles/vehicle-gallery";
 import { getVehicleById, getVehicles } from "@/lib/data/vehicles";
+import { similarVehicles } from "@/lib/vehicle-query";
+import {
+  formatMileage,
+  fuelTypeLabels,
+  specLabel,
+  transmissionLabels,
+  vehicleTitle,
+  vehicleTypeLabels,
+} from "@/lib/vehicle-format";
 import { buildWhatsAppLink, siteConfig } from "@/lib/config";
 
 export async function generateStaticParams() {
@@ -23,11 +35,11 @@ export async function generateMetadata({
     return { title: "Vehicle not found" };
   }
 
-  const vehicleName = `${vehicle.year} ${vehicle.make} ${vehicle.model}`;
-  const description = `${vehicleName} — a ${vehicle.condition === "new" ? "new" : "used"} ${vehicle.vehicleType} with ${vehicle.fuelType} fuel and ${vehicle.transmission} transmission. Sourced from verified suppliers in China and delivered to Ghana.`;
+  const vehicleName = vehicleTitle(vehicle);
+  const description = `${vehicleName}${vehicle.specs.trim ? ` ${vehicle.specs.trim}` : ""}: used ${vehicleTypeLabels[vehicle.vehicleType]}, ${fuelTypeLabels[vehicle.fuelType].toLowerCase()}, ${transmissionLabels[vehicle.transmission].toLowerCase()}, ${formatMileage(vehicle.mileageKm)}. Inspected in China and shipped to Ghana.`;
 
   return {
-    title: `${vehicleName} — ${vehicle.vehicleType.toUpperCase()} Sourced from China`,
+    title: `${vehicleName} — Used ${vehicleTypeLabels[vehicle.vehicleType]} from China`,
     description,
     alternates: { canonical: `/vehicles/${id}` },
     openGraph: { images: vehicle.images.length > 0 ? [vehicle.images[0]] : undefined },
@@ -47,11 +59,24 @@ export default async function VehicleDetailPage({
     notFound();
   }
 
-  const vehicleName = `${vehicle.year} ${vehicle.make} ${vehicle.model}`;
+  const vehicleName = vehicleTitle(vehicle);
   const vehicleUrl = `${siteConfig.url}/vehicles/${vehicle.id}`;
   const whatsappHref = buildWhatsAppLink(
-    `I'm interested in the ${vehicleName} listed by ${siteConfig.name}.`
+    `I'm interested in the ${vehicleName} (${vehicle.id}) listed by ${siteConfig.name}.`
   );
+  const similar = similarVehicles(await getVehicles(), vehicle);
+  const summary = `${formatMileage(vehicle.mileageKm)} · ${transmissionLabels[vehicle.transmission]} · ${fuelTypeLabels[vehicle.fuelType]}`;
+
+  const facts = [
+    { label: "Year", value: String(vehicle.year) },
+    { label: "Mileage", value: formatMileage(vehicle.mileageKm) },
+    { label: "Fuel", value: fuelTypeLabels[vehicle.fuelType] },
+    { label: "Gearbox", value: transmissionLabels[vehicle.transmission] },
+    { label: "Body type", value: vehicleTypeLabels[vehicle.vehicleType] },
+    ...Object.entries(vehicle.specs)
+      .filter(([key]) => key !== "trim")
+      .map(([key, value]) => ({ label: specLabel(key), value })),
+  ];
 
   const vehicleJsonLd = {
     "@context": "https://schema.org",
@@ -80,7 +105,7 @@ export default async function VehicleDetailPage({
   };
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl px-4 pb-28 pt-6 sm:px-6 lg:px-8 lg:pb-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(vehicleJsonLd) }}
@@ -89,57 +114,104 @@ export default async function VehicleDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <VehicleGallery images={vehicle.images} alt={vehicleName} />
 
-      <div className="mt-8 flex flex-wrap items-start justify-between gap-4">
-        <div>
-          <h1 className="text-h1 font-semibold text-foreground">{vehicleName}</h1>
-          <p className="mt-1 text-body text-muted-foreground">
-            {vehicle.condition === "new" ? "New" : "Used"} · {vehicle.fuelType} ·{" "}
-            {vehicle.transmission} · {vehicle.mileageKm.toLocaleString()} km
-          </p>
+      <nav aria-label="Breadcrumb" className="text-small text-muted-foreground">
+        <ol className="flex min-w-0 items-center gap-1.5">
+          <li>
+            <Link href="/vehicles" className="hover:text-foreground">
+              Vehicles
+            </Link>
+          </li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" className="truncate text-foreground">
+            {vehicleName}
+          </li>
+        </ol>
+      </nav>
+
+      <div className="mt-4 grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-12">
+        <div className="min-w-0">
+          <VehicleGallery images={vehicle.images} alt={vehicleName} />
+
+          <section className="mt-10" aria-labelledby="specs-heading">
+            <h2 id="specs-heading" className="text-h3 font-semibold text-foreground">
+              Specifications
+            </h2>
+            <dl className="mt-4 grid border-t border-border sm:grid-cols-2 sm:gap-x-8">
+              {facts.map((fact) => (
+                <div key={fact.label} className="flex justify-between gap-4 border-b border-border py-3">
+                  <dt className="text-small text-muted-foreground">{fact.label}</dt>
+                  <dd className="text-right text-small font-medium text-foreground">{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
         </div>
-        <Badge variant={vehicle.availability === "sold" ? "secondary" : "default"}>
-          {vehicle.availability === "sold"
-            ? "Sold"
-            : vehicle.availability === "available"
-              ? "Available"
-              : "Sourcing"}
-        </Badge>
+
+        <aside className="lg:sticky lg:top-24 lg:self-start">
+          <div className="rounded-lg border border-border bg-card p-6">
+            <h1 className="text-h2 font-semibold text-foreground">{vehicleName}</h1>
+            {vehicle.specs.trim && (
+              <p className="mt-1 text-body text-muted-foreground">{vehicle.specs.trim}</p>
+            )}
+            <p className="mt-4 text-small text-foreground/80">{summary}</p>
+
+            <div className="mt-6 hidden flex-col gap-3 lg:flex">
+              <Button asChild size="lg">
+                <Link href="/source">Request this vehicle</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
+                  Ask on WhatsApp
+                </a>
+              </Button>
+            </div>
+
+            <Separator className="my-6" />
+
+            <ul className="space-y-3 text-small text-muted-foreground">
+              <li className="flex gap-3">
+                <SearchCheck className="h-4 w-4 shrink-0 translate-y-0.5 text-foreground" aria-hidden="true" />
+                Inspected in China before purchase
+              </li>
+              <li className="flex gap-3">
+                <Ship className="h-4 w-4 shrink-0 translate-y-0.5 text-foreground" aria-hidden="true" />
+                Shipped and cleared to Ghana
+              </li>
+              <li className="flex gap-3">
+                <MessageCircle className="h-4 w-4 shrink-0 translate-y-0.5 text-foreground" aria-hidden="true" />
+                Your quote includes shipping, inspection and clearing
+              </li>
+            </ul>
+          </div>
+        </aside>
       </div>
 
-      <section className="mt-8 rounded-lg border border-border p-6">
-        <h2 className="text-h3 font-semibold text-foreground">Specifications</h2>
-        <dl className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3">
-          {Object.entries(vehicle.specs).map(([key, value]) => (
-            <div key={key}>
-              <dt className="text-caption uppercase tracking-wide text-muted-foreground">
-                {key}
-              </dt>
-              <dd className="text-small text-foreground">{value}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
+      {similar.length > 0 && (
+        <section className="mt-16" aria-labelledby="similar-heading">
+          <h2 id="similar-heading" className="text-h3 font-semibold text-foreground">
+            Similar vehicles
+          </h2>
+          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {similar.map((v) => (
+              <VehicleCard key={v.id} vehicle={v} />
+            ))}
+          </div>
+        </section>
+      )}
 
-      <section className="mt-8 rounded-lg border border-border p-6">
-        <h2 className="text-h3 font-semibold text-foreground">Get a Quote</h2>
-        <p className="mt-2 text-body text-muted-foreground">
-          Pricing depends on specification, shipping and current exchange rates.
-          Reach out and we&apos;ll get back to you with a full quote, including
-          shipping, inspection and clearing.
-        </p>
-        <div className="mt-6 flex flex-col gap-4 sm:flex-row">
-          <Button asChild size="lg">
-            <a href="/source">Request this vehicle</a>
+      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-background p-4 lg:hidden">
+        <div className="mx-auto flex max-w-7xl gap-3">
+          <Button asChild className="flex-1">
+            <Link href="/source">Request this vehicle</Link>
           </Button>
-          <Button asChild size="lg" variant="outline">
+          <Button asChild variant="outline" className="flex-1">
             <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-              Ask about this vehicle
+              WhatsApp
             </a>
           </Button>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
