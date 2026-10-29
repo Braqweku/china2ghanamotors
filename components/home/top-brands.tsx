@@ -1,15 +1,16 @@
 const brands = [
+  { name: "Honda", logo: "/brands/honda.svg" },
+  { name: "Toyota", logo: "/brands/toyota.svg" },
   { name: "BYD", logo: "/brands/byd.svg" },
   { name: "Geely", logo: "/brands/geely.svg" },
+  { name: "Hyundai", logo: "/brands/hyundai.svg" },
+  { name: "Lexus", logo: null },
+  { name: "Great Wall", logo: null },
+  { name: "Mazda", logo: "/brands/mazda.svg" },
   { name: "Chery", logo: "/brands/chery.svg" },
-  { name: "Haval", logo: "/brands/haval.svg" },
-  { name: "MG", logo: "/brands/mg.svg" },
-  { name: "JAC", logo: "/brands/jac.png" },
-  { name: "Changan", logo: "/brands/changan.svg" },
-  { name: "GAC", logo: "/brands/gac.svg" },
-  { name: "Dongfeng", logo: "/brands/dongfeng.svg" },
-  { name: "Jetour", logo: null },
-  { name: "FAW", logo: null },
+  { name: "Nissan", logo: "/brands/nissan.svg" },
+  { name: "Kia", logo: "/brands/kia.svg" },
+  { name: "iCAR", logo: null },
 ];
 
 export function TopBrands() {
@@ -19,7 +20,7 @@ export function TopBrands() {
     <section className="border-b border-border bg-card py-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <p className="text-label font-medium uppercase tracking-wide text-muted-foreground">
-          Sourcing from China&apos;s leading brands
+          Brands in our current stock
         </p>
       </div>
       <div

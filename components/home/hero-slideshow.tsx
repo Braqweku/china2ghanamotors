@@ -8,24 +8,24 @@ const SLIDE_DURATION = 5000;
 
 const slides = [
   {
-    src: "/vehicles/veh_001/veh_001_angle_03.jpg",
-    alt: "BYD Song Plus SUV, one of the vehicles sourced by China2Ghana Motors",
+    src: "/vehicles/veh_101/veh_101_01.jpg",
+    alt: "Toyota Sienna hybrid MPV, one of the vehicles sourced by China2Ghana Motors",
   },
   {
-    src: "/vehicles/veh_010/veh_010_angle_03.jpg",
-    alt: "BYD Han electric sedan, one of the vehicles sourced by China2Ghana Motors",
+    src: "/vehicles/veh_166/veh_166_03.jpg",
+    alt: "Toyota Camry sedan, one of the vehicles sourced by China2Ghana Motors",
   },
   {
-    src: "/vehicles/veh_004/veh_004_angle_03.jpg",
-    alt: "Chery Tiggo 7 Pro SUV, one of the vehicles sourced by China2Ghana Motors",
+    src: "/vehicles/veh_158/veh_158_01.jpg",
+    alt: "Toyota bZ3 electric sedan, one of the vehicles sourced by China2Ghana Motors",
   },
   {
-    src: "/vehicles/veh_005/veh_005_angle_03.jpg",
-    alt: "Geely Coolray SUV, one of the vehicles sourced by China2Ghana Motors",
+    src: "/vehicles/veh_163/veh_163_01.jpg",
+    alt: "Honda XR-V SUV, one of the vehicles sourced by China2Ghana Motors",
   },
   {
-    src: "/vehicles/veh_011/veh_011_angle_03.jpg",
-    alt: "Dongfeng Rich 6 pickup, one of the vehicles sourced by China2Ghana Motors",
+    src: "/vehicles/veh_157/veh_157_03.jpg",
+    alt: "Toyota Highlander SUV, one of the vehicles sourced by China2Ghana Motors",
   },
 ];
 

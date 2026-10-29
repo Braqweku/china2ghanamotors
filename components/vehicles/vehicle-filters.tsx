@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/sheet";
 import type { FuelType, Transmission, VehicleType } from "@/types";
 
-const vehicleTypes: VehicleType[] = ["sedan", "suv", "pickup", "van", "hatchback", "truck"];
+const vehicleTypes: VehicleType[] = ["sedan", "suv", "mpv", "pickup", "van", "hatchback", "truck"];
 const fuelTypes: FuelType[] = ["petrol", "hybrid", "electric", "diesel"];
 const transmissions: Transmission[] = ["automatic", "manual"];
 

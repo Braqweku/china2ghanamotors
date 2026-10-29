@@ -12,13 +12,13 @@ export const metadata: Metadata = {
 };
 
 const DEAL_VEHICLE_IDS = [
-  "veh_021",
-  "veh_022",
-  "veh_010",
-  "veh_006",
-  "veh_004",
-  "veh_011",
-  "veh_007",
+  "veh_101",
+  "veh_166",
+  "veh_157",
+  "veh_158",
+  "veh_163",
+  "veh_115",
+  "veh_145",
 ];
 
 export default async function Home() {

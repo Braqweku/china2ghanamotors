@@ -1,4 +1,4 @@
-export type VehicleType = "sedan" | "suv" | "pickup" | "van" | "hatchback" | "truck";
+export type VehicleType = "sedan" | "suv" | "mpv" | "pickup" | "van" | "hatchback" | "truck";
 export type FuelType = "petrol" | "hybrid" | "electric" | "diesel";
 export type Transmission = "automatic" | "manual";
 export type Condition = "new" | "used";
@@ -14,7 +14,7 @@ export type Vehicle = {
   transmission: Transmission;
   mileageKm: number;
   condition: Condition;
-  priceUsd: number;
+  priceUsd?: number;
   images: string[];
   availability: Availability;
   supplierId: string;
