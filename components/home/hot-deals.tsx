@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, Flame } from "lucide-react";
 import type { Vehicle } from "@/types";
+import { VehicleCard } from "@/components/vehicles/vehicle-card";
 
 export function HotDeals({ vehicles }: { vehicles: Vehicle[] }) {
   if (vehicles.length === 0) return null;
@@ -15,7 +15,7 @@ export function HotDeals({ vehicles }: { vehicles: Vehicle[] }) {
             Hot deals
           </p>
           <h2 className="mt-2 text-h2 font-semibold text-foreground">
-            High-demand vehicles, ready to source
+            Popular vehicles available now
           </h2>
         </div>
         <Link
@@ -29,33 +29,9 @@ export function HotDeals({ vehicles }: { vehicles: Vehicle[] }) {
 
       <div className="mt-8 -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
         {vehicles.map((vehicle) => (
-          <Link
-            key={vehicle.id}
-            href={`/vehicles/${vehicle.id}`}
-            className="group block w-64 shrink-0 snap-start overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-shadow hover:shadow-md sm:w-72"
-          >
-            <div className="relative aspect-[3/4] bg-muted">
-              <Image
-                src={vehicle.images[0]}
-                alt={`${vehicle.year} ${vehicle.make} ${vehicle.model}`}
-                fill
-                sizes="(min-width: 640px) 288px, 256px"
-                className="object-cover transition-transform duration-[var(--motion-slow)] ease-[var(--motion-ease)] group-hover:scale-105"
-              />
-              <span className="absolute left-3 top-3 flex items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-caption font-medium text-accent-foreground">
-                <Flame className="h-3 w-3" aria-hidden="true" />
-                Hot Deal
-              </span>
-            </div>
-            <div className="p-4">
-              <h3 className="text-h3 font-semibold text-foreground">
-                {vehicle.year} {vehicle.make} {vehicle.model}
-              </h3>
-              <p className="mt-1 text-small text-muted-foreground">
-                {vehicle.fuelType} · {vehicle.transmission}
-              </p>
-            </div>
-          </Link>
+          <div key={vehicle.id} className="w-72 shrink-0 snap-start sm:w-80">
+            <VehicleCard vehicle={vehicle} />
+          </div>
         ))}
       </div>
     </section>
