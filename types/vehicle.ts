@@ -21,9 +21,10 @@ export type Vehicle = {
   specs: Record<string, string>;
 };
 
-export type VehicleSort = "year-desc";
+export type VehicleSort = "recent" | "year-desc" | "mileage-asc";
 
 export type VehicleFilters = {
+  make?: string;
   query?: string;
   vehicleType?: VehicleType;
   fuelType?: FuelType;
