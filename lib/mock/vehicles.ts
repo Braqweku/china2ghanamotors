@@ -285,9 +285,9 @@ export const mockVehicles: Vehicle[] = [
     mileageKm: 141000,
     condition: "used",
     images: [
+      "/vehicles/veh_112/veh_112_03.jpg",
       "/vehicles/veh_112/veh_112_01.jpg",
       "/vehicles/veh_112/veh_112_02.jpg",
-      "/vehicles/veh_112/veh_112_03.jpg",
       "/vehicles/veh_112/veh_112_04.jpg",
       "/vehicles/veh_112/veh_112_05.jpg",
       "/vehicles/veh_112/veh_112_06.jpg",
