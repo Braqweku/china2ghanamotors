@@ -5,6 +5,7 @@ import { filterOrders, orderStats } from "@/lib/order-query";
 import { stageOrder } from "@/lib/tracking-stages";
 import { OrderFilters } from "@/components/admin/order-filters";
 import { StageStatus } from "@/components/admin/stage-status";
+import { AdminLoadError } from "@/components/admin/admin-load-error";
 import type { OrderSource, TrackingStage } from "@/types";
 
 export const dynamic = "force-dynamic";
@@ -29,7 +30,13 @@ export default async function AdminOrdersPage({
   const params = await searchParams;
   const stageParam = first(params.stage);
   const sourceParam = first(params.source);
-  const allOrders = await listOrders();
+  let allOrders;
+  try {
+    allOrders = await listOrders();
+  } catch (err) {
+    console.error("[admin] Failed to load orders:", err);
+    return <AdminLoadError error={err} />;
+  }
   const orders = filterOrders(allOrders, {
     q: first(params.q),
     stage: stageOrder.includes(stageParam as TrackingStage) ? (stageParam as TrackingStage) : undefined,

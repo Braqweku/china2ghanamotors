@@ -16,7 +16,7 @@ export function ReferenceLookupForm({ defaultValue }: { defaultValue?: string })
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
+    <form onSubmit={handleSubmit} className="flex max-w-md gap-2">
       <Input
         placeholder="e.g. C2G-8837XJ"
         value={value}
