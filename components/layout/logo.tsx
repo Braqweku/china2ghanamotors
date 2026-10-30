@@ -5,10 +5,10 @@ export function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2" aria-label="China2Ghana Motors home">
       <Image
-        src="/logo/china2ghana-logo.png"
+        src="/logo/china2ghana-logo-transparent.png"
         alt="China2Ghana Motors"
-        width={1027}
-        height={537}
+        width={1020}
+        height={530}
         className="h-10 w-auto"
         priority
       />

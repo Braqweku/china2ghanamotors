@@ -26,10 +26,10 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4">
           <div className="col-span-2 sm:col-span-1">
             <Image
-              src="/logo/china2ghana-logo.png"
+              src="/logo/china2ghana-logo-transparent.png"
               alt="China2Ghana Motors"
-              width={1027}
-              height={537}
+              width={1020}
+              height={530}
               className="h-8 w-auto"
             />
             <p className="mt-2 text-small text-muted-foreground">{siteConfig.tagline}</p>
