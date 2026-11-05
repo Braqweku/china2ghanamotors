@@ -1,24 +1,28 @@
-import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { buildWhatsAppLink, siteConfig } from "@/lib/config";
 
 const exploreLinks = [
-  { href: "/vehicles", label: "Vehicles" },
-  { href: "/ev", label: "Electric & Hybrid" },
-  { href: "/source", label: "Source a Vehicle" },
-  { href: "/track", label: "Track an Order" },
-];
+  { href: "/vehicles", key: "vehicles" },
+  { href: "/ev", key: "ev" },
+  { href: "/source", key: "source" },
+  { href: "/track", key: "track" },
+] as const;
 
 const companyLinks = [
-  { href: "/fleet", label: "Corporate & Fleet" },
-  { href: "/insights", label: "Insights" },
-  { href: "/faq", label: "FAQ" },
-];
+  { href: "/fleet", key: "fleet" },
+  { href: "/insights", key: "insights" },
+  { href: "/faq", key: "faq" },
+] as const;
 
-export function Footer() {
-  const whatsappHref = buildWhatsAppLink(
-    `Hi ${siteConfig.name}, I'd like to speak with a sourcing specialist.`
-  );
+const linkClass = "text-small text-muted-foreground transition-colors hover:text-foreground";
+
+export function Footer({ showLanguageSwitcher = true }: { showLanguageSwitcher?: boolean }) {
+  const t = useTranslations("footer");
+  const tCommon = useTranslations("common");
+  const whatsappHref = buildWhatsAppLink(tCommon("whatsappGreeting", { name: siteConfig.name }));
 
   return (
     <footer className="border-t border-border bg-muted/40">
@@ -32,21 +36,21 @@ export function Footer() {
               height={530}
               className="h-8 w-auto"
             />
-            <p className="mt-2 text-small text-muted-foreground">{siteConfig.tagline}</p>
+            <p className="mt-2 text-small text-muted-foreground">{tCommon("tagline")}</p>
+            {showLanguageSwitcher && (
+              <LanguageSwitcher id="language-footer" className="mt-4 w-40 bg-background" />
+            )}
           </div>
 
           <div>
             <p className="text-label font-semibold tracking-wide text-foreground uppercase">
-              Explore
+              {t("explore")}
             </p>
             <ul className="mt-3 space-y-2">
               {exploreLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-small text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {link.label}
+                  <Link href={link.href} className={linkClass}>
+                    {t(link.key)}
                   </Link>
                 </li>
               ))}
@@ -55,16 +59,13 @@ export function Footer() {
 
           <div>
             <p className="text-label font-semibold tracking-wide text-foreground uppercase">
-              Company
+              {t("company")}
             </p>
             <ul className="mt-3 space-y-2">
               {companyLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-small text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {link.label}
+                  <Link href={link.href} className={linkClass}>
+                    {t(link.key)}
                   </Link>
                 </li>
               ))}
@@ -73,33 +74,22 @@ export function Footer() {
 
           <div>
             <p className="text-label font-semibold tracking-wide text-foreground uppercase">
-              Contact
+              {t("contact")}
             </p>
             <ul className="mt-3 space-y-2">
               <li>
-                <a
-                  href={`mailto:${siteConfig.contactEmail}`}
-                  className="text-small text-muted-foreground transition-colors hover:text-foreground"
-                >
+                <a href={`mailto:${siteConfig.contactEmail}`} className={linkClass}>
                   {siteConfig.contactEmail}
                 </a>
               </li>
               <li>
-                <a
-                  href={`mailto:${siteConfig.infoEmail}`}
-                  className="text-small text-muted-foreground transition-colors hover:text-foreground"
-                >
+                <a href={`mailto:${siteConfig.infoEmail}`} className={linkClass}>
                   {siteConfig.infoEmail}
                 </a>
               </li>
               <li>
-                <a
-                  href={whatsappHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-small text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  WhatsApp
+                <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                  {t("whatsapp")}
                 </a>
               </li>
             </ul>
@@ -108,9 +98,9 @@ export function Footer() {
 
         <div className="mt-8 flex flex-col gap-1 border-t border-border pt-5 text-caption text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+            © {new Date().getFullYear()} {siteConfig.name}. {t("rights")}
           </p>
-          <p>{siteConfig.tagline}</p>
+          <p>{tCommon("tagline")}</p>
         </div>
       </div>
     </footer>

@@ -1,0 +1,418 @@
+{
+  "meta": {
+    "siteTitle": "China2Ghana Motors | 从中国进口车辆到加纳",
+    "siteDescription": "我们从中国可靠的供应商处寻车、验车、运输并办理清关，直接交付到加纳。轿车、SUV、皮卡和电动车，每个需求都有专属报价。"
+  },
+  "common": {
+    "tagline": "从中国到加纳，以信任为本。",
+    "whatsappGreeting": "您好 {name}，我想咨询寻车专员。",
+    "language": "语言",
+    "backHome": "返回首页",
+    "logoHome": "China2Ghana Motors 首页"
+  },
+  "nav": {
+    "vehicles": "车辆",
+    "ev": "新能源",
+    "fleet": "车队",
+    "source": "代寻车辆",
+    "track": "订单跟踪",
+    "insights": "购车指南",
+    "requestVehicle": "提交寻车需求",
+    "whatsappUs": "通过 WhatsApp 联系我们",
+    "openMenu": "打开菜单",
+    "menu": "菜单"
+  },
+  "footer": {
+    "explore": "浏览",
+    "company": "公司",
+    "contact": "联系方式",
+    "vehicles": "车辆",
+    "ev": "电动与混动",
+    "source": "代寻车辆",
+    "track": "跟踪订单",
+    "fleet": "企业与车队",
+    "insights": "购车指南",
+    "faq": "常见问题",
+    "whatsapp": "WhatsApp 联系",
+    "rights": "版权所有。"
+  },
+  "errors": {
+    "title": "出错了",
+    "body": "请重试；如果问题仍然存在，请联系我们。",
+    "retry": "重试",
+    "notFoundTitle": "页面不存在",
+    "notFoundBody": "您要找的页面不存在或已被移动。"
+  },
+  "home": {
+    "eyebrow": "从中国到加纳，以信任为本。",
+    "title": "您的下一辆车：在中国寻得，在加纳交付。",
+    "body": "我们从中国可靠的供应商处寻车、验车、运输并办理清关，让您购车的过程更清晰、更安全、更省心。",
+    "sourceCta": "为我寻车",
+    "exploreCta": "浏览车辆",
+    "statSuppliers": "认证供应商",
+    "statSourced": "已寻得车辆",
+    "statInspected": "发运前全部检测",
+    "slideAlt": "{name}，China2Ghana Motors 寻得的车辆之一",
+    "slideLabel": "显示第 {n} 张，共 {total} 张",
+    "brandsTitle": "现有库存品牌",
+    "dealsEyebrow": "热门推荐",
+    "dealsTitle": "现货热门车辆",
+    "dealsViewAll": "查看全部车辆",
+    "trust": {
+      "sourceTitle": "寻车",
+      "sourceCopy": "根据您的配置要求和预算，我们从中国的认证供应商中找到合适的车辆。",
+      "verifyTitle": "验车",
+      "verifyCopy": "每辆车在您确认购买前都会经过检测，并核实车况。",
+      "shipTitle": "运输",
+      "shipCopy": "我们统筹运输，并负责报关和清关，您无需独自处理繁琐流程。",
+      "deliverTitle": "交付",
+      "deliverCopy": "车辆交付到您在加纳的手中，全程提供进度更新和相关文件。"
+    },
+    "journeyTitle": "服务流程",
+    "journeyIntro": "从提交需求到交车，每辆车都经过以下流程。",
+    "journeySteps": [
+      "客户提交需求",
+      "寻找车源",
+      "提供价格和配置",
+      "检测与核验",
+      "客户确认并付款",
+      "运往加纳",
+      "清关与文件办理",
+      "交付车辆"
+    ],
+    "ctaTitle": "准备好开始了吗？",
+    "ctaBody": "告诉我们您的需求，或直接与寻车专员沟通。",
+    "ctaContact": "联系专员"
+  },
+  "labels": {
+    "bodyType": {
+      "sedan": "轿车",
+      "suv": "SUV",
+      "mpv": "MPV",
+      "pickup": "皮卡",
+      "van": "厢式车",
+      "hatchback": "两厢车",
+      "truck": "货车"
+    },
+    "fuel": {
+      "petrol": "汽油",
+      "hybrid": "混合动力",
+      "electric": "纯电动",
+      "diesel": "柴油"
+    },
+    "gearbox": {
+      "automatic": "自动挡",
+      "manual": "手动挡"
+    },
+    "spec": {
+      "trim": "车型版本",
+      "engine": "发动机",
+      "range": "续航里程",
+      "electricRange": "纯电续航",
+      "drivetrain": "驱动方式",
+      "seats": "座位数",
+      "colour": "车身颜色",
+      "firstRegistered": "首次上牌"
+    },
+    "colour": {
+      "Black": "黑色",
+      "Blue": "蓝色",
+      "Grey": "灰色",
+      "Orange": "橙色",
+      "Pink": "粉色",
+      "Red": "红色",
+      "Silver": "银色",
+      "White": "白色"
+    },
+    "engine": {
+      "pluginHybrid": "插电混动",
+      "hybrid": "混动",
+      "diesel": "柴油"
+    }
+  },
+  "vehicles": {
+    "metaTitle": "中国二手车，现车供应",
+    "metaDescription": "丰田、本田、比亚迪、吉利等二手车，在中国完成检测后运往加纳。可按品牌、车身类型、燃料和年份筛选，并获取完整报价。",
+    "title": "现有车辆",
+    "intro": "来自我们中国合作伙伴的二手车，购买前检测，运往加纳。选好车辆后，我们会发送包含运输和清关费用的完整报价。",
+    "count": "{count, plural, one {<b>#</b> 辆车} other {<b>#</b> 辆车}}",
+    "none": "没有符合筛选条件的车辆。",
+    "clear": "清除筛选",
+    "photos": "{count} 张照片",
+    "search": "搜索",
+    "searchPlaceholder": "品牌、车型或版本",
+    "brand": "品牌",
+    "allBrands": "全部品牌",
+    "bodyType": "车身类型",
+    "allBodyTypes": "全部车身类型",
+    "fuel": "燃料",
+    "allFuel": "全部燃料类型",
+    "gearbox": "变速箱",
+    "anyGearbox": "不限变速箱",
+    "year": "年份",
+    "minYear": "最早年份",
+    "maxYear": "最晚年份",
+    "from": "从",
+    "to": "至",
+    "filters": "筛选",
+    "showResults": "查看结果",
+    "sort": "排序",
+    "sortRecent": "最新上架",
+    "sortYear": "年份最新",
+    "sortMileage": "里程最低"
+  },
+  "vehicle": {
+    "metaTitle": "{name}：来自中国的二手{type}",
+    "metaDescription": "{name}{trim}：二手{type}，{fuel}，{gearbox}，{mileage}。在中国完成检测并运往加纳。",
+    "notFound": "未找到该车辆",
+    "home": "首页",
+    "breadcrumb": "车辆",
+    "specs": "配置参数",
+    "year": "年份",
+    "mileage": "里程",
+    "fuel": "燃料",
+    "gearbox": "变速箱",
+    "bodyType": "车身类型",
+    "request": "咨询此车",
+    "askWhatsapp": "通过 WhatsApp 咨询",
+    "whatsapp": "WhatsApp 咨询",
+    "whatsappMessage": "我对 China2Ghana Motors 发布的 {name}（{id}）感兴趣。",
+    "inspected": "购买前在中国完成检测",
+    "shipped": "运输并清关至加纳",
+    "quoteIncludes": "报价包含运输、检测和清关费用",
+    "similar": "相似车辆",
+    "galleryLabel": "{name} 照片",
+    "photoAlt": "{name}，第 {n} 张照片，共 {total} 张",
+    "previousPhoto": "上一张",
+    "nextPhoto": "下一张",
+    "showPhoto": "显示第 {n} 张照片"
+  },
+  "ev": {
+    "metaTitle": "来自中国的电动车和混动车",
+    "metaDescription": "中国现有的二手电动车和混动车：比亚迪、丰田、吉利等，检测后运往加纳。",
+    "title": "电动车和混动车",
+    "intro": "我们中国合作伙伴的二手电动车和混动车，购买前检测，运往加纳。",
+    "rangeTerm": "续航与电池",
+    "rangeDetail": "如有厂商公布的续航里程，每个车辆页面都会列出。实际续航通常更低，尤其是在加纳炎热天气下开空调时。",
+    "chargingTerm": "充电",
+    "chargingDetail": "电动车可以用普通家用插座整夜充电。混动车在行驶中自行充电，完全不需要外接充电。",
+    "pluginTerm": "插电混动",
+    "pluginDetail": "插电混动车可以纯电行驶较短距离，之后切换为汽油驱动，不用担心找不到充电桩。",
+    "importingTerm": "进口",
+    "importingDetail": "电动车和混动车与我们寻得的其他车辆一样，经过相同的检测、运输和清关流程。",
+    "electric": "纯电动",
+    "hybrid": "混合动力"
+  },
+  "source": {
+    "metaTitle": "为我寻车",
+    "metaDescription": "告诉我们您想要的车辆、预算和配置，我们从中国的认证供应商中寻找车源，并为您提供专属报价。",
+    "title": "代寻车辆",
+    "intro": "告诉我们您的需求。我们负责寻车、检测、运输，并交付到您在加纳的手中。",
+    "afterTitle": "提交之后",
+    "afterSteps": [
+      "立即获得跟踪编号",
+      "我们发送匹配车源及完整报价",
+      "您选定的车辆在购买前接受检测",
+      "我们负责运输、清关并交付给您"
+    ],
+    "knowTitle": "已经有心仪车型？",
+    "knowBody": "我们的合作伙伴在中国有可随时检测和发运的二手车。",
+    "browse": "浏览现有车辆",
+    "steps": ["车辆", "预算", "配置", "数量", "您的信息", "确认"],
+    "stepOf": "第 {n} 步，共 {total} 步：{name}",
+    "vehicleLabel": "您想找什么车？",
+    "vehiclePlaceholder": "例如：丰田卡罗拉锐放，或一款混动 SUV",
+    "minBudget": "最低预算（美元）",
+    "maxBudget": "最高预算（美元）",
+    "specsLabel": "配置要求（选填）",
+    "specsPlaceholder": "例如：自动挡、天窗、真皮座椅",
+    "quantityLabel": "需要几辆？",
+    "name": "姓名",
+    "phone": "电话号码",
+    "email": "电子邮箱（选填）",
+    "whatsapp": "WhatsApp 号码（选填）",
+    "location": "所在城市或国家（选填）",
+    "reviewVehicle": "车辆",
+    "reviewBudget": "预算",
+    "reviewSpecs": "配置",
+    "reviewQuantity": "数量",
+    "reviewDetails": "您的信息",
+    "edit": "修改",
+    "noneSpecified": "无",
+    "errVehicle": "请告诉我们您想找什么车。",
+    "errBudgetBoth": "请填写最低和最高预算。",
+    "errBudgetPositive": "预算必须是正数。",
+    "errBudgetOrder": "最低预算不能高于最高预算。",
+    "errQuantity": "数量至少为 1。",
+    "errName": "请填写姓名。",
+    "errPhone": "请填写电话号码。",
+    "errSubmit": "提交失败。请重试，或通过 WhatsApp 联系我们。",
+    "received": "需求已收到",
+    "receivedBody": "寻车专员会审核您的需求，并为您提供车源选择。请保存您的编号，以便随时查看进度。",
+    "trackRequest": "跟踪此需求",
+    "back": "上一步",
+    "next": "下一步",
+    "submit": "提交需求",
+    "submitting": "提交中…",
+    "autoReply": "感谢您向 China2Ghana Motors 提交寻车需求。您的编号是 {reference}，可随时在 {url} 查看进度。我们的团队会尽快与您联系。"
+  },
+  "fleet": {
+    "metaTitle": "车队与企业采购",
+    "metaDescription": "为网约车运营商、物流企业、经销商、企业和机构提供车辆采购：从中国寻车、检测、运输并交付到加纳。",
+    "title": "车队与企业采购",
+    "intro": "告诉我们您的车队需求。我们负责寻车、检测、运输和清关，并为您提供车源选择和报价。",
+    "whoTitle": "适用对象",
+    "audiences": [
+      "网约车运营商和司机",
+      "物流和运输企业",
+      "批量采购的汽车经销商",
+      "企业和机构"
+    ],
+    "includedTitle": "服务内容",
+    "included": [
+      "按您需要的数量，从多家供应商寻找车源",
+      "每辆车购买前均经过检测",
+      "统一安排运输、报关和清关",
+      "专人对接，每个订单一个跟踪编号"
+    ],
+    "nextTitle": "后续流程",
+    "nextSteps": [
+      "我们审核需求并确认细节",
+      "您收到车源选择和报价",
+      "每辆车在购买前接受检测",
+      "车辆运输、清关并交付"
+    ],
+    "companyName": "公司名称",
+    "contactName": "联系人",
+    "phone": "电话号码",
+    "email": "电子邮箱",
+    "fleetSize": "车队规模",
+    "vehicleTypes": "所需车型",
+    "vehicleTypesPlaceholder": "例如：网约车用轿车，物流用皮卡",
+    "notes": "备注（选填）",
+    "errCompany": "请填写公司名称。",
+    "errContact": "请填写联系人。",
+    "errPhone": "请填写电话号码。",
+    "errEmail": "请填写电子邮箱。",
+    "errEmailInvalid": "请输入有效的电子邮箱。",
+    "errFleetSize": "车队规模至少为 1。",
+    "errSubmit": "提交失败。请重试，或通过 WhatsApp 联系我们。",
+    "received": "询价已收到",
+    "receivedBody": "我们的车队团队会审核您的询价，并与您联系后续事宜。",
+    "trackEnquiry": "跟踪此询价",
+    "submit": "获取车队报价",
+    "submitting": "提交中…",
+    "autoReply": "感谢您向 China2Ghana Motors 提交车队报价请求。您的编号是 {reference}，可随时在 {url} 查看进度。我们的团队会尽快与您联系。"
+  },
+  "track": {
+    "metaTitle": "跟踪您的车辆",
+    "metaDescription": "输入跟踪编号，查看您的需求进度。",
+    "title": "跟踪您的车辆",
+    "intro": "输入跟踪编号，查看您的车辆处于哪个环节。",
+    "inputLabel": "跟踪编号",
+    "inputPlaceholder": "例如：C2G-8837XJ",
+    "submit": "查询",
+    "hint": "您的编号以 <ref>C2G-</ref> 开头。提交需求时会显示在页面上，如您填写了邮箱，也会发送到您的邮箱。",
+    "notFound": "未找到该编号，请核对后重试。",
+    "noUpdates": "该编号存在，但暂无进度记录。",
+    "reference": "编号：",
+    "howTitle": "跟踪流程说明",
+    "step": "第 {n} 步",
+    "phaseSourcing": "寻车",
+    "phaseInspection": "检测与购买",
+    "phaseShipping": "运输",
+    "phaseClearing": "清关与交付"
+  },
+  "stages": {
+    "received": "已收到需求",
+    "sourcing": "正在寻车",
+    "selected": "已选定车辆",
+    "verification": "核验",
+    "inspection": "检测",
+    "purchased": "购买",
+    "ready_to_ship": "待发运",
+    "in_transit": "运输中",
+    "arrived_ghana": "已抵达加纳",
+    "clearing": "清关中",
+    "ready_for_delivery": "待交付",
+    "delivered": "已交付"
+  },
+  "faq": {
+    "metaTitle": "常见问题",
+    "metaDescription": "关于通过 China2Ghana Motors 从中国寻车、运输、跟踪和进口车辆到加纳的常见问题解答。",
+    "title": "常见问题",
+    "intro": "关于从中国寻车、运输、跟踪和进口车辆到加纳的常见问题。",
+    "items": {
+      "howItWorks": {
+        "q": "寻车服务是怎样进行的？",
+        "a": "您告诉我们需求：车辆类型、预算和必备配置。我们从中国的认证供应商中寻找匹配车源，车辆在购买前经过检测和核验，之后我们安排运输和清关，送达加纳。",
+        "link": "提交寻车需求"
+      },
+      "shippingTime": {
+        "q": "运输需要多长时间？",
+        "a": "这取决于具体车辆、运输方式（滚装船或集装箱）和航线，因此我们不提供统一的固定时间。选定车辆后，我们会根据您的需求给出预计时间。",
+        "link": "滚装船与集装箱运输详解"
+      },
+      "price": {
+        "q": "确定之前能先知道价格吗？",
+        "a": "价格取决于车辆配置、运输费用和当前汇率，因此网站上不标注固定价格。请通过“为我寻车”、WhatsApp 或电子邮件联系我们，我们会根据您的需求发送完整报价。"
+      },
+      "tracking": {
+        "q": "提交需求后可以跟踪订单吗？",
+        "a": "可以。每个车队或寻车需求都有一个跟踪编号，提交时显示在页面上，如您提供了邮箱也会发送给您。在跟踪页面输入编号即可查看当前进度。",
+        "link": "跟踪订单"
+      },
+      "ev": {
+        "q": "你们提供电动车和混动车吗？",
+        "a": "提供。我们现有二手纯电动车、混动车和插电混动车，车辆页面会尽可能列出续航和电池信息。",
+        "link": "电动车和混动车"
+      },
+      "documents": {
+        "q": "进口车辆需要哪些文件？",
+        "a": "具体要求取决于您的车辆和个人情况。作为进口流程的一部分，我们会代您办理文件和清关。",
+        "link": "在加纳海关办理车辆清关"
+      },
+      "inspection": {
+        "q": "每辆车发运前都会检测吗？",
+        "a": "会。所有车辆在最终购买前都会经过检测和核验，确认实际车况和配置与描述一致。"
+      },
+      "fleet": {
+        "q": "你们也为企业和车队服务吗？",
+        "a": "是的。我们服务网约车运营商、物流企业、经销商、企业和机构。",
+        "link": "企业与车队采购"
+      },
+      "condition": {
+        "q": "车辆是新车还是二手车？",
+        "a": "目前展示的都是我们中国合作伙伴的二手车，每辆车在购买前都会检测。如果您需要新车，请在寻车需求中注明，我们会为您寻找。在车辆页面可按品牌、车身类型、燃料和年份筛选。",
+        "link": "浏览车辆"
+      },
+      "contact": {
+        "q": "如何联系寻车专员？",
+        "a": "通过“为我寻车”表单、WhatsApp，或发送邮件至 {email}。"
+      }
+    }
+  },
+  "insights": {
+    "metaTitle": "购车指南：选购、进口与运输",
+    "metaDescription": "选购指南、进口与运输步骤、加纳清关说明，以及中国汽车市场概况。",
+    "title": "购车指南",
+    "intro": "选购指南、进口与运输基础知识，以及中国汽车市场概况。",
+    "minRead": "阅读约 {count} 分钟",
+    "notFound": "未找到该文章",
+    "ctaTitle": "准备好找车了吗？",
+    "ctaBody": "浏览现有二手车，或告诉我们您的需求，我们为您寻找。",
+    "browse": "浏览车辆",
+    "source": "代寻车辆",
+    "more": "更多指南",
+    "all": "全部文章",
+    "categories": {
+      "buying-guides": "选购指南",
+      "import-guides": "进口指南",
+      "ev": "电动车",
+      "shipping": "运输",
+      "customs": "海关",
+      "vehicle-reviews": "车型选择",
+      "china-automotive-market": "中国汽车市场"
+    }
+  }
+}

@@ -1,0 +1,418 @@
+{
+  "meta": {
+    "siteTitle": "China2Ghana Motors | Import Vehicles from China to Ghana",
+    "siteDescription": "Source, verify, ship and clear vehicles from trusted suppliers in China — delivered to Ghana. Sedans, SUVs, pickups and EVs, with a personalized quote for every request."
+  },
+  "common": {
+    "tagline": "China to Ghana. Driven by Trust.",
+    "whatsappGreeting": "Hi {name}, I'd like to speak with a sourcing specialist.",
+    "language": "Language",
+    "backHome": "Back to homepage",
+    "logoHome": "China2Ghana Motors home"
+  },
+  "nav": {
+    "vehicles": "Vehicles",
+    "ev": "EV",
+    "fleet": "Fleet",
+    "source": "Source a Vehicle",
+    "track": "Track",
+    "insights": "Insights",
+    "requestVehicle": "Request a vehicle",
+    "whatsappUs": "WhatsApp us",
+    "openMenu": "Open menu",
+    "menu": "Menu"
+  },
+  "footer": {
+    "explore": "Explore",
+    "company": "Company",
+    "contact": "Contact",
+    "vehicles": "Vehicles",
+    "ev": "Electric & Hybrid",
+    "source": "Source a Vehicle",
+    "track": "Track an Order",
+    "fleet": "Corporate & Fleet",
+    "insights": "Insights",
+    "faq": "FAQ",
+    "whatsapp": "WhatsApp",
+    "rights": "All rights reserved."
+  },
+  "errors": {
+    "title": "Something went wrong",
+    "body": "Please try again, or contact us if the problem continues.",
+    "retry": "Try again",
+    "notFoundTitle": "Page not found",
+    "notFoundBody": "The page you're looking for doesn't exist or may have moved."
+  },
+  "home": {
+    "eyebrow": "China to Ghana. Driven by trust.",
+    "title": "Your next vehicle, sourced from China, delivered in Ghana.",
+    "body": "We source, verify, ship and clear vehicles from trusted suppliers in China — giving you a clearer, safer and more convenient route to your next vehicle.",
+    "sourceCta": "Source My Vehicle",
+    "exploreCta": "Explore Vehicles",
+    "statSuppliers": "Verified suppliers",
+    "statSourced": "Vehicles sourced",
+    "statInspected": "Inspected before shipping",
+    "slideAlt": "{name}, one of the vehicles sourced by China2Ghana Motors",
+    "slideLabel": "Show slide {n} of {total}",
+    "brandsTitle": "Brands in our current stock",
+    "dealsEyebrow": "Hot deals",
+    "dealsTitle": "Popular vehicles available now",
+    "dealsViewAll": "View all vehicles",
+    "trust": {
+      "sourceTitle": "Source",
+      "sourceCopy": "We identify the right vehicle from verified suppliers in China, based on your specifications and budget.",
+      "verifyTitle": "Verify",
+      "verifyCopy": "Every vehicle is inspected and its condition confirmed before you approve the purchase.",
+      "shipTitle": "Ship",
+      "shipCopy": "We coordinate shipping and handle customs and clearing, so the process is never on you alone.",
+      "deliverTitle": "Deliver",
+      "deliverCopy": "Your vehicle is delivered to you in Ghana, with updates and documentation the whole way."
+    },
+    "journeyTitle": "How it works",
+    "journeyIntro": "From request to delivery, here's the path every vehicle takes.",
+    "journeySteps": [
+      "Customer Request",
+      "Vehicle Options Sourced",
+      "Price & Specifications Shared",
+      "Inspection / Verification",
+      "Customer Approval & Payment",
+      "Shipping to Ghana",
+      "Clearing & Documentation",
+      "Vehicle Delivery"
+    ],
+    "ctaTitle": "Ready to start?",
+    "ctaBody": "Tell us what you need, or talk to a sourcing specialist directly.",
+    "ctaContact": "Contact Specialist"
+  },
+  "labels": {
+    "bodyType": {
+      "sedan": "Sedan",
+      "suv": "SUV",
+      "mpv": "MPV",
+      "pickup": "Pickup",
+      "van": "Van",
+      "hatchback": "Hatchback",
+      "truck": "Truck"
+    },
+    "fuel": {
+      "petrol": "Petrol",
+      "hybrid": "Hybrid",
+      "electric": "Electric",
+      "diesel": "Diesel"
+    },
+    "gearbox": {
+      "automatic": "Automatic",
+      "manual": "Manual"
+    },
+    "spec": {
+      "trim": "Trim",
+      "engine": "Engine",
+      "range": "Range",
+      "electricRange": "Electric range",
+      "drivetrain": "Drivetrain",
+      "seats": "Seats",
+      "colour": "Colour",
+      "firstRegistered": "First registered"
+    },
+    "colour": {
+      "Black": "Black",
+      "Blue": "Blue",
+      "Grey": "Grey",
+      "Orange": "Orange",
+      "Pink": "Pink",
+      "Red": "Red",
+      "Silver": "Silver",
+      "White": "White"
+    },
+    "engine": {
+      "pluginHybrid": "Plug-in Hybrid",
+      "hybrid": "Hybrid",
+      "diesel": "Diesel"
+    }
+  },
+  "vehicles": {
+    "metaTitle": "Used Vehicles from China — Available Now",
+    "metaDescription": "Browse used Toyota, Honda, BYD, Geely and more, inspected in China and shipped to Ghana. Filter by brand, body type, fuel and year, then request a full quote.",
+    "title": "Vehicles available now",
+    "intro": "Used vehicles from our partner in China, inspected before purchase and shipped to Ghana. Choose a vehicle and we'll send a full quote including shipping and clearing.",
+    "count": "{count, plural, one {<b>#</b> vehicle} other {<b>#</b> vehicles}}",
+    "none": "No vehicles match your filters.",
+    "clear": "Clear filters",
+    "photos": "{count} photos",
+    "search": "Search",
+    "searchPlaceholder": "Make, model or trim",
+    "brand": "Brand",
+    "allBrands": "All brands",
+    "bodyType": "Body type",
+    "allBodyTypes": "All body types",
+    "fuel": "Fuel",
+    "allFuel": "All fuel types",
+    "gearbox": "Gearbox",
+    "anyGearbox": "Any gearbox",
+    "year": "Year",
+    "minYear": "Minimum year",
+    "maxYear": "Maximum year",
+    "from": "From",
+    "to": "To",
+    "filters": "Filters",
+    "showResults": "Show results",
+    "sort": "Sort",
+    "sortRecent": "Recently added",
+    "sortYear": "Newest year",
+    "sortMileage": "Lowest mileage"
+  },
+  "vehicle": {
+    "metaTitle": "{name} — Used {type} from China",
+    "metaDescription": "{name}{trim}: used {type}, {fuel}, {gearbox}, {mileage}. Inspected in China and shipped to Ghana.",
+    "notFound": "Vehicle not found",
+    "home": "Home",
+    "breadcrumb": "Vehicles",
+    "specs": "Specifications",
+    "year": "Year",
+    "mileage": "Mileage",
+    "fuel": "Fuel",
+    "gearbox": "Gearbox",
+    "bodyType": "Body type",
+    "request": "Request this vehicle",
+    "askWhatsapp": "Ask on WhatsApp",
+    "whatsapp": "WhatsApp",
+    "whatsappMessage": "I'm interested in the {name} ({id}) listed by China2Ghana Motors.",
+    "inspected": "Inspected in China before purchase",
+    "shipped": "Shipped and cleared to Ghana",
+    "quoteIncludes": "Your quote includes shipping, inspection and clearing",
+    "similar": "Similar vehicles",
+    "galleryLabel": "{name} photos",
+    "photoAlt": "{name}, photo {n} of {total}",
+    "previousPhoto": "Previous photo",
+    "nextPhoto": "Next photo",
+    "showPhoto": "Show photo {n}"
+  },
+  "ev": {
+    "metaTitle": "Electric & Hybrid Vehicles from China",
+    "metaDescription": "Used electric and hybrid vehicles available now from China — BYD, Toyota, Geely and more, inspected and shipped to Ghana.",
+    "title": "Electric and hybrid vehicles",
+    "intro": "Used electric and hybrid vehicles available now from our partner in China, inspected before purchase and shipped to Ghana.",
+    "rangeTerm": "Range and battery",
+    "rangeDetail": "Each listing shows the manufacturer's range where we have it. Real-world range is usually lower, especially with air conditioning in Ghana's heat.",
+    "chargingTerm": "Charging",
+    "chargingDetail": "Electric vehicles charge from a standard home socket overnight. Hybrids charge themselves while driving and need no charging at all.",
+    "pluginTerm": "Plug-in hybrids",
+    "pluginDetail": "Plug-in hybrids drive short distances on electric power, then switch to petrol, so you are never stuck without a charger.",
+    "importingTerm": "Importing",
+    "importingDetail": "Electric and hybrid vehicles go through the same inspection, shipping and clearing as any other vehicle we source.",
+    "electric": "Electric",
+    "hybrid": "Hybrid"
+  },
+  "source": {
+    "metaTitle": "Source My Vehicle",
+    "metaDescription": "Tell us the vehicle you want, your budget and specifications — we'll source options from verified suppliers in China and send you a personalized quote.",
+    "title": "Source a vehicle",
+    "intro": "Tell us what you need. We find it, inspect it, ship it and deliver it to you in Ghana.",
+    "afterTitle": "What happens after you submit",
+    "afterSteps": [
+      "You get a tracking reference straight away",
+      "We send matching options with a full quote",
+      "The vehicle you choose is inspected before purchase",
+      "We ship, clear and deliver it to you"
+    ],
+    "knowTitle": "Already know what you want?",
+    "knowBody": "Our partner has used vehicles in China ready to inspect and ship.",
+    "browse": "Browse vehicles available now",
+    "steps": ["Vehicle", "Budget", "Specifications", "Quantity", "Your Details", "Review"],
+    "stepOf": "Step {n} of {total}: {name}",
+    "vehicleLabel": "What vehicle are you looking for?",
+    "vehiclePlaceholder": "e.g. Toyota Corolla Cross or a hybrid SUV",
+    "minBudget": "Minimum budget (USD)",
+    "maxBudget": "Maximum budget (USD)",
+    "specsLabel": "Specifications (optional)",
+    "specsPlaceholder": "e.g. Automatic transmission, sunroof, leather seats",
+    "quantityLabel": "How many vehicles?",
+    "name": "Full name",
+    "phone": "Phone number",
+    "email": "Email (optional)",
+    "whatsapp": "WhatsApp number (optional)",
+    "location": "Location (optional)",
+    "reviewVehicle": "Vehicle",
+    "reviewBudget": "Budget",
+    "reviewSpecs": "Specifications",
+    "reviewQuantity": "Quantity",
+    "reviewDetails": "Your details",
+    "edit": "Edit",
+    "noneSpecified": "None specified",
+    "errVehicle": "Tell us what vehicle you're looking for.",
+    "errBudgetBoth": "Enter both a minimum and maximum budget.",
+    "errBudgetPositive": "Budget must be a positive number.",
+    "errBudgetOrder": "Minimum budget can't be higher than maximum.",
+    "errQuantity": "Quantity must be at least 1.",
+    "errName": "Your name is required.",
+    "errPhone": "A phone number is required.",
+    "errSubmit": "Something went wrong submitting your request. Please try again or reach us on WhatsApp.",
+    "received": "Request received",
+    "receivedBody": "A sourcing specialist will review your request and follow up with options. Save your reference to track progress at any time.",
+    "trackRequest": "Track this request",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit request",
+    "submitting": "Submitting…",
+    "autoReply": "Thanks for your vehicle sourcing request with China2Ghana Motors. Your reference number is {reference} — track its status anytime at {url}. Our team will be in touch shortly."
+  },
+  "fleet": {
+    "metaTitle": "Fleet & Corporate Sourcing",
+    "metaDescription": "Vehicle sourcing for ride-hailing operators, logistics businesses, dealers, corporate organisations and institutions — sourced, verified, shipped and delivered from China to Ghana.",
+    "title": "Fleet and corporate sourcing",
+    "intro": "Tell us what your fleet needs. We source, inspect, ship and clear the vehicles, and follow up with options and a quote.",
+    "whoTitle": "Who this is for",
+    "audiences": [
+      "Ride-hailing operators and drivers",
+      "Logistics and transport businesses",
+      "Car dealers sourcing in bulk",
+      "Corporate organisations and institutions"
+    ],
+    "includedTitle": "What's included",
+    "included": [
+      "Sourcing across multiple suppliers for the volume you need",
+      "Inspection of every unit before purchase",
+      "Consolidated shipping, customs and clearing",
+      "One point of contact and a tracking reference per order"
+    ],
+    "nextTitle": "What happens next",
+    "nextSteps": [
+      "We review your request and confirm requirements",
+      "You receive vehicle options and a quote",
+      "Each vehicle is inspected before purchase",
+      "Vehicles are shipped, cleared and delivered"
+    ],
+    "companyName": "Company name",
+    "contactName": "Contact name",
+    "phone": "Phone number",
+    "email": "Email",
+    "fleetSize": "Fleet size",
+    "vehicleTypes": "Vehicle types needed",
+    "vehicleTypesPlaceholder": "e.g. Sedans for ride-hailing, pickups for logistics",
+    "notes": "Notes (optional)",
+    "errCompany": "Company name is required.",
+    "errContact": "Contact name is required.",
+    "errPhone": "A phone number is required.",
+    "errEmail": "An email address is required.",
+    "errEmailInvalid": "Enter a valid email address.",
+    "errFleetSize": "Fleet size must be at least 1.",
+    "errSubmit": "Something went wrong submitting your enquiry. Please try again or reach us on WhatsApp.",
+    "received": "Enquiry received",
+    "receivedBody": "A member of our fleet team will review your enquiry and follow up with next steps.",
+    "trackEnquiry": "Track this enquiry",
+    "submit": "Request Fleet Quote",
+    "submitting": "Submitting…",
+    "autoReply": "Thanks for your fleet quote request with China2Ghana Motors. Your reference number is {reference} — track its status anytime at {url}. Our team will be in touch shortly."
+  },
+  "track": {
+    "metaTitle": "Track Your Vehicle",
+    "metaDescription": "Enter your tracking reference to see the status of your request.",
+    "title": "Track your vehicle",
+    "intro": "Enter your tracking reference to see where your vehicle is in the process.",
+    "inputLabel": "Tracking reference",
+    "inputPlaceholder": "e.g. C2G-8837XJ",
+    "submit": "Track",
+    "hint": "Your reference starts with <ref>C2G-</ref>. It is shown when you submit a request and sent to your email if you gave one.",
+    "notFound": "We couldn't find that reference. Check it and try again.",
+    "noUpdates": "This reference exists but has no updates recorded yet.",
+    "reference": "Reference:",
+    "howTitle": "How tracking works",
+    "step": "Step {n}",
+    "phaseSourcing": "Sourcing",
+    "phaseInspection": "Inspection and purchase",
+    "phaseShipping": "Shipping",
+    "phaseClearing": "Clearing and delivery"
+  },
+  "stages": {
+    "received": "Request received",
+    "sourcing": "Vehicle sourcing",
+    "selected": "Vehicle selected",
+    "verification": "Verification",
+    "inspection": "Inspection",
+    "purchased": "Purchase",
+    "ready_to_ship": "Ready for shipping",
+    "in_transit": "In transit",
+    "arrived_ghana": "Arrived in Ghana",
+    "clearing": "Clearing",
+    "ready_for_delivery": "Ready for delivery",
+    "delivered": "Delivered"
+  },
+  "faq": {
+    "metaTitle": "Frequently Asked Questions",
+    "metaDescription": "Answers to common questions about sourcing, shipping, tracking and importing a vehicle from China to Ghana with China2Ghana Motors.",
+    "title": "Frequently asked questions",
+    "intro": "Common questions about sourcing, shipping, tracking and importing a vehicle from China to Ghana.",
+    "items": {
+      "howItWorks": {
+        "q": "How does vehicle sourcing work?",
+        "a": "You tell us what you're looking for — vehicle type, budget and any must-have specifications. We identify matching options from verified suppliers in China, the vehicle is inspected and verified before purchase, and we then arrange shipping and customs clearing to Ghana.",
+        "link": "Start a sourcing request"
+      },
+      "shippingTime": {
+        "q": "How long does shipping take?",
+        "a": "It depends on the specific vehicle, the shipping method (RoRo or container) and the route, so we don't quote a single fixed timeline. Once a vehicle is selected, we give you an estimate specific to your request.",
+        "link": "RoRo vs container shipping, explained"
+      },
+      "price": {
+        "q": "Can I get a price before I commit to anything?",
+        "a": "Pricing depends on the vehicle's specification, shipping and current exchange rates, so we don't list fixed prices on the site. Reach out via Source My Vehicle, WhatsApp or email and we'll follow up with a full quote for your specific request."
+      },
+      "tracking": {
+        "q": "Can I track my order after I submit a request?",
+        "a": "Yes. Every fleet or sourcing request gets a tracking reference, shown on screen when you submit and emailed to you if you provide an address. Enter it on the Track page to see its current status.",
+        "link": "Track an order"
+      },
+      "ev": {
+        "q": "Do you source electric and hybrid vehicles?",
+        "a": "Yes. We have used electric, hybrid and plug-in hybrid vehicles available now, with range and battery details on each listing where available.",
+        "link": "Electric & Hybrid vehicles"
+      },
+      "documents": {
+        "q": "What documents do I need to import a vehicle?",
+        "a": "Requirements depend on your specific vehicle and situation. We handle documentation and customs clearing on your behalf as part of the import process.",
+        "link": "Clearing a vehicle through Ghanaian customs"
+      },
+      "inspection": {
+        "q": "Is every vehicle inspected before it ships?",
+        "a": "Yes. Vehicles go through inspection and verification before any purchase is finalized, confirming the vehicle's actual condition and specifications match what was represented."
+      },
+      "fleet": {
+        "q": "Do you source vehicles for businesses and fleets, not just individuals?",
+        "a": "Yes. We work with ride-hailing operators, logistics businesses, dealers, corporate organisations and institutions.",
+        "link": "Fleet & Corporate Sourcing"
+      },
+      "condition": {
+        "q": "Are the vehicles new or used?",
+        "a": "The vehicles listed now are used, from our partner in China, and each one is inspected before purchase. If you want a new vehicle, tell us in a sourcing request and we will find options for you. On the Vehicles page you can filter by brand, body type, fuel and year.",
+        "link": "Browse vehicles"
+      },
+      "contact": {
+        "q": "How do I get in touch with a sourcing specialist?",
+        "a": "Through the Source My Vehicle form, WhatsApp, or by email at {email}."
+      }
+    }
+  },
+  "insights": {
+    "metaTitle": "Insights — Buying, Import & Shipping Guides",
+    "metaDescription": "Buying guides, step-by-step import and shipping basics, customs clearing in Ghana, and background on China's automotive market.",
+    "title": "Insights",
+    "intro": "Buying guides, import and shipping basics, and background on China's car market.",
+    "minRead": "{count} min read",
+    "notFound": "Article not found",
+    "ctaTitle": "Ready to find your vehicle?",
+    "ctaBody": "Browse used vehicles available now, or tell us what you need and we will source it.",
+    "browse": "Browse vehicles",
+    "source": "Source a vehicle",
+    "more": "More insights",
+    "all": "All articles",
+    "categories": {
+      "buying-guides": "Buying guides",
+      "import-guides": "Import guides",
+      "ev": "Electric vehicles",
+      "shipping": "Shipping",
+      "customs": "Customs",
+      "vehicle-reviews": "Vehicle reviews",
+      "china-automotive-market": "China's car market"
+    }
+  }
+}

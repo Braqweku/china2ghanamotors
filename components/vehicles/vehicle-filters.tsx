@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,6 +16,8 @@ const vehicleTypes = Object.keys(vehicleTypeLabels) as VehicleType[];
 const fuelTypes = Object.keys(fuelTypeLabels) as FuelType[];
 const transmissions = Object.keys(transmissionLabels) as Transmission[];
 
+// usePathname from next/navigation includes the language prefix, so filter
+// and sort URLs stay in the visitor's language.
 function useUpdateParam() {
   const router = useRouter();
   const pathname = usePathname();
@@ -69,17 +72,19 @@ function FilterSelect({
 
 function FilterFields({ makes, idPrefix }: { makes: string[]; idPrefix: string }) {
   const { updateParam, searchParams, pathname } = useUpdateParam();
+  const t = useTranslations("vehicles");
+  const tLabels = useTranslations("labels");
 
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-1.5">
         <Label htmlFor={`${idPrefix}-query`} className="text-small text-muted-foreground">
-          Search
+          {t("search")}
         </Label>
         <Input
           id={`${idPrefix}-query`}
           type="search"
-          placeholder="Make, model or trim"
+          placeholder={t("searchPlaceholder")}
           defaultValue={searchParams.get("query") ?? ""}
           onKeyDown={(e) => {
             if (e.key === "Enter") updateParam("query", e.currentTarget.value);
@@ -89,85 +94,84 @@ function FilterFields({ makes, idPrefix }: { makes: string[]; idPrefix: string }
       </div>
       <FilterSelect
         id={`${idPrefix}-make`}
-        label="Brand"
+        label={t("brand")}
         param="make"
-        allLabel="All brands"
+        allLabel={t("allBrands")}
         options={makes.map((m) => ({ value: m, label: m }))}
       />
       <FilterSelect
         id={`${idPrefix}-type`}
-        label="Body type"
+        label={t("bodyType")}
         param="vehicleType"
-        allLabel="All body types"
-        options={vehicleTypes.map((t) => ({ value: t, label: vehicleTypeLabels[t] }))}
+        allLabel={t("allBodyTypes")}
+        options={vehicleTypes.map((v) => ({ value: v, label: tLabels(`bodyType.${v}`) }))}
       />
       <FilterSelect
         id={`${idPrefix}-fuel`}
-        label="Fuel"
+        label={t("fuel")}
         param="fuelType"
-        allLabel="All fuel types"
-        options={fuelTypes.map((t) => ({ value: t, label: fuelTypeLabels[t] }))}
+        allLabel={t("allFuel")}
+        options={fuelTypes.map((v) => ({ value: v, label: tLabels(`fuel.${v}`) }))}
       />
       <FilterSelect
         id={`${idPrefix}-gearbox`}
-        label="Gearbox"
+        label={t("gearbox")}
         param="transmission"
-        allLabel="Any gearbox"
-        options={transmissions.map((t) => ({ value: t, label: transmissionLabels[t] }))}
+        allLabel={t("anyGearbox")}
+        options={transmissions.map((v) => ({ value: v, label: tLabels(`gearbox.${v}`) }))}
       />
       <fieldset className="flex flex-col gap-1.5">
-        <legend className="mb-1.5 text-small text-muted-foreground">Year</legend>
+        <legend className="mb-1.5 text-small text-muted-foreground">{t("year")}</legend>
         <div className="grid grid-cols-2 gap-2">
           <Input
             type="number"
             inputMode="numeric"
-            aria-label="Minimum year"
-            placeholder="From"
+            aria-label={t("minYear")}
+            placeholder={t("from")}
             defaultValue={searchParams.get("minYear") ?? ""}
             onBlur={(e) => updateParam("minYear", e.target.value)}
           />
           <Input
             type="number"
             inputMode="numeric"
-            aria-label="Maximum year"
-            placeholder="To"
+            aria-label={t("maxYear")}
+            placeholder={t("to")}
             defaultValue={searchParams.get("maxYear") ?? ""}
             onBlur={(e) => updateParam("maxYear", e.target.value)}
           />
         </div>
       </fieldset>
       <Button variant="outline" asChild>
-        <Link href={pathname}>Clear filters</Link>
+        <Link href={pathname}>{t("clear")}</Link>
       </Button>
     </div>
   );
 }
 
-const sortLabels: Record<string, string> = {
-  recent: "Recently added",
-  "year-desc": "Newest year",
-  "mileage-asc": "Lowest mileage",
-};
+const sortKeys = { recent: "sortRecent", "year-desc": "sortYear", "mileage-asc": "sortMileage" } as const;
+type SortValue = keyof typeof sortKeys;
 
 export function VehicleSortSelect() {
   const { updateParam, searchParams } = useUpdateParam();
-  const current = searchParams.get("sort") ?? "recent";
+  const t = useTranslations("vehicles");
+  const param = searchParams.get("sort");
+  const current: SortValue = param && param in sortKeys ? (param as SortValue) : "recent";
+
   return (
     <div className="flex items-center gap-2">
       <Label htmlFor="vehicle-sort" className="text-small text-muted-foreground">
-        Sort
+        {t("sort")}
       </Label>
-      <Select
-        value={current}
-        onValueChange={(v) => updateParam("sort", v === "recent" ? "" : v)}
-      >
-        <SelectTrigger id="vehicle-sort" className="w-44">
-          <SelectValue>{sortLabels[current] ?? sortLabels.recent}</SelectValue>
+      <Select value={current} onValueChange={(v) => updateParam("sort", v === "recent" ? "" : v)}>
+        <SelectTrigger id="vehicle-sort" className="w-auto min-w-44">
+          <SelectValue>{t(sortKeys[current])}</SelectValue>
         </SelectTrigger>
         <SelectContent align="end">
-          <SelectItem value="recent">Recently added</SelectItem>
-          <SelectItem value="year-desc">Newest year</SelectItem>
-          <SelectItem value="mileage-asc">Lowest mileage</SelectItem>
+          {(Object.keys(sortKeys) as SortValue[]).map((value) => (
+            <SelectItem key={value} value={value}>
+              {t(sortKeys[value])}
+            </SelectItem>
+          ))}
         </SelectContent>
       </Select>
     </div>
@@ -175,6 +179,8 @@ export function VehicleSortSelect() {
 }
 
 export function VehicleFilters({ makes }: { makes: string[] }) {
+  const t = useTranslations("vehicles");
+
   return (
     <>
       <div className="hidden lg:block">
@@ -185,12 +191,12 @@ export function VehicleFilters({ makes }: { makes: string[] }) {
           <SheetTrigger asChild>
             <Button variant="outline" className="w-full">
               <SlidersHorizontal className="mr-2 h-4 w-4" aria-hidden="true" />
-              Filters
+              {t("filters")}
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="flex w-full flex-col gap-0 p-0 sm:max-w-sm">
             <div className="flex h-16 shrink-0 items-center border-b border-border px-6">
-              <SheetTitle>Filters</SheetTitle>
+              <SheetTitle>{t("filters")}</SheetTitle>
             </div>
             <div className="flex-1 overflow-y-auto p-6">
               <FilterFields makes={makes} idPrefix="mobile" />
@@ -198,7 +204,7 @@ export function VehicleFilters({ makes }: { makes: string[] }) {
             <div className="shrink-0 border-t border-border p-4">
               <SheetClose asChild>
                 <Button className="w-full" size="lg">
-                  Show results
+                  {t("showResults")}
                 </Button>
               </SheetClose>
             </div>

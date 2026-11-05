@@ -7,12 +7,19 @@ export type ArticleCategory =
   | "vehicle-reviews"
   | "china-automotive-market";
 
-export type Article = {
+/** Facts shared by every language version of an article. */
+export type ArticleMeta = {
   slug: string;
-  title: string;
-  excerpt: string;
   category: ArticleCategory;
   publishedAt: string;
   readMinutes: number;
+};
+
+/** The readable part of an article, one per language. */
+export type ArticleText = {
+  title: string;
+  excerpt: string;
   content: string[];
 };
+
+export type Article = ArticleMeta & ArticleText;

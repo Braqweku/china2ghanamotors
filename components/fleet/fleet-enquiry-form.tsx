@@ -1,13 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { submitFleetEnquiry } from "@/lib/data/fleet";
 import { createOrderAction } from "@/lib/actions/orders";
+import { siteConfig } from "@/lib/config";
+import { localizedPath } from "@/lib/i18n/alternates";
+import { localeNames, type Locale } from "@/lib/i18n/locales";
 import type { FleetEnquiry } from "@/types";
 
 type FormState = {
@@ -30,20 +34,21 @@ const initialState: FormState = {
   notes: "",
 };
 
+/** Returns the message key of the first problem, or null. */
 function validate(form: FormState): string | null {
-  if (!form.companyName.trim()) return "Company name is required.";
-  if (!form.contactName.trim()) return "Contact name is required.";
-  if (!form.phone.trim()) return "A phone number is required.";
-  if (!form.email.trim()) return "An email address is required.";
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
-    return "Enter a valid email address.";
-  }
+  if (!form.companyName.trim()) return "errCompany";
+  if (!form.contactName.trim()) return "errContact";
+  if (!form.phone.trim()) return "errPhone";
+  if (!form.email.trim()) return "errEmail";
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) return "errEmailInvalid";
   const size = Number(form.fleetSize);
-  if (!Number.isInteger(size) || size < 1) return "Fleet size must be at least 1.";
+  if (!Number.isInteger(size) || size < 1) return "errFleetSize";
   return null;
 }
 
 export function FleetEnquiryForm() {
+  const t = useTranslations("fleet");
+  const locale = useLocale() as Locale;
   const [form, setForm] = useState<FormState>(initialState);
   const [error, setError] = useState<string | null>(null);
   const [reference, setReference] = useState<string | null>(null);
@@ -55,9 +60,9 @@ export function FleetEnquiryForm() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const validationError = validate(form);
-    if (validationError) {
-      setError(validationError);
+    const errorKey = validate(form);
+    if (errorKey) {
+      setError(t(errorKey));
       return;
     }
     setError(null);
@@ -74,7 +79,14 @@ export function FleetEnquiryForm() {
       status: "submitted",
     };
     try {
-      const result = await submitFleetEnquiry(enquiry);
+      const result = await submitFleetEnquiry(enquiry, {
+        language: localeNames[locale],
+        autoReply: (ref) =>
+          t("autoReply", {
+            reference: ref,
+            url: `${siteConfig.url}${localizedPath("/track", locale)}?ref=${ref}`,
+          }),
+      });
       setReference(result.reference);
 
       try {
@@ -90,9 +102,7 @@ export function FleetEnquiryForm() {
         console.error("Failed to create order for tracking:", err);
       }
     } catch {
-      setError(
-        "Something went wrong submitting your enquiry. Please try again or reach us on WhatsApp."
-      );
+      setError(t("errSubmit"));
     } finally {
       setSubmitting(false);
     }
@@ -101,13 +111,11 @@ export function FleetEnquiryForm() {
   if (reference) {
     return (
       <div className="rounded-lg border border-border p-6 text-center">
-        <p className="text-h3 font-semibold text-foreground">Enquiry received</p>
+        <p className="text-h3 font-semibold text-foreground">{t("received")}</p>
         <p className="mt-2 font-mono text-body text-foreground">{reference}</p>
-        <p className="mt-4 text-body text-muted-foreground">
-          A member of our fleet team will review your enquiry and follow up with next steps.
-        </p>
+        <p className="mt-4 text-body text-muted-foreground">{t("receivedBody")}</p>
         <Button asChild className="mt-6">
-          <Link href={`/track?ref=${encodeURIComponent(reference)}`}>Track this enquiry</Link>
+          <Link href={`/track?ref=${encodeURIComponent(reference)}`}>{t("trackEnquiry")}</Link>
         </Button>
       </div>
     );
@@ -116,7 +124,7 @@ export function FleetEnquiryForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-2">
-        <Label htmlFor="companyName">Company name</Label>
+        <Label htmlFor="companyName">{t("companyName")}</Label>
         <Input
           id="companyName"
           value={form.companyName}
@@ -124,7 +132,7 @@ export function FleetEnquiryForm() {
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="contactName">Contact name</Label>
+        <Label htmlFor="contactName">{t("contactName")}</Label>
         <Input
           id="contactName"
           value={form.contactName}
@@ -133,11 +141,11 @@ export function FleetEnquiryForm() {
       </div>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div className="space-y-2">
-          <Label htmlFor="phone">Phone number</Label>
+          <Label htmlFor="phone">{t("phone")}</Label>
           <Input id="phone" value={form.phone} onChange={(e) => update("phone", e.target.value)} />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">{t("email")}</Label>
           <Input
             id="email"
             type="email"
@@ -148,7 +156,7 @@ export function FleetEnquiryForm() {
         </div>
       </div>
       <div className="space-y-2">
-        <Label htmlFor="fleetSize">Fleet size</Label>
+        <Label htmlFor="fleetSize">{t("fleetSize")}</Label>
         <Input
           id="fleetSize"
           type="number"
@@ -158,16 +166,16 @@ export function FleetEnquiryForm() {
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="vehicleTypesNeeded">Vehicle types needed</Label>
+        <Label htmlFor="vehicleTypesNeeded">{t("vehicleTypes")}</Label>
         <Input
           id="vehicleTypesNeeded"
-          placeholder="e.g. Sedans for ride-hailing, pickups for logistics"
+          placeholder={t("vehicleTypesPlaceholder")}
           value={form.vehicleTypesNeeded}
           onChange={(e) => update("vehicleTypesNeeded", e.target.value)}
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="notes">Notes (optional)</Label>
+        <Label htmlFor="notes">{t("notes")}</Label>
         <Textarea
           id="notes"
           rows={4}
@@ -179,7 +187,7 @@ export function FleetEnquiryForm() {
       {error && <p className="text-small text-destructive">{error}</p>}
 
       <Button type="submit" disabled={submitting}>
-        {submitting ? "Submitting…" : "Request Fleet Quote"}
+        {submitting ? t("submitting") : t("submit")}
       </Button>
     </form>
   );

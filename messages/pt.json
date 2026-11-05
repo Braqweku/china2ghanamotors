@@ -1,0 +1,418 @@
+{
+  "meta": {
+    "siteTitle": "China2Ghana Motors | Importar veículos da China para o Gana",
+    "siteDescription": "Encontramos, verificamos, enviamos e desalfandegamos veículos de fornecedores de confiança na China, entregues no Gana. Sedans, SUV, pick-ups e veículos elétricos, com um orçamento personalizado para cada pedido."
+  },
+  "common": {
+    "tagline": "Da China para o Gana. Movidos pela confiança.",
+    "whatsappGreeting": "Olá {name}, gostaria de falar com um especialista em aquisição de veículos.",
+    "language": "Idioma",
+    "backHome": "Voltar à página inicial",
+    "logoHome": "Página inicial da China2Ghana Motors"
+  },
+  "nav": {
+    "vehicles": "Veículos",
+    "ev": "Elétricos",
+    "fleet": "Frotas",
+    "source": "Encontrar um veículo",
+    "track": "Acompanhar",
+    "insights": "Guias",
+    "requestVehicle": "Pedir um veículo",
+    "whatsappUs": "Fale connosco no WhatsApp",
+    "openMenu": "Abrir menu",
+    "menu": "Navegação"
+  },
+  "footer": {
+    "explore": "Explorar",
+    "company": "Empresa",
+    "contact": "Contactos",
+    "vehicles": "Veículos",
+    "ev": "Elétricos e híbridos",
+    "source": "Encontrar um veículo",
+    "track": "Acompanhar uma encomenda",
+    "fleet": "Empresas e frotas",
+    "insights": "Guias",
+    "faq": "Perguntas frequentes",
+    "whatsapp": "Falar no WhatsApp",
+    "rights": "Todos os direitos reservados."
+  },
+  "errors": {
+    "title": "Ocorreu um erro",
+    "body": "Tente novamente ou contacte-nos se o problema persistir.",
+    "retry": "Tentar novamente",
+    "notFoundTitle": "Página não encontrada",
+    "notFoundBody": "A página que procura não existe ou pode ter sido movida."
+  },
+  "home": {
+    "eyebrow": "Da China para o Gana. Movidos pela confiança.",
+    "title": "O seu próximo veículo, encontrado na China e entregue no Gana.",
+    "body": "Encontramos, verificamos, enviamos e desalfandegamos veículos de fornecedores de confiança na China, para um caminho mais claro, seguro e prático até ao seu próximo veículo.",
+    "sourceCta": "Encontrar o meu veículo",
+    "exploreCta": "Ver veículos",
+    "statSuppliers": "Fornecedores verificados",
+    "statSourced": "Veículos encontrados",
+    "statInspected": "Inspecionados antes do envio",
+    "slideAlt": "{name}, um dos veículos encontrados pela China2Ghana Motors",
+    "slideLabel": "Mostrar diapositivo {n} de {total}",
+    "brandsTitle": "Marcas em stock",
+    "dealsEyebrow": "Oportunidades",
+    "dealsTitle": "Veículos populares disponíveis",
+    "dealsViewAll": "Ver todos os veículos",
+    "trust": {
+      "sourceTitle": "Encontrar",
+      "sourceCopy": "Identificamos o veículo certo junto de fornecedores verificados na China, de acordo com as suas especificações e orçamento.",
+      "verifyTitle": "Verificar",
+      "verifyCopy": "Cada veículo é inspecionado e o seu estado confirmado antes de aprovar a compra.",
+      "shipTitle": "Enviar",
+      "shipCopy": "Coordenamos o envio e tratamos da alfândega e do desalfandegamento, para que nunca tenha de lidar com o processo sozinho.",
+      "deliverTitle": "Entregar",
+      "deliverCopy": "O seu veículo é entregue no Gana, com atualizações e documentação em todas as etapas."
+    },
+    "journeyTitle": "Como funciona",
+    "journeyIntro": "Do pedido à entrega, este é o percurso de cada veículo.",
+    "journeySteps": [
+      "Pedido do cliente",
+      "Pesquisa de opções",
+      "Preço e especificações enviados",
+      "Inspeção e verificação",
+      "Aprovação e pagamento",
+      "Envio para o Gana",
+      "Desalfandegamento e documentos",
+      "Entrega do veículo"
+    ],
+    "ctaTitle": "Pronto para começar?",
+    "ctaBody": "Diga-nos o que precisa ou fale diretamente com um especialista.",
+    "ctaContact": "Falar com um especialista"
+  },
+  "labels": {
+    "bodyType": {
+      "sedan": "Sedan",
+      "suv": "SUV",
+      "mpv": "Monovolume",
+      "pickup": "Pick-up",
+      "van": "Furgão",
+      "hatchback": "Hatchback",
+      "truck": "Camião"
+    },
+    "fuel": {
+      "petrol": "Gasolina",
+      "hybrid": "Híbrido",
+      "electric": "Elétrico",
+      "diesel": "Gasóleo"
+    },
+    "gearbox": {
+      "automatic": "Automática",
+      "manual": "Manual"
+    },
+    "spec": {
+      "trim": "Versão",
+      "engine": "Motor",
+      "range": "Autonomia",
+      "electricRange": "Autonomia elétrica",
+      "drivetrain": "Tração",
+      "seats": "Lugares",
+      "colour": "Cor",
+      "firstRegistered": "Primeira matrícula"
+    },
+    "colour": {
+      "Black": "Preto",
+      "Blue": "Azul",
+      "Grey": "Cinzento",
+      "Orange": "Laranja",
+      "Pink": "Rosa",
+      "Red": "Vermelho",
+      "Silver": "Prateado",
+      "White": "Branco"
+    },
+    "engine": {
+      "pluginHybrid": "Híbrido plug-in",
+      "hybrid": "Híbrido",
+      "diesel": "Gasóleo"
+    }
+  },
+  "vehicles": {
+    "metaTitle": "Veículos usados da China, disponíveis agora",
+    "metaDescription": "Toyota, Honda, BYD, Geely e outros veículos usados, inspecionados na China e enviados para o Gana. Filtre por marca, carroçaria, combustível e ano e peça um orçamento completo.",
+    "title": "Veículos disponíveis",
+    "intro": "Veículos usados do nosso parceiro na China, inspecionados antes da compra e enviados para o Gana. Escolha um veículo e enviamos um orçamento completo, com envio e desalfandegamento incluídos.",
+    "count": "{count, plural, one {<b>#</b> veículo} other {<b>#</b> veículos}}",
+    "none": "Nenhum veículo corresponde aos seus filtros.",
+    "clear": "Limpar filtros",
+    "photos": "{count} fotografias",
+    "search": "Pesquisar",
+    "searchPlaceholder": "Marca, modelo ou versão",
+    "brand": "Marca",
+    "allBrands": "Todas as marcas",
+    "bodyType": "Carroçaria",
+    "allBodyTypes": "Todas as carroçarias",
+    "fuel": "Combustível",
+    "allFuel": "Todos os combustíveis",
+    "gearbox": "Caixa de velocidades",
+    "anyGearbox": "Qualquer caixa",
+    "year": "Ano",
+    "minYear": "Ano mínimo",
+    "maxYear": "Ano máximo",
+    "from": "De",
+    "to": "Até",
+    "filters": "Filtros",
+    "showResults": "Ver resultados",
+    "sort": "Ordenar",
+    "sortRecent": "Adicionados recentemente",
+    "sortYear": "Ano mais recente",
+    "sortMileage": "Menor quilometragem"
+  },
+  "vehicle": {
+    "metaTitle": "{name}: {type} usado da China",
+    "metaDescription": "{name}{trim}: {type} usado, {fuel}, caixa {gearbox}, {mileage}. Inspecionado na China e enviado para o Gana.",
+    "notFound": "Veículo não encontrado",
+    "home": "Início",
+    "breadcrumb": "Veículos",
+    "specs": "Especificações",
+    "year": "Ano",
+    "mileage": "Quilometragem",
+    "fuel": "Combustível",
+    "gearbox": "Caixa de velocidades",
+    "bodyType": "Carroçaria",
+    "request": "Pedir este veículo",
+    "askWhatsapp": "Perguntar no WhatsApp",
+    "whatsapp": "Falar no WhatsApp",
+    "whatsappMessage": "Tenho interesse no {name} ({id}) anunciado pela China2Ghana Motors.",
+    "inspected": "Inspecionado na China antes da compra",
+    "shipped": "Enviado e desalfandegado para o Gana",
+    "quoteIncludes": "O seu orçamento inclui envio, inspeção e desalfandegamento",
+    "similar": "Veículos semelhantes",
+    "galleryLabel": "Fotografias do {name}",
+    "photoAlt": "{name}, fotografia {n} de {total}",
+    "previousPhoto": "Fotografia anterior",
+    "nextPhoto": "Fotografia seguinte",
+    "showPhoto": "Mostrar fotografia {n}"
+  },
+  "ev": {
+    "metaTitle": "Veículos elétricos e híbridos da China",
+    "metaDescription": "Veículos elétricos e híbridos usados disponíveis na China: BYD, Toyota, Geely e outros, inspecionados e enviados para o Gana.",
+    "title": "Veículos elétricos e híbridos",
+    "intro": "Veículos elétricos e híbridos usados disponíveis no nosso parceiro na China, inspecionados antes da compra e enviados para o Gana.",
+    "rangeTerm": "Autonomia e bateria",
+    "rangeDetail": "Cada anúncio mostra a autonomia indicada pelo fabricante, quando a temos. A autonomia real costuma ser menor, sobretudo com ar condicionado no calor do Gana.",
+    "chargingTerm": "Carregamento",
+    "chargingDetail": "Os veículos elétricos carregam numa tomada doméstica normal durante a noite. Os híbridos carregam sozinhos enquanto andam e nunca precisam de ser ligados à corrente.",
+    "pluginTerm": "Híbridos plug-in",
+    "pluginDetail": "Os híbridos plug-in percorrem distâncias curtas em modo elétrico e depois passam para gasolina, por isso nunca fica parado sem carregador.",
+    "importingTerm": "Importação",
+    "importingDetail": "Os veículos elétricos e híbridos passam pela mesma inspeção, envio e desalfandegamento que qualquer outro veículo que encontramos.",
+    "electric": "Elétricos",
+    "hybrid": "Híbridos"
+  },
+  "source": {
+    "metaTitle": "Encontrar o meu veículo",
+    "metaDescription": "Diga-nos o veículo que procura, o seu orçamento e especificações: encontramos opções junto de fornecedores verificados na China e enviamos um orçamento personalizado.",
+    "title": "Encontrar um veículo",
+    "intro": "Diga-nos o que precisa. Nós encontramos, inspecionamos, enviamos e entregamos no Gana.",
+    "afterTitle": "Depois de enviar o pedido",
+    "afterSteps": [
+      "Recebe de imediato uma referência de acompanhamento",
+      "Enviamos opções adequadas com um orçamento completo",
+      "O veículo escolhido é inspecionado antes da compra",
+      "Enviamos, desalfandegamos e entregamos o veículo"
+    ],
+    "knowTitle": "Já sabe o que quer?",
+    "knowBody": "O nosso parceiro tem veículos usados na China prontos a inspecionar e enviar.",
+    "browse": "Ver veículos disponíveis",
+    "steps": ["Veículo", "Orçamento", "Especificações", "Quantidade", "Os seus dados", "Revisão"],
+    "stepOf": "Passo {n} de {total}: {name}",
+    "vehicleLabel": "Que veículo procura?",
+    "vehiclePlaceholder": "ex. Toyota Corolla Cross ou um SUV híbrido",
+    "minBudget": "Orçamento mínimo (USD)",
+    "maxBudget": "Orçamento máximo (USD)",
+    "specsLabel": "Especificações (opcional)",
+    "specsPlaceholder": "ex. Caixa automática, teto de abrir, bancos em pele",
+    "quantityLabel": "Quantos veículos?",
+    "name": "Nome completo",
+    "phone": "Número de telefone",
+    "email": "E-mail (opcional)",
+    "whatsapp": "Número de WhatsApp (opcional)",
+    "location": "Cidade ou país (opcional)",
+    "reviewVehicle": "Veículo",
+    "reviewBudget": "Orçamento",
+    "reviewSpecs": "Especificações",
+    "reviewQuantity": "Quantidade",
+    "reviewDetails": "Os seus dados",
+    "edit": "Editar",
+    "noneSpecified": "Nenhuma indicada",
+    "errVehicle": "Diga-nos que veículo procura.",
+    "errBudgetBoth": "Indique um orçamento mínimo e máximo.",
+    "errBudgetPositive": "O orçamento tem de ser um número positivo.",
+    "errBudgetOrder": "O orçamento mínimo não pode ser superior ao máximo.",
+    "errQuantity": "A quantidade tem de ser pelo menos 1.",
+    "errName": "O seu nome é obrigatório.",
+    "errPhone": "O número de telefone é obrigatório.",
+    "errSubmit": "Não foi possível enviar o seu pedido. Tente novamente ou fale connosco no WhatsApp.",
+    "received": "Pedido recebido",
+    "receivedBody": "Um especialista vai analisar o seu pedido e responder com opções. Guarde a sua referência para acompanhar o progresso a qualquer momento.",
+    "trackRequest": "Acompanhar este pedido",
+    "back": "Voltar",
+    "next": "Seguinte",
+    "submit": "Enviar pedido",
+    "submitting": "A enviar…",
+    "autoReply": "Obrigado pelo seu pedido de aquisição de veículo à China2Ghana Motors. O seu número de referência é {reference}. Acompanhe o estado a qualquer momento em {url}. A nossa equipa entrará em contacto em breve."
+  },
+  "fleet": {
+    "metaTitle": "Aquisição para frotas e empresas",
+    "metaDescription": "Aquisição de veículos para operadores de TVDE, empresas de logística, concessionários, empresas e instituições: encontrados, verificados, enviados e entregues da China para o Gana.",
+    "title": "Frotas e empresas",
+    "intro": "Diga-nos do que a sua frota precisa. Encontramos, inspecionamos, enviamos e desalfandegamos os veículos e respondemos com opções e um orçamento.",
+    "whoTitle": "Para quem é",
+    "audiences": [
+      "Operadores e motoristas de TVDE",
+      "Empresas de logística e transporte",
+      "Concessionários que compram em volume",
+      "Empresas e instituições"
+    ],
+    "includedTitle": "O que está incluído",
+    "included": [
+      "Pesquisa em vários fornecedores para o volume de que precisa",
+      "Inspeção de cada unidade antes da compra",
+      "Envio, alfândega e desalfandegamento consolidados",
+      "Um único contacto e uma referência de acompanhamento por encomenda"
+    ],
+    "nextTitle": "Próximos passos",
+    "nextSteps": [
+      "Analisamos o seu pedido e confirmamos os requisitos",
+      "Recebe opções de veículos e um orçamento",
+      "Cada veículo é inspecionado antes da compra",
+      "Os veículos são enviados, desalfandegados e entregues"
+    ],
+    "companyName": "Nome da empresa",
+    "contactName": "Nome do contacto",
+    "phone": "Número de telefone",
+    "email": "Endereço de e-mail",
+    "fleetSize": "Tamanho da frota",
+    "vehicleTypes": "Tipos de veículos necessários",
+    "vehicleTypesPlaceholder": "ex. Sedans para TVDE, pick-ups para logística",
+    "notes": "Observações (opcional)",
+    "errCompany": "O nome da empresa é obrigatório.",
+    "errContact": "O nome do contacto é obrigatório.",
+    "errPhone": "O número de telefone é obrigatório.",
+    "errEmail": "O endereço de e-mail é obrigatório.",
+    "errEmailInvalid": "Introduza um endereço de e-mail válido.",
+    "errFleetSize": "O tamanho da frota tem de ser pelo menos 1.",
+    "errSubmit": "Não foi possível enviar o seu pedido. Tente novamente ou fale connosco no WhatsApp.",
+    "received": "Pedido recebido",
+    "receivedBody": "Um membro da nossa equipa de frotas vai analisar o seu pedido e indicar os próximos passos.",
+    "trackEnquiry": "Acompanhar este pedido",
+    "submit": "Pedir orçamento para frota",
+    "submitting": "A enviar…",
+    "autoReply": "Obrigado pelo seu pedido de orçamento para frota à China2Ghana Motors. O seu número de referência é {reference}. Acompanhe o estado a qualquer momento em {url}. A nossa equipa entrará em contacto em breve."
+  },
+  "track": {
+    "metaTitle": "Acompanhar o seu veículo",
+    "metaDescription": "Introduza a sua referência para ver o estado do seu pedido.",
+    "title": "Acompanhar o seu veículo",
+    "intro": "Introduza a sua referência para ver em que fase está o seu veículo.",
+    "inputLabel": "Referência de acompanhamento",
+    "inputPlaceholder": "ex. C2G-8837XJ",
+    "submit": "Acompanhar",
+    "hint": "A sua referência começa por <ref>C2G-</ref>. É mostrada quando envia um pedido e enviada para o seu e-mail, se o indicou.",
+    "notFound": "Não encontrámos essa referência. Verifique-a e tente novamente.",
+    "noUpdates": "Esta referência existe, mas ainda não tem atualizações registadas.",
+    "reference": "Referência:",
+    "howTitle": "Como funciona o acompanhamento",
+    "step": "Passo {n}",
+    "phaseSourcing": "Pesquisa",
+    "phaseInspection": "Inspeção e compra",
+    "phaseShipping": "Envio",
+    "phaseClearing": "Desalfandegamento e entrega"
+  },
+  "stages": {
+    "received": "Pedido recebido",
+    "sourcing": "Pesquisa do veículo",
+    "selected": "Veículo escolhido",
+    "verification": "Verificação",
+    "inspection": "Inspeção",
+    "purchased": "Compra",
+    "ready_to_ship": "Pronto para envio",
+    "in_transit": "Em trânsito",
+    "arrived_ghana": "Chegou ao Gana",
+    "clearing": "Desalfandegamento",
+    "ready_for_delivery": "Pronto para entrega",
+    "delivered": "Entregue"
+  },
+  "faq": {
+    "metaTitle": "Perguntas frequentes",
+    "metaDescription": "Respostas a perguntas comuns sobre aquisição, envio, acompanhamento e importação de um veículo da China para o Gana com a China2Ghana Motors.",
+    "title": "Perguntas frequentes",
+    "intro": "Perguntas comuns sobre aquisição, envio, acompanhamento e importação de um veículo da China para o Gana.",
+    "items": {
+      "howItWorks": {
+        "q": "Como funciona a aquisição de um veículo?",
+        "a": "Diga-nos o que procura: tipo de veículo, orçamento e especificações essenciais. Identificamos opções junto de fornecedores verificados na China, o veículo é inspecionado e verificado antes da compra e depois tratamos do envio e do desalfandegamento para o Gana.",
+        "link": "Fazer um pedido"
+      },
+      "shippingTime": {
+        "q": "Quanto tempo demora o envio?",
+        "a": "Depende do veículo, do método de envio (RoRo ou contentor) e da rota, por isso não indicamos um prazo fixo. Depois de escolher o veículo, damos-lhe uma estimativa específica para o seu pedido.",
+        "link": "RoRo ou contentor: explicação"
+      },
+      "price": {
+        "q": "Posso saber o preço antes de me comprometer?",
+        "a": "O preço depende das especificações do veículo, do envio e das taxas de câmbio, por isso não mostramos preços fixos no site. Contacte-nos através de Encontrar o meu veículo, WhatsApp ou e-mail e enviamos um orçamento completo para o seu pedido."
+      },
+      "tracking": {
+        "q": "Posso acompanhar a minha encomenda depois de enviar o pedido?",
+        "a": "Sim. Cada pedido, de frota ou particular, recebe uma referência de acompanhamento, mostrada no ecrã quando envia o pedido e enviada por e-mail se indicar um endereço. Introduza-a na página Acompanhar para ver o estado atual.",
+        "link": "Acompanhar uma encomenda"
+      },
+      "ev": {
+        "q": "Também encontram veículos elétricos e híbridos?",
+        "a": "Sim. Temos veículos elétricos, híbridos e híbridos plug-in usados disponíveis, com autonomia e detalhes da bateria em cada anúncio, quando disponíveis.",
+        "link": "Veículos elétricos e híbridos"
+      },
+      "documents": {
+        "q": "Que documentos preciso para importar um veículo?",
+        "a": "Depende do seu veículo e da sua situação. Tratamos da documentação e do desalfandegamento por si, como parte do processo de importação.",
+        "link": "Desalfandegar um veículo no Gana"
+      },
+      "inspection": {
+        "q": "Todos os veículos são inspecionados antes do envio?",
+        "a": "Sim. Os veículos são inspecionados e verificados antes de qualquer compra ser concluída, para confirmar que o estado e as especificações reais correspondem ao que foi apresentado."
+      },
+      "fleet": {
+        "q": "Trabalham com empresas e frotas, e não só com particulares?",
+        "a": "Sim. Trabalhamos com operadores de TVDE, empresas de logística, concessionários, empresas e instituições.",
+        "link": "Empresas e frotas"
+      },
+      "condition": {
+        "q": "Os veículos são novos ou usados?",
+        "a": "Os veículos anunciados agora são usados, do nosso parceiro na China, e cada um é inspecionado antes da compra. Se quiser um veículo novo, indique-o num pedido e encontraremos opções. Na página Veículos pode filtrar por marca, carroçaria, combustível e ano.",
+        "link": "Ver veículos"
+      },
+      "contact": {
+        "q": "Como falo com um especialista?",
+        "a": "Através do formulário Encontrar o meu veículo, por WhatsApp ou por e-mail para {email}."
+      }
+    }
+  },
+  "insights": {
+    "metaTitle": "Guias: compra, importação e envio",
+    "metaDescription": "Guias de compra, importação e envio passo a passo, desalfandegamento no Gana e contexto sobre o mercado automóvel chinês.",
+    "title": "Guias",
+    "intro": "Guias de compra, noções de importação e envio e contexto sobre o mercado automóvel chinês.",
+    "minRead": "{count} min de leitura",
+    "notFound": "Artigo não encontrado",
+    "ctaTitle": "Pronto para encontrar o seu veículo?",
+    "ctaBody": "Veja os veículos usados disponíveis ou diga-nos o que precisa e nós encontramos.",
+    "browse": "Ver veículos",
+    "source": "Encontrar um veículo",
+    "more": "Mais guias",
+    "all": "Todos os artigos",
+    "categories": {
+      "buying-guides": "Guias de compra",
+      "import-guides": "Guias de importação",
+      "ev": "Veículos elétricos",
+      "shipping": "Envio",
+      "customs": "Alfândega",
+      "vehicle-reviews": "Escolher um veículo",
+      "china-automotive-market": "Mercado automóvel chinês"
+    }
+  }
+}

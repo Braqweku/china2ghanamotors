@@ -1,10 +1,14 @@
-import Link from "next/link";
 import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
 import { Camera, Car } from "lucide-react";
 import type { Vehicle } from "@/types";
-import { formatMileage, fuelTypeLabels, transmissionLabels, vehicleTitle } from "@/lib/vehicle-format";
+import { Link } from "@/i18n/navigation";
+import { localeTags, type Locale } from "@/lib/i18n/locales";
+import { formatMileage, vehicleTitle } from "@/lib/vehicle-format";
 
 export function VehicleCard({ vehicle, priority = false }: { vehicle: Vehicle; priority?: boolean }) {
+  const t = useTranslations();
+  const locale = useLocale() as Locale;
   const image = vehicle.images[0];
   const title = vehicleTitle(vehicle);
 
@@ -31,8 +35,8 @@ export function VehicleCard({ vehicle, priority = false }: { vehicle: Vehicle; p
         {vehicle.images.length > 1 && (
           <span className="absolute bottom-2 right-2 inline-flex items-center gap-1 rounded bg-foreground/75 px-1.5 py-0.5 text-caption font-medium tabular-nums text-background">
             <Camera className="h-3 w-3" aria-hidden="true" />
-            {vehicle.images.length}
-            <span className="sr-only"> photos</span>
+            <span aria-hidden="true">{vehicle.images.length}</span>
+            <span className="sr-only">{t("vehicles.photos", { count: vehicle.images.length })}</span>
           </span>
         )}
       </div>
@@ -44,8 +48,8 @@ export function VehicleCard({ vehicle, priority = false }: { vehicle: Vehicle; p
           <p className="mt-0.5 line-clamp-1 text-small text-muted-foreground">{vehicle.specs.trim}</p>
         )}
         <p className="mt-3 text-small text-foreground/80">
-          {formatMileage(vehicle.mileageKm)} · {transmissionLabels[vehicle.transmission]} ·{" "}
-          {fuelTypeLabels[vehicle.fuelType]}
+          {formatMileage(vehicle.mileageKm, localeTags[locale])} ·{" "}
+          {t(`labels.gearbox.${vehicle.transmission}`)} · {t(`labels.fuel.${vehicle.fuelType}`)}
         </p>
       </div>
     </Link>

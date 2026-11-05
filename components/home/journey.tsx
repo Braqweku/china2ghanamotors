@@ -1,23 +1,14 @@
+import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 
-const steps = [
-  "Customer Request",
-  "Vehicle Options Sourced",
-  "Price & Specifications Shared",
-  "Inspection / Verification",
-  "Customer Approval & Payment",
-  "Shipping to Ghana",
-  "Clearing & Documentation",
-  "Vehicle Delivery",
-];
-
 export function Journey() {
+  const t = useTranslations("home");
+  const steps = t.raw("journeySteps") as string[];
+
   return (
     <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-      <h2 className="text-h2 font-semibold text-foreground">How it works</h2>
-      <p className="mt-2 max-w-2xl text-body text-muted-foreground">
-        From request to delivery, here&apos;s the path every vehicle takes.
-      </p>
+      <h2 className="text-h2 font-semibold text-foreground">{t("journeyTitle")}</h2>
+      <p className="mt-2 max-w-2xl text-body text-muted-foreground">{t("journeyIntro")}</p>
       <ol className="mt-8 flex flex-wrap items-center gap-x-2 gap-y-3">
         {steps.map((step, i) => (
           <li key={step} className="flex items-center gap-2">

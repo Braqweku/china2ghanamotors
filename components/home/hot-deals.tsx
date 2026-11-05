@@ -1,9 +1,11 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { ArrowRight, Flame } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import type { Vehicle } from "@/types";
 import { VehicleCard } from "@/components/vehicles/vehicle-card";
 
 export function HotDeals({ vehicles }: { vehicles: Vehicle[] }) {
+  const t = useTranslations("home");
   if (vehicles.length === 0) return null;
 
   return (
@@ -12,17 +14,15 @@ export function HotDeals({ vehicles }: { vehicles: Vehicle[] }) {
         <div>
           <p className="flex items-center gap-1.5 text-label font-medium uppercase tracking-wide text-accent">
             <Flame className="h-4 w-4" aria-hidden="true" />
-            Hot deals
+            {t("dealsEyebrow")}
           </p>
-          <h2 className="mt-2 text-h2 font-semibold text-foreground">
-            Popular vehicles available now
-          </h2>
+          <h2 className="mt-2 text-h2 font-semibold text-foreground">{t("dealsTitle")}</h2>
         </div>
         <Link
           href="/vehicles"
           className="group flex items-center gap-1 text-small font-medium text-foreground hover:text-accent"
         >
-          View all vehicles
+          {t("dealsViewAll")}
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
         </Link>
       </div>

@@ -1,58 +1,90 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { MessageCircle, SearchCheck, Ship } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { VehicleCard } from "@/components/vehicles/vehicle-card";
 import { VehicleGallery } from "@/components/vehicles/vehicle-gallery";
 import { getVehicleById, getVehicles } from "@/lib/data/vehicles";
 import { similarVehicles } from "@/lib/vehicle-query";
-import {
-  formatMileage,
-  fuelTypeLabels,
-  specLabel,
-  transmissionLabels,
-  vehicleTitle,
-  vehicleTypeLabels,
-} from "@/lib/vehicle-format";
+import { formatMileage, formatRegistered, specMessageKey, translateEngine, vehicleTitle } from "@/lib/vehicle-format";
+import { alternatesFor, localizedPath } from "@/lib/i18n/alternates";
+import { localeTags, locales, type Locale } from "@/lib/i18n/locales";
 import { buildWhatsAppLink, siteConfig } from "@/lib/config";
+import type { Vehicle } from "@/types";
+
+type Params = Promise<{ locale: Locale; id: string }>;
 
 export async function generateStaticParams() {
   const vehicles = await getVehicles();
-  return vehicles.map((vehicle) => ({ id: vehicle.id }));
+  return locales.flatMap((locale) => vehicles.map((vehicle) => ({ locale, id: vehicle.id })));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}): Promise<Metadata> {
-  const { id } = await params;
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const { locale, id } = await params;
+  const t = await getTranslations({ locale });
   const vehicle = await getVehicleById(id);
 
   if (!vehicle) {
-    return { title: "Vehicle not found" };
+    return { title: t("vehicle.notFound") };
   }
 
-  const vehicleName = vehicleTitle(vehicle);
-  const description = `${vehicleName}${vehicle.specs.trim ? ` ${vehicle.specs.trim}` : ""}: used ${vehicleTypeLabels[vehicle.vehicleType]}, ${fuelTypeLabels[vehicle.fuelType].toLowerCase()}, ${transmissionLabels[vehicle.transmission].toLowerCase()}, ${formatMileage(vehicle.mileageKm)}. Inspected in China and shipped to Ghana.`;
+  const name = vehicleTitle(vehicle);
+  const type = t(`labels.bodyType.${vehicle.vehicleType}`);
 
   return {
-    title: `${vehicleName} — Used ${vehicleTypeLabels[vehicle.vehicleType]} from China`,
-    description,
-    alternates: { canonical: `/vehicles/${id}` },
+    title: t("vehicle.metaTitle", { name, type }),
+    description: t("vehicle.metaDescription", {
+      name,
+      trim: vehicle.specs.trim ? ` ${vehicle.specs.trim}` : "",
+      type,
+      fuel: t(`labels.fuel.${vehicle.fuelType}`).toLocaleLowerCase(locale),
+      gearbox: t(`labels.gearbox.${vehicle.transmission}`).toLocaleLowerCase(locale),
+      mileage: formatMileage(vehicle.mileageKm, localeTags[locale]),
+    }),
+    alternates: alternatesFor(`/vehicles/${id}`, locale),
     openGraph: { images: vehicle.images.length > 0 ? [vehicle.images[0]] : undefined },
     twitter: { images: vehicle.images.length > 0 ? [vehicle.images[0]] : undefined },
   };
 }
 
-export default async function VehicleDetailPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id } = await params;
+type Translator = Awaited<ReturnType<typeof getTranslations>>;
+
+function specValue(key: string, value: string, t: Translator, locale: Locale): string {
+  if (key === "colour" && t.has(`labels.colour.${value}`)) return t(`labels.colour.${value}`);
+  if (key === "first registered") return formatRegistered(value, localeTags[locale]);
+  if (key === "engine") {
+    return translateEngine(value, {
+      pluginHybrid: t("labels.engine.pluginHybrid"),
+      hybrid: t("labels.engine.hybrid"),
+      diesel: t("labels.engine.diesel"),
+    });
+  }
+  return value;
+}
+
+function specFacts(vehicle: Vehicle, t: Translator, locale: Locale) {
+  return [
+    { label: t("vehicle.year"), value: String(vehicle.year) },
+    { label: t("vehicle.mileage"), value: formatMileage(vehicle.mileageKm, localeTags[locale]) },
+    { label: t("vehicle.fuel"), value: t(`labels.fuel.${vehicle.fuelType}`) },
+    { label: t("vehicle.gearbox"), value: t(`labels.gearbox.${vehicle.transmission}`) },
+    { label: t("vehicle.bodyType"), value: t(`labels.bodyType.${vehicle.vehicleType}`) },
+    ...Object.entries(vehicle.specs)
+      .filter(([key]) => key !== "trim")
+      .map(([key, value]) => ({
+        label: t.has(`labels.spec.${specMessageKey(key)}`) ? t(`labels.spec.${specMessageKey(key)}`) : key,
+        value: specValue(key, value, t, locale),
+      })),
+  ];
+}
+
+export default async function VehicleDetailPage({ params }: { params: Params }) {
+  const { locale, id } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations();
   const vehicle = await getVehicleById(id);
 
   if (!vehicle) {
@@ -60,23 +92,15 @@ export default async function VehicleDetailPage({
   }
 
   const vehicleName = vehicleTitle(vehicle);
-  const vehicleUrl = `${siteConfig.url}/vehicles/${vehicle.id}`;
-  const whatsappHref = buildWhatsAppLink(
-    `I'm interested in the ${vehicleName} (${vehicle.id}) listed by ${siteConfig.name}.`
-  );
+  const vehicleUrl = `${siteConfig.url}${localizedPath(`/vehicles/${vehicle.id}`, locale)}`;
+  const whatsappHref = buildWhatsAppLink(t("vehicle.whatsappMessage", { name: vehicleName, id: vehicle.id }));
   const similar = similarVehicles(await getVehicles(), vehicle);
-  const summary = `${formatMileage(vehicle.mileageKm)} · ${transmissionLabels[vehicle.transmission]} · ${fuelTypeLabels[vehicle.fuelType]}`;
-
-  const facts = [
-    { label: "Year", value: String(vehicle.year) },
-    { label: "Mileage", value: formatMileage(vehicle.mileageKm) },
-    { label: "Fuel", value: fuelTypeLabels[vehicle.fuelType] },
-    { label: "Gearbox", value: transmissionLabels[vehicle.transmission] },
-    { label: "Body type", value: vehicleTypeLabels[vehicle.vehicleType] },
-    ...Object.entries(vehicle.specs)
-      .filter(([key]) => key !== "trim")
-      .map(([key, value]) => ({ label: specLabel(key), value })),
-  ];
+  const summary = [
+    formatMileage(vehicle.mileageKm, localeTags[locale]),
+    t(`labels.gearbox.${vehicle.transmission}`),
+    t(`labels.fuel.${vehicle.fuelType}`),
+  ].join(" · ");
+  const facts = specFacts(vehicle, t, locale);
 
   const vehicleJsonLd = {
     "@context": "https://schema.org",
@@ -98,8 +122,13 @@ export default async function VehicleDetailPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
-      { "@type": "ListItem", position: 2, name: "Vehicles", item: `${siteConfig.url}/vehicles` },
+      { "@type": "ListItem", position: 1, name: t("vehicle.home"), item: `${siteConfig.url}${localizedPath("/", locale)}` },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: t("vehicle.breadcrumb"),
+        item: `${siteConfig.url}${localizedPath("/vehicles", locale)}`,
+      },
       { "@type": "ListItem", position: 3, name: vehicleName, item: vehicleUrl },
     ],
   };
@@ -119,7 +148,7 @@ export default async function VehicleDetailPage({
         <ol className="flex min-w-0 items-center gap-1.5">
           <li>
             <Link href="/vehicles" className="hover:text-foreground">
-              Vehicles
+              {t("vehicle.breadcrumb")}
             </Link>
           </li>
           <li aria-hidden="true">/</li>
@@ -135,7 +164,7 @@ export default async function VehicleDetailPage({
 
           <section className="mt-10" aria-labelledby="specs-heading">
             <h2 id="specs-heading" className="text-h3 font-semibold text-foreground">
-              Specifications
+              {t("vehicle.specs")}
             </h2>
             <dl className="mt-4 grid border-t border-border sm:grid-cols-2 sm:gap-x-8">
               {facts.map((fact) => (
@@ -158,11 +187,11 @@ export default async function VehicleDetailPage({
 
             <div className="mt-6 hidden flex-col gap-3 lg:flex">
               <Button asChild size="lg">
-                <Link href="/source">Request this vehicle</Link>
+                <Link href="/source">{t("vehicle.request")}</Link>
               </Button>
               <Button asChild size="lg" variant="outline">
                 <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-                  Ask on WhatsApp
+                  {t("vehicle.askWhatsapp")}
                 </a>
               </Button>
             </div>
@@ -172,15 +201,15 @@ export default async function VehicleDetailPage({
             <ul className="space-y-3 text-small text-muted-foreground">
               <li className="flex gap-3">
                 <SearchCheck className="h-4 w-4 shrink-0 translate-y-0.5 text-foreground" aria-hidden="true" />
-                Inspected in China before purchase
+                {t("vehicle.inspected")}
               </li>
               <li className="flex gap-3">
                 <Ship className="h-4 w-4 shrink-0 translate-y-0.5 text-foreground" aria-hidden="true" />
-                Shipped and cleared to Ghana
+                {t("vehicle.shipped")}
               </li>
               <li className="flex gap-3">
                 <MessageCircle className="h-4 w-4 shrink-0 translate-y-0.5 text-foreground" aria-hidden="true" />
-                Your quote includes shipping, inspection and clearing
+                {t("vehicle.quoteIncludes")}
               </li>
             </ul>
           </div>
@@ -190,7 +219,7 @@ export default async function VehicleDetailPage({
       {similar.length > 0 && (
         <section className="mt-16" aria-labelledby="similar-heading">
           <h2 id="similar-heading" className="text-h3 font-semibold text-foreground">
-            Similar vehicles
+            {t("vehicle.similar")}
           </h2>
           <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {similar.map((v) => (
@@ -203,11 +232,11 @@ export default async function VehicleDetailPage({
       <div className="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-background p-4 lg:hidden">
         <div className="mx-auto flex max-w-7xl gap-3">
           <Button asChild className="flex-1">
-            <Link href="/source">Request this vehicle</Link>
+            <Link href="/source">{t("vehicle.request")}</Link>
           </Button>
           <Button asChild variant="outline" className="flex-1">
             <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-              WhatsApp
+              {t("vehicle.whatsapp")}
             </a>
           </Button>
         </div>

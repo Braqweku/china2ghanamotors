@@ -1,28 +1,38 @@
-import Link from "next/link";
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { getArticles } from "@/lib/data/articles";
+import { alternatesFor } from "@/lib/i18n/alternates";
+import type { Locale } from "@/lib/i18n/locales";
 import { PageHeader } from "@/components/layout/page-header";
 import { ArticleMeta } from "@/components/insights/article-meta";
 
-export const metadata: Metadata = {
-  title: "Insights — Buying, Import & Shipping Guides",
-  description:
-    "Buying guides, step-by-step import and shipping basics, customs clearing in Ghana, and background on China's automotive market.",
-  alternates: { canonical: "/insights" },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "insights" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: alternatesFor("/insights", locale),
+  };
+}
 
-export default async function InsightsPage() {
-  const articles = [...(await getArticles())].sort((a, b) =>
+export default async function InsightsPage({ params }: { params: Promise<{ locale: Locale }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("insights");
+  const articles = [...(await getArticles(locale))].sort((a, b) =>
     b.publishedAt.localeCompare(a.publishedAt)
   );
   const [featured, ...rest] = articles;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-      <PageHeader
-        title="Insights"
-        intro="Buying guides, import and shipping basics, and background on China's car market."
-      />
+      <PageHeader title={t("title")} intro={t("intro")} />
 
       {featured && (
         <Link

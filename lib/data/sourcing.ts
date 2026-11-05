@@ -1,8 +1,16 @@
 import type { SourcingRequest } from "@/types";
 import { siteConfig } from "@/lib/config";
 
+export type SubmissionLocale = {
+  /** Language name shown to our team, e.g. "Français". */
+  language: string;
+  /** Auto-reply sent to the customer, in their language. */
+  autoReply: (reference: string) => string;
+};
+
 export async function submitSourcingRequest(
-  request: SourcingRequest
+  request: SourcingRequest,
+  { language, autoReply }: SubmissionLocale
 ): Promise<{ reference: string }> {
   const reference = `C2G-${Math.random().toString(36).slice(2, 8).toUpperCase()}`;
 
@@ -13,12 +21,9 @@ export async function submitSourcingRequest(
       _subject: `New sourcing request — ${request.customer.name} (${reference})`,
       _template: "table",
       _captcha: "false",
-      ...(request.customer.email
-        ? {
-            _autoresponse: `Thanks for your vehicle sourcing request with China2Ghana Motors. Your reference number is ${reference} — track its status anytime at ${siteConfig.url}/track?ref=${reference}. Our team will be in touch shortly.`,
-          }
-        : {}),
+      ...(request.customer.email ? { _autoresponse: autoReply(reference) } : {}),
       reference,
+      language,
       vehicleQuery: request.vehicleQuery,
       budget: `$${request.budgetUsd.min.toLocaleString()} – $${request.budgetUsd.max.toLocaleString()}`,
       specifications:

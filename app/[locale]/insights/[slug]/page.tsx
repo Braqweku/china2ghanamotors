@@ -1,32 +1,34 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowRight } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { getArticleBySlug, getArticles } from "@/lib/data/articles";
-import { ArticleMeta, categoryLabels } from "@/components/insights/article-meta";
+import { alternatesFor } from "@/lib/i18n/alternates";
+import { locales, type Locale } from "@/lib/i18n/locales";
+import { ArticleMeta } from "@/components/insights/article-meta";
+
+type Params = Promise<{ locale: Locale; slug: string }>;
 
 export async function generateStaticParams() {
-  const articles = await getArticles();
-  return articles.map((article) => ({ slug: article.slug }));
+  const articles = await getArticles("en");
+  return locales.flatMap((locale) => articles.map((article) => ({ locale, slug: article.slug })));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
-  const { slug } = await params;
-  const article = await getArticleBySlug(slug);
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const article = await getArticleBySlug(slug, locale);
 
   if (!article) {
-    return { title: "Article not found" };
+    const t = await getTranslations({ locale, namespace: "insights" });
+    return { title: t("notFound") };
   }
 
   return {
     title: article.title,
     description: article.excerpt,
-    alternates: { canonical: `/insights/${slug}` },
+    alternates: alternatesFor(`/insights/${slug}`, locale),
     openGraph: {
       type: "article",
       publishedTime: article.publishedAt,
@@ -34,19 +36,17 @@ export async function generateMetadata({
   };
 }
 
-export default async function ArticlePage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const article = await getArticleBySlug(slug);
+export default async function ArticlePage({ params }: { params: Params }) {
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("insights");
+  const article = await getArticleBySlug(slug, locale);
 
   if (!article) {
     notFound();
   }
 
-  const more = (await getArticles())
+  const more = (await getArticles(locale))
     .filter((a) => a.slug !== article.slug)
     .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
     .slice(0, 3);
@@ -58,12 +58,12 @@ export default async function ArticlePage({
           <ol className="flex flex-wrap items-center gap-1.5">
             <li>
               <Link href="/insights" className="hover:text-foreground">
-                Insights
+                {t("title")}
               </Link>
             </li>
             <li aria-hidden="true">/</li>
             <li aria-current="page" className="text-foreground">
-              {categoryLabels[article.category]}
+              {t(`categories.${article.category}`)}
             </li>
           </ol>
         </nav>
@@ -83,16 +83,14 @@ export default async function ArticlePage({
         </div>
 
         <aside className="mt-12 rounded-lg border border-border bg-card p-6">
-          <h2 className="text-h3 font-semibold text-foreground">Ready to find your vehicle?</h2>
-          <p className="mt-2 text-small text-muted-foreground">
-            Browse used vehicles available now, or tell us what you need and we will source it.
-          </p>
+          <h2 className="text-h3 font-semibold text-foreground">{t("ctaTitle")}</h2>
+          <p className="mt-2 text-small text-muted-foreground">{t("ctaBody")}</p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <Button asChild>
-              <Link href="/vehicles">Browse vehicles</Link>
+              <Link href="/vehicles">{t("browse")}</Link>
             </Button>
             <Button asChild variant="outline">
-              <Link href="/source">Source a vehicle</Link>
+              <Link href="/source">{t("source")}</Link>
             </Button>
           </div>
         </aside>
@@ -102,13 +100,13 @@ export default async function ArticlePage({
         <section aria-labelledby="more-heading" className="mx-auto mt-16 max-w-2xl">
           <div className="flex items-baseline justify-between gap-4">
             <h2 id="more-heading" className="text-h3 font-semibold text-foreground">
-              More insights
+              {t("more")}
             </h2>
             <Link
               href="/insights"
               className="inline-flex items-center gap-1 text-small font-medium text-foreground underline-offset-4 hover:underline"
             >
-              All articles
+              {t("all")}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>

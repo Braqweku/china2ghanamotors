@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Car, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -9,6 +10,7 @@ const navButton =
   "absolute top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/90 text-foreground shadow-sm transition-colors hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring";
 
 export function VehicleGallery({ images, alt }: { images: string[]; alt: string }) {
+  const t = useTranslations("vehicle");
   const [active, setActive] = useState(0);
   const touchStartX = useRef<number | null>(null);
   const thumbsRef = useRef<HTMLDivElement>(null);
@@ -35,7 +37,7 @@ export function VehicleGallery({ images, alt }: { images: string[]; alt: string 
       <div
         role="region"
         aria-roledescription="carousel"
-        aria-label={`${alt} photos`}
+        aria-label={t("galleryLabel", { name: alt })}
         tabIndex={0}
         onKeyDown={(e) => {
           if (e.key === "ArrowLeft") {
@@ -61,7 +63,7 @@ export function VehicleGallery({ images, alt }: { images: string[]; alt: string 
         <Image
           key={images[active]}
           src={images[active]}
-          alt={`${alt}, photo ${active + 1} of ${count}`}
+          alt={t("photoAlt", { name: alt, n: active + 1, total: count })}
           fill
           sizes="(min-width: 1024px) 760px, 100vw"
           priority={active === 0}
@@ -72,7 +74,7 @@ export function VehicleGallery({ images, alt }: { images: string[]; alt: string 
             <button
               type="button"
               onClick={() => go(-1)}
-              aria-label="Previous photo"
+              aria-label={t("previousPhoto")}
               className={cn(navButton, "left-3")}
             >
               <ChevronLeft className="h-5 w-5" aria-hidden="true" />
@@ -80,7 +82,7 @@ export function VehicleGallery({ images, alt }: { images: string[]; alt: string 
             <button
               type="button"
               onClick={() => go(1)}
-              aria-label="Next photo"
+              aria-label={t("nextPhoto")}
               className={cn(navButton, "right-3")}
             >
               <ChevronRight className="h-5 w-5" aria-hidden="true" />
@@ -103,7 +105,7 @@ export function VehicleGallery({ images, alt }: { images: string[]; alt: string 
               type="button"
               data-index={index}
               onClick={() => setActive(index)}
-              aria-label={`Show photo ${index + 1}`}
+              aria-label={t("showPhoto", { n: index + 1 })}
               aria-current={index === active}
               className={cn(
                 "relative aspect-[4/3] w-20 shrink-0 overflow-hidden rounded-md border-2 bg-muted transition-[border-color,opacity] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",

@@ -2,34 +2,21 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 const SLIDE_DURATION = 5000;
 
 const slides = [
-  {
-    src: "/vehicles/veh_101/veh_101_01.jpg",
-    alt: "Toyota Sienna hybrid MPV, one of the vehicles sourced by China2Ghana Motors",
-  },
-  {
-    src: "/vehicles/veh_166/veh_166_03.jpg",
-    alt: "Toyota Camry sedan, one of the vehicles sourced by China2Ghana Motors",
-  },
-  {
-    src: "/vehicles/veh_158/veh_158_01.jpg",
-    alt: "Toyota bZ3 electric sedan, one of the vehicles sourced by China2Ghana Motors",
-  },
-  {
-    src: "/vehicles/veh_163/veh_163_01.jpg",
-    alt: "Honda XR-V SUV, one of the vehicles sourced by China2Ghana Motors",
-  },
-  {
-    src: "/vehicles/veh_157/veh_157_03.jpg",
-    alt: "Toyota Highlander SUV, one of the vehicles sourced by China2Ghana Motors",
-  },
+  { src: "/vehicles/veh_101/veh_101_01.jpg", name: "Toyota Sienna" },
+  { src: "/vehicles/veh_166/veh_166_03.jpg", name: "Toyota Camry" },
+  { src: "/vehicles/veh_158/veh_158_01.jpg", name: "Toyota bZ3" },
+  { src: "/vehicles/veh_163/veh_163_01.jpg", name: "Honda XR-V" },
+  { src: "/vehicles/veh_157/veh_157_03.jpg", name: "Toyota Highlander" },
 ];
 
 export function HeroSlideshow() {
+  const t = useTranslations("home");
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -58,7 +45,7 @@ export function HeroSlideshow() {
           >
             <Image
               src={slide.src}
-              alt={slide.alt}
+              alt={t("slideAlt", { name: slide.name })}
               fill
               sizes="(min-width: 1024px) 600px, 100vw"
               className="object-contain"
@@ -74,7 +61,7 @@ export function HeroSlideshow() {
             key={slide.src}
             type="button"
             onClick={() => setActive(i)}
-            aria-label={`Show slide ${i + 1} of ${slides.length}`}
+            aria-label={t("slideLabel", { n: i + 1, total: slides.length })}
             aria-current={i === active}
             className="h-1 w-8 overflow-hidden rounded-full bg-primary-foreground/25"
           >

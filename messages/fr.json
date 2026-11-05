@@ -1,0 +1,418 @@
+{
+  "meta": {
+    "siteTitle": "China2Ghana Motors | Importer des véhicules de Chine au Ghana",
+    "siteDescription": "Nous trouvons, vérifions, expédions et dédouanons des véhicules auprès de fournisseurs fiables en Chine, livrés au Ghana. Berlines, SUV, pick-up et véhicules électriques, avec un devis personnalisé pour chaque demande."
+  },
+  "common": {
+    "tagline": "De la Chine au Ghana. Portés par la confiance.",
+    "whatsappGreeting": "Bonjour {name}, je souhaite parler à un spécialiste de l’approvisionnement.",
+    "language": "Langue",
+    "backHome": "Retour à l’accueil",
+    "logoHome": "Accueil China2Ghana Motors"
+  },
+  "nav": {
+    "vehicles": "Véhicules",
+    "ev": "Électrique",
+    "fleet": "Flottes",
+    "source": "Trouver un véhicule",
+    "track": "Suivi",
+    "insights": "Conseils",
+    "requestVehicle": "Demander un véhicule",
+    "whatsappUs": "Écrivez-nous sur WhatsApp",
+    "openMenu": "Ouvrir le menu",
+    "menu": "Navigation"
+  },
+  "footer": {
+    "explore": "Découvrir",
+    "company": "Entreprise",
+    "contact": "Nous joindre",
+    "vehicles": "Véhicules",
+    "ev": "Électriques et hybrides",
+    "source": "Trouver un véhicule",
+    "track": "Suivre une commande",
+    "fleet": "Entreprises et flottes",
+    "insights": "Conseils",
+    "faq": "Questions fréquentes",
+    "whatsapp": "Écrire sur WhatsApp",
+    "rights": "Tous droits réservés."
+  },
+  "errors": {
+    "title": "Une erreur s’est produite",
+    "body": "Veuillez réessayer, ou contactez-nous si le problème persiste.",
+    "retry": "Réessayer",
+    "notFoundTitle": "Page introuvable",
+    "notFoundBody": "La page que vous cherchez n’existe pas ou a peut-être été déplacée."
+  },
+  "home": {
+    "eyebrow": "De la Chine au Ghana. Portés par la confiance.",
+    "title": "Votre prochain véhicule, trouvé en Chine, livré au Ghana.",
+    "body": "Nous trouvons, vérifions, expédions et dédouanons des véhicules auprès de fournisseurs fiables en Chine, pour un accès plus clair, plus sûr et plus pratique à votre prochain véhicule.",
+    "sourceCta": "Trouver mon véhicule",
+    "exploreCta": "Voir les véhicules",
+    "statSuppliers": "Fournisseurs vérifiés",
+    "statSourced": "Véhicules trouvés",
+    "statInspected": "Inspectés avant expédition",
+    "slideAlt": "{name}, l’un des véhicules trouvés par China2Ghana Motors",
+    "slideLabel": "Afficher la diapositive {n} sur {total}",
+    "brandsTitle": "Marques actuellement en stock",
+    "dealsEyebrow": "Bonnes affaires",
+    "dealsTitle": "Véhicules populaires disponibles",
+    "dealsViewAll": "Voir tous les véhicules",
+    "trust": {
+      "sourceTitle": "Trouver",
+      "sourceCopy": "Nous identifions le bon véhicule auprès de fournisseurs vérifiés en Chine, selon vos critères et votre budget.",
+      "verifyTitle": "Vérifier",
+      "verifyCopy": "Chaque véhicule est inspecté et son état confirmé avant que vous n’approuviez l’achat.",
+      "shipTitle": "Expédier",
+      "shipCopy": "Nous organisons l’expédition et gérons la douane et le dédouanement, pour que vous ne soyez jamais seul face aux démarches.",
+      "deliverTitle": "Livrer",
+      "deliverCopy": "Votre véhicule vous est livré au Ghana, avec des mises à jour et les documents à chaque étape."
+    },
+    "journeyTitle": "Comment ça marche",
+    "journeyIntro": "De la demande à la livraison, voici le parcours de chaque véhicule.",
+    "journeySteps": [
+      "Demande du client",
+      "Recherche de véhicules",
+      "Prix et caractéristiques envoyés",
+      "Inspection et vérification",
+      "Accord du client et paiement",
+      "Expédition vers le Ghana",
+      "Dédouanement et documents",
+      "Livraison du véhicule"
+    ],
+    "ctaTitle": "Prêt à commencer ?",
+    "ctaBody": "Dites-nous ce qu’il vous faut, ou parlez directement à un spécialiste.",
+    "ctaContact": "Contacter un spécialiste"
+  },
+  "labels": {
+    "bodyType": {
+      "sedan": "Berline",
+      "suv": "SUV",
+      "mpv": "Monospace",
+      "pickup": "Pick-up",
+      "van": "Fourgon",
+      "hatchback": "Citadine",
+      "truck": "Camion"
+    },
+    "fuel": {
+      "petrol": "Essence",
+      "hybrid": "Hybride",
+      "electric": "Électrique",
+      "diesel": "Gazole"
+    },
+    "gearbox": {
+      "automatic": "Automatique",
+      "manual": "Manuelle"
+    },
+    "spec": {
+      "trim": "Finition",
+      "engine": "Moteur",
+      "range": "Autonomie",
+      "electricRange": "Autonomie électrique",
+      "drivetrain": "Transmission",
+      "seats": "Places",
+      "colour": "Couleur",
+      "firstRegistered": "Première immatriculation"
+    },
+    "colour": {
+      "Black": "Noir",
+      "Blue": "Bleu",
+      "Grey": "Gris",
+      "Orange": "Orange",
+      "Pink": "Rose",
+      "Red": "Rouge",
+      "Silver": "Argent",
+      "White": "Blanc"
+    },
+    "engine": {
+      "pluginHybrid": "Hybride rechargeable",
+      "hybrid": "Hybride",
+      "diesel": "Gazole"
+    }
+  },
+  "vehicles": {
+    "metaTitle": "Véhicules d’occasion de Chine, disponibles maintenant",
+    "metaDescription": "Toyota, Honda, BYD, Geely et d’autres véhicules d’occasion, inspectés en Chine et expédiés au Ghana. Filtrez par marque, carrosserie, énergie et année, puis demandez un devis complet.",
+    "title": "Véhicules disponibles",
+    "intro": "Des véhicules d’occasion de notre partenaire en Chine, inspectés avant l’achat et expédiés au Ghana. Choisissez un véhicule et nous vous enverrons un devis complet, expédition et dédouanement compris.",
+    "count": "{count, plural, one {<b>#</b> véhicule} other {<b>#</b> véhicules}}",
+    "none": "Aucun véhicule ne correspond à vos filtres.",
+    "clear": "Effacer les filtres",
+    "photos": "{count} photos du véhicule",
+    "search": "Recherche",
+    "searchPlaceholder": "Marque, modèle ou finition",
+    "brand": "Marque",
+    "allBrands": "Toutes les marques",
+    "bodyType": "Carrosserie",
+    "allBodyTypes": "Toutes les carrosseries",
+    "fuel": "Énergie",
+    "allFuel": "Toutes les énergies",
+    "gearbox": "Boîte de vitesses",
+    "anyGearbox": "Toutes les boîtes",
+    "year": "Année",
+    "minYear": "Année minimum",
+    "maxYear": "Année maximum",
+    "from": "De",
+    "to": "À",
+    "filters": "Filtres",
+    "showResults": "Voir les résultats",
+    "sort": "Trier",
+    "sortRecent": "Ajouts récents",
+    "sortYear": "Année la plus récente",
+    "sortMileage": "Kilométrage le plus bas"
+  },
+  "vehicle": {
+    "metaTitle": "{name} : {type} d’occasion de Chine",
+    "metaDescription": "{name}{trim} : {type} d’occasion, {fuel}, boîte {gearbox}, {mileage}. Inspecté en Chine et expédié au Ghana.",
+    "notFound": "Véhicule introuvable",
+    "home": "Accueil",
+    "breadcrumb": "Véhicules",
+    "specs": "Caractéristiques",
+    "year": "Année",
+    "mileage": "Kilométrage",
+    "fuel": "Énergie",
+    "gearbox": "Boîte de vitesses",
+    "bodyType": "Carrosserie",
+    "request": "Demander ce véhicule",
+    "askWhatsapp": "Poser une question sur WhatsApp",
+    "whatsapp": "Écrire sur WhatsApp",
+    "whatsappMessage": "Le véhicule {name} ({id}) proposé par China2Ghana Motors m’intéresse.",
+    "inspected": "Inspecté en Chine avant l’achat",
+    "shipped": "Expédié et dédouané au Ghana",
+    "quoteIncludes": "Votre devis comprend l’expédition, l’inspection et le dédouanement",
+    "similar": "Véhicules similaires",
+    "galleryLabel": "Photos du {name}",
+    "photoAlt": "{name}, photo {n} sur {total}",
+    "previousPhoto": "Photo précédente",
+    "nextPhoto": "Photo suivante",
+    "showPhoto": "Afficher la photo {n}"
+  },
+  "ev": {
+    "metaTitle": "Véhicules électriques et hybrides de Chine",
+    "metaDescription": "Véhicules électriques et hybrides d’occasion disponibles en Chine : BYD, Toyota, Geely et d’autres, inspectés et expédiés au Ghana.",
+    "title": "Véhicules électriques et hybrides",
+    "intro": "Des véhicules électriques et hybrides d’occasion disponibles chez notre partenaire en Chine, inspectés avant l’achat et expédiés au Ghana.",
+    "rangeTerm": "Autonomie et batterie",
+    "rangeDetail": "Chaque annonce indique l’autonomie annoncée par le constructeur lorsque nous l’avons. L’autonomie réelle est généralement plus faible, surtout avec la climatisation sous la chaleur du Ghana.",
+    "chargingTerm": "Recharge",
+    "chargingDetail": "Les véhicules électriques se rechargent sur une prise domestique standard pendant la nuit. Les hybrides se rechargent seuls en roulant et n’ont jamais besoin d’être branchés.",
+    "pluginTerm": "Hybrides rechargeables",
+    "pluginDetail": "Les hybrides rechargeables roulent sur de courtes distances à l’électricité, puis passent à l’essence : vous n’êtes jamais bloqué sans borne.",
+    "importingTerm": "Importation",
+    "importingDetail": "Les véhicules électriques et hybrides passent par la même inspection, la même expédition et le même dédouanement que tous les véhicules que nous trouvons.",
+    "electric": "Électriques",
+    "hybrid": "Hybrides"
+  },
+  "source": {
+    "metaTitle": "Trouver mon véhicule",
+    "metaDescription": "Indiquez le véhicule souhaité, votre budget et vos critères : nous trouvons des options auprès de fournisseurs vérifiés en Chine et vous envoyons un devis personnalisé.",
+    "title": "Trouver un véhicule",
+    "intro": "Dites-nous ce qu’il vous faut. Nous le trouvons, l’inspectons, l’expédions et vous le livrons au Ghana.",
+    "afterTitle": "Après l’envoi de votre demande",
+    "afterSteps": [
+      "Vous recevez immédiatement une référence de suivi",
+      "Nous vous envoyons des options correspondantes avec un devis complet",
+      "Le véhicule choisi est inspecté avant l’achat",
+      "Nous l’expédions, le dédouanons et vous le livrons"
+    ],
+    "knowTitle": "Vous savez déjà ce que vous voulez ?",
+    "knowBody": "Notre partenaire dispose en Chine de véhicules d’occasion prêts à être inspectés et expédiés.",
+    "browse": "Voir les véhicules disponibles",
+    "steps": ["Véhicule", "Budget", "Critères", "Quantité", "Vos coordonnées", "Récapitulatif"],
+    "stepOf": "Étape {n} sur {total} : {name}",
+    "vehicleLabel": "Quel véhicule recherchez-vous ?",
+    "vehiclePlaceholder": "ex. Toyota Corolla Cross ou un SUV hybride",
+    "minBudget": "Budget minimum (USD)",
+    "maxBudget": "Budget maximum (USD)",
+    "specsLabel": "Critères (facultatif)",
+    "specsPlaceholder": "ex. Boîte automatique, toit ouvrant, sièges en cuir",
+    "quantityLabel": "Combien de véhicules ?",
+    "name": "Nom complet",
+    "phone": "Numéro de téléphone",
+    "email": "E-mail (facultatif)",
+    "whatsapp": "Numéro WhatsApp (facultatif)",
+    "location": "Ville ou pays (facultatif)",
+    "reviewVehicle": "Véhicule",
+    "reviewBudget": "Budget",
+    "reviewSpecs": "Critères",
+    "reviewQuantity": "Quantité",
+    "reviewDetails": "Vos coordonnées",
+    "edit": "Modifier",
+    "noneSpecified": "Aucun critère",
+    "errVehicle": "Indiquez le véhicule que vous recherchez.",
+    "errBudgetBoth": "Saisissez un budget minimum et un budget maximum.",
+    "errBudgetPositive": "Le budget doit être un nombre positif.",
+    "errBudgetOrder": "Le budget minimum ne peut pas dépasser le budget maximum.",
+    "errQuantity": "La quantité doit être d’au moins 1.",
+    "errName": "Votre nom est obligatoire.",
+    "errPhone": "Un numéro de téléphone est obligatoire.",
+    "errSubmit": "L’envoi de votre demande a échoué. Veuillez réessayer ou nous joindre sur WhatsApp.",
+    "received": "Demande reçue",
+    "receivedBody": "Un spécialiste va étudier votre demande et revenir vers vous avec des options. Conservez votre référence pour suivre l’avancement à tout moment.",
+    "trackRequest": "Suivre cette demande",
+    "back": "Retour",
+    "next": "Suivant",
+    "submit": "Envoyer la demande",
+    "submitting": "Envoi…",
+    "autoReply": "Merci pour votre demande de recherche de véhicule auprès de China2Ghana Motors. Votre numéro de référence est {reference}. Suivez son avancement à tout moment sur {url}. Notre équipe vous contactera très bientôt."
+  },
+  "fleet": {
+    "metaTitle": "Approvisionnement pour flottes et entreprises",
+    "metaDescription": "Recherche de véhicules pour les VTC, les entreprises de logistique, les concessionnaires, les entreprises et les institutions : trouvés, vérifiés, expédiés et livrés de la Chine au Ghana.",
+    "title": "Flottes et entreprises",
+    "intro": "Dites-nous ce dont votre flotte a besoin. Nous trouvons, inspectons, expédions et dédouanons les véhicules, puis revenons vers vous avec des options et un devis.",
+    "whoTitle": "Pour qui",
+    "audiences": [
+      "Opérateurs et chauffeurs VTC",
+      "Entreprises de logistique et de transport",
+      "Concessionnaires achetant en volume",
+      "Entreprises et institutions"
+    ],
+    "includedTitle": "Ce qui est inclus",
+    "included": [
+      "Recherche auprès de plusieurs fournisseurs pour le volume dont vous avez besoin",
+      "Inspection de chaque véhicule avant l’achat",
+      "Expédition, douane et dédouanement groupés",
+      "Un interlocuteur unique et une référence de suivi par commande"
+    ],
+    "nextTitle": "La suite",
+    "nextSteps": [
+      "Nous étudions votre demande et confirmons vos besoins",
+      "Vous recevez des options de véhicules et un devis",
+      "Chaque véhicule est inspecté avant l’achat",
+      "Les véhicules sont expédiés, dédouanés et livrés"
+    ],
+    "companyName": "Nom de l’entreprise",
+    "contactName": "Nom du contact",
+    "phone": "Numéro de téléphone",
+    "email": "Adresse e-mail",
+    "fleetSize": "Taille de la flotte",
+    "vehicleTypes": "Types de véhicules souhaités",
+    "vehicleTypesPlaceholder": "ex. Berlines pour VTC, pick-up pour la logistique",
+    "notes": "Remarques (facultatif)",
+    "errCompany": "Le nom de l’entreprise est obligatoire.",
+    "errContact": "Le nom du contact est obligatoire.",
+    "errPhone": "Un numéro de téléphone est obligatoire.",
+    "errEmail": "Une adresse e-mail est obligatoire.",
+    "errEmailInvalid": "Saisissez une adresse e-mail valide.",
+    "errFleetSize": "La taille de la flotte doit être d’au moins 1.",
+    "errSubmit": "L’envoi de votre demande a échoué. Veuillez réessayer ou nous joindre sur WhatsApp.",
+    "received": "Demande reçue",
+    "receivedBody": "Un membre de notre équipe flottes va étudier votre demande et revenir vers vous avec la suite.",
+    "trackEnquiry": "Suivre cette demande",
+    "submit": "Demander un devis flotte",
+    "submitting": "Envoi…",
+    "autoReply": "Merci pour votre demande de devis flotte auprès de China2Ghana Motors. Votre numéro de référence est {reference}. Suivez son avancement à tout moment sur {url}. Notre équipe vous contactera très bientôt."
+  },
+  "track": {
+    "metaTitle": "Suivre votre véhicule",
+    "metaDescription": "Saisissez votre référence de suivi pour voir où en est votre demande.",
+    "title": "Suivre votre véhicule",
+    "intro": "Saisissez votre référence de suivi pour savoir où en est votre véhicule.",
+    "inputLabel": "Référence de suivi",
+    "inputPlaceholder": "ex. C2G-8837XJ",
+    "submit": "Suivre",
+    "hint": "Votre référence commence par <ref>C2G-</ref>. Elle s’affiche à l’envoi de votre demande et vous est envoyée par e-mail si vous en avez indiqué un.",
+    "notFound": "Nous n’avons pas trouvé cette référence. Vérifiez-la et réessayez.",
+    "noUpdates": "Cette référence existe, mais aucune mise à jour n’a encore été enregistrée.",
+    "reference": "Référence :",
+    "howTitle": "Comment fonctionne le suivi",
+    "step": "Étape {n}",
+    "phaseSourcing": "Recherche",
+    "phaseInspection": "Inspection et achat",
+    "phaseShipping": "Expédition",
+    "phaseClearing": "Dédouanement et livraison"
+  },
+  "stages": {
+    "received": "Demande reçue",
+    "sourcing": "Recherche du véhicule",
+    "selected": "Véhicule choisi",
+    "verification": "Vérification",
+    "inspection": "Inspection",
+    "purchased": "Achat",
+    "ready_to_ship": "Prêt à expédier",
+    "in_transit": "En transit",
+    "arrived_ghana": "Arrivé au Ghana",
+    "clearing": "Dédouanement",
+    "ready_for_delivery": "Prêt à livrer",
+    "delivered": "Livré"
+  },
+  "faq": {
+    "metaTitle": "Questions fréquentes",
+    "metaDescription": "Réponses aux questions courantes sur la recherche, l’expédition, le suivi et l’importation d’un véhicule de la Chine au Ghana avec China2Ghana Motors.",
+    "title": "Questions fréquentes",
+    "intro": "Questions courantes sur la recherche, l’expédition, le suivi et l’importation d’un véhicule de la Chine au Ghana.",
+    "items": {
+      "howItWorks": {
+        "q": "Comment se passe la recherche d’un véhicule ?",
+        "a": "Vous nous dites ce que vous cherchez : type de véhicule, budget et critères indispensables. Nous trouvons des options auprès de fournisseurs vérifiés en Chine, le véhicule est inspecté et vérifié avant l’achat, puis nous organisons l’expédition et le dédouanement au Ghana.",
+        "link": "Faire une demande de recherche"
+      },
+      "shippingTime": {
+        "q": "Combien de temps dure l’expédition ?",
+        "a": "Cela dépend du véhicule, du mode d’expédition (RoRo ou conteneur) et de l’itinéraire, c’est pourquoi nous n’annonçons pas de délai unique. Une fois le véhicule choisi, nous vous donnons une estimation propre à votre demande.",
+        "link": "RoRo ou conteneur : les explications"
+      },
+      "price": {
+        "q": "Puis-je connaître le prix avant de m’engager ?",
+        "a": "Le prix dépend des caractéristiques du véhicule, de l’expédition et des taux de change du moment, c’est pourquoi nous n’affichons pas de prix fixes sur le site. Contactez-nous via Trouver mon véhicule, WhatsApp ou e-mail et nous vous enverrons un devis complet pour votre demande."
+      },
+      "tracking": {
+        "q": "Puis-je suivre ma commande après l’envoi de ma demande ?",
+        "a": "Oui. Chaque demande, flotte ou particulier, reçoit une référence de suivi, affichée à l’envoi et envoyée par e-mail si vous en indiquez un. Saisissez-la sur la page Suivi pour voir où en est votre commande.",
+        "link": "Suivre une commande"
+      },
+      "ev": {
+        "q": "Proposez-vous des véhicules électriques et hybrides ?",
+        "a": "Oui. Nous avons des véhicules électriques, hybrides et hybrides rechargeables d’occasion disponibles, avec l’autonomie et les détails de batterie sur chaque annonce lorsque nous les avons.",
+        "link": "Véhicules électriques et hybrides"
+      },
+      "documents": {
+        "q": "Quels documents faut-il pour importer un véhicule ?",
+        "a": "Cela dépend de votre véhicule et de votre situation. Nous nous occupons des documents et du dédouanement pour vous dans le cadre de l’importation.",
+        "link": "Dédouaner un véhicule au Ghana"
+      },
+      "inspection": {
+        "q": "Chaque véhicule est-il inspecté avant l’expédition ?",
+        "a": "Oui. Les véhicules sont inspectés et vérifiés avant tout achat définitif, afin de confirmer que leur état et leurs caractéristiques réels correspondent à ce qui a été annoncé."
+      },
+      "fleet": {
+        "q": "Travaillez-vous aussi avec les entreprises et les flottes ?",
+        "a": "Oui. Nous travaillons avec des opérateurs VTC, des entreprises de logistique, des concessionnaires, des entreprises et des institutions.",
+        "link": "Flottes et entreprises"
+      },
+      "condition": {
+        "q": "Les véhicules sont-ils neufs ou d’occasion ?",
+        "a": "Les véhicules proposés actuellement sont d’occasion, chez notre partenaire en Chine, et chacun est inspecté avant l’achat. Si vous voulez un véhicule neuf, indiquez-le dans une demande de recherche et nous trouverons des options. Sur la page Véhicules, vous pouvez filtrer par marque, carrosserie, énergie et année.",
+        "link": "Voir les véhicules"
+      },
+      "contact": {
+        "q": "Comment joindre un spécialiste ?",
+        "a": "Par le formulaire Trouver mon véhicule, par WhatsApp, ou par e-mail à {email}."
+      }
+    }
+  },
+  "insights": {
+    "metaTitle": "Conseils : achat, importation et expédition",
+    "metaDescription": "Guides d’achat, étapes de l’importation et de l’expédition, dédouanement au Ghana et éclairages sur le marché automobile chinois.",
+    "title": "Conseils",
+    "intro": "Guides d’achat, bases de l’importation et de l’expédition, et éclairages sur le marché automobile chinois.",
+    "minRead": "{count} min de lecture",
+    "notFound": "Article introuvable",
+    "ctaTitle": "Prêt à trouver votre véhicule ?",
+    "ctaBody": "Parcourez les véhicules d’occasion disponibles, ou dites-nous ce qu’il vous faut et nous le trouverons.",
+    "browse": "Voir les véhicules",
+    "source": "Trouver un véhicule",
+    "more": "Autres conseils",
+    "all": "Tous les articles",
+    "categories": {
+      "buying-guides": "Guides d’achat",
+      "import-guides": "Guides d’importation",
+      "ev": "Véhicules électriques",
+      "shipping": "Expédition",
+      "customs": "Douane",
+      "vehicle-reviews": "Choisir un véhicule",
+      "china-automotive-market": "Marché automobile chinois"
+    }
+  }
+}

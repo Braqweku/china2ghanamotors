@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 const brands = [
   { name: "Honda", logo: "/brands/honda.svg" },
   { name: "Toyota", logo: "/brands/toyota.svg" },
@@ -14,13 +16,14 @@ const brands = [
 ];
 
 export function TopBrands() {
+  const t = useTranslations("home");
   const track = [...brands, ...brands];
 
   return (
     <section className="border-b border-border bg-card py-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <p className="text-label font-medium uppercase tracking-wide text-muted-foreground">
-          Brands in our current stock
+          {t("brandsTitle")}
         </p>
       </div>
       <div

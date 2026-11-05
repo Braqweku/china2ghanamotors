@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
+import { alternatesFor } from "@/lib/i18n/alternates";
+import type { Locale } from "@/lib/i18n/locales";
 import { Hero } from "@/components/home/hero";
 import { TopBrands } from "@/components/home/top-brands";
 import { HotDeals } from "@/components/home/hot-deals";
@@ -7,9 +10,14 @@ import { Journey } from "@/components/home/journey";
 import { CtaBand } from "@/components/home/cta-band";
 import { getVehicles } from "@/lib/data/vehicles";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/" },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return { alternates: alternatesFor("/", locale) };
+}
 
 const DEAL_VEHICLE_IDS = [
   "veh_101",
@@ -21,7 +29,9 @@ const DEAL_VEHICLE_IDS = [
   "veh_145",
 ];
 
-export default async function Home() {
+export default async function Home({ params }: { params: Promise<{ locale: Locale }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const vehicles = await getVehicles();
   const dealVehicles = DEAL_VEHICLE_IDS.map((id) =>
     vehicles.find((v) => v.id === id)

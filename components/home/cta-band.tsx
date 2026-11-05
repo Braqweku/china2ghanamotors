@@ -1,22 +1,21 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { buildWhatsAppLink, siteConfig } from "@/lib/config";
 
 export function CtaBand() {
-  const whatsappHref = buildWhatsAppLink(
-    `Hi ${siteConfig.name}, I'd like to speak with a sourcing specialist.`
-  );
+  const t = useTranslations("home");
+  const tCommon = useTranslations("common");
+  const whatsappHref = buildWhatsAppLink(tCommon("whatsappGreeting", { name: siteConfig.name }));
 
   return (
     <section className="bg-primary py-20 text-primary-foreground">
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-        <h2 className="text-h2 font-semibold">Ready to start?</h2>
-        <p className="mt-3 text-body text-primary-foreground/80">
-          Tell us what you need, or talk to a sourcing specialist directly.
-        </p>
+        <h2 className="text-h2 font-semibold">{t("ctaTitle")}</h2>
+        <p className="mt-3 text-body text-primary-foreground/80">{t("ctaBody")}</p>
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button asChild size="lg" variant="secondary">
-            <Link href="/source">Source My Vehicle</Link>
+            <Link href="/source">{t("sourceCta")}</Link>
           </Button>
           <Button
             asChild
@@ -25,7 +24,7 @@ export function CtaBand() {
             className="border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
           >
             <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-              Contact Specialist
+              {t("ctaContact")}
             </a>
           </Button>
         </div>

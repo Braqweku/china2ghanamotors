@@ -1,33 +1,18 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Compass, ShieldCheck, Ship, PackageCheck } from "lucide-react";
 import { useRevealOnScroll } from "@/lib/hooks/use-reveal-on-scroll";
 import { cn } from "@/lib/utils";
 
 const stages = [
-  {
-    icon: Compass,
-    title: "Source",
-    copy: "We identify the right vehicle from verified suppliers in China, based on your specifications and budget.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Verify",
-    copy: "Every vehicle is inspected and its condition confirmed before you approve the purchase.",
-  },
-  {
-    icon: Ship,
-    title: "Ship",
-    copy: "We coordinate shipping and handle customs and clearing, so the process is never on you alone.",
-  },
-  {
-    icon: PackageCheck,
-    title: "Deliver",
-    copy: "Your vehicle is delivered to you in Ghana, with updates and documentation the whole way.",
-  },
-];
+  { icon: Compass, key: "source" },
+  { icon: ShieldCheck, key: "verify" },
+  { icon: Ship, key: "ship" },
+  { icon: PackageCheck, key: "deliver" },
+] as const;
 
-function TrustCard({ icon: Icon, title, copy }: (typeof stages)[number]) {
+function TrustCard({ icon: Icon, title, copy }: { icon: (typeof stages)[number]["icon"]; title: string; copy: string }) {
   const { ref, isVisible } = useRevealOnScroll<HTMLDivElement>();
   return (
     <div
@@ -45,11 +30,18 @@ function TrustCard({ icon: Icon, title, copy }: (typeof stages)[number]) {
 }
 
 export function TrustLayer() {
+  const t = useTranslations("home.trust");
+
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {stages.map((stage) => (
-          <TrustCard key={stage.title} {...stage} />
+          <TrustCard
+            key={stage.key}
+            icon={stage.icon}
+            title={t(`${stage.key}Title`)}
+            copy={t(`${stage.key}Copy`)}
+          />
         ))}
       </div>
     </section>

@@ -1,9 +1,13 @@
+import { useLocale, useTranslations } from "next-intl";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { stageLabels, stageOrder } from "@/lib/tracking-stages";
+import { stageOrder } from "@/lib/tracking-stages";
+import { localeTags, type Locale } from "@/lib/i18n/locales";
 import type { TrackingEvent } from "@/types";
 
 export function TrackingTimeline({ events }: { events: TrackingEvent[] }) {
+  const t = useTranslations("stages");
+  const locale = useLocale() as Locale;
   const eventByStage = new Map(events.map((e) => [e.stage, e]));
   const lastCompletedIndex = stageOrder.reduce(
     (acc, stage, i) => (eventByStage.has(stage) ? i : acc),
@@ -49,11 +53,11 @@ export function TrackingTimeline({ events }: { events: TrackingEvent[] }) {
                   isComplete ? "text-foreground" : "text-muted-foreground"
                 )}
               >
-                {stageLabels[stage]}
+                {t(stage)}
               </p>
               {event && (
                 <p className="mt-1 text-small text-muted-foreground">
-                  {new Date(event.timestamp).toLocaleDateString("en-US", {
+                  {new Date(event.timestamp).toLocaleDateString(localeTags[locale], {
                     year: "numeric",
                     month: "long",
                     day: "numeric",

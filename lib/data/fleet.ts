@@ -1,8 +1,10 @@
 import type { FleetEnquiry } from "@/types";
 import { siteConfig } from "@/lib/config";
+import type { SubmissionLocale } from "@/lib/data/sourcing";
 
 export async function submitFleetEnquiry(
-  enquiry: FleetEnquiry
+  enquiry: FleetEnquiry,
+  { language, autoReply }: SubmissionLocale
 ): Promise<{ reference: string }> {
   const reference = `C2G-${Math.random().toString(36).slice(2, 8).toUpperCase()}`;
 
@@ -13,12 +15,9 @@ export async function submitFleetEnquiry(
       _subject: `New fleet quote request — ${enquiry.companyName} (${reference})`,
       _template: "table",
       _captcha: "false",
-      ...(enquiry.email
-        ? {
-            _autoresponse: `Thanks for your fleet quote request with China2Ghana Motors. Your reference number is ${reference} — track its status anytime at ${siteConfig.url}/track?ref=${reference}. Our team will be in touch shortly.`,
-          }
-        : {}),
+      ...(enquiry.email ? { _autoresponse: autoReply(reference) } : {}),
       reference,
+      language,
       companyName: enquiry.companyName,
       contactName: enquiry.contactName,
       phone: enquiry.phone,
