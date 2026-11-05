@@ -22,7 +22,7 @@ export function Hero() {
           </h1>
           <p className="mt-5 max-w-xl text-body text-primary-foreground/85">{t("body")}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="lg">
+            <Button asChild size="lg" variant="secondary">
               <Link href="/source">{t("sourceCta")}</Link>
             </Button>
             <Button
