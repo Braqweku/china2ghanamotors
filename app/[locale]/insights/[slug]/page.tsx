@@ -5,9 +5,12 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { getArticleBySlug, getArticles } from "@/lib/data/articles";
-import { alternatesFor } from "@/lib/i18n/alternates";
+import { alternatesFor, localizedPath } from "@/lib/i18n/alternates";
 import { locales, type Locale } from "@/lib/i18n/locales";
+import { articleSchema, breadcrumbSchema } from "@/lib/seo/json-ld";
+import { siteConfig } from "@/lib/config";
 import { ArticleMeta } from "@/components/insights/article-meta";
+import { JsonLd } from "@/components/seo/json-ld";
 
 type Params = Promise<{ locale: Locale; slug: string }>;
 
@@ -51,8 +54,25 @@ export default async function ArticlePage({ params }: { params: Params }) {
     .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
     .slice(0, 3);
 
+  const articleUrl = `${siteConfig.url}${localizedPath(`/insights/${slug}`, locale)}`;
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <JsonLd
+        data={articleSchema({
+          locale,
+          url: articleUrl,
+          headline: article.title,
+          description: article.excerpt,
+          datePublished: article.publishedAt,
+        })}
+      />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: t("title"), url: `${siteConfig.url}${localizedPath("/insights", locale)}` },
+          { name: article.title, url: articleUrl },
+        ])}
+      />
       <article className="mx-auto max-w-2xl">
         <nav aria-label="Breadcrumb" className="text-small text-muted-foreground">
           <ol className="flex flex-wrap items-center gap-1.5">

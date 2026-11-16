@@ -13,6 +13,8 @@ import { formatMileage, formatRegistered, specMessageKey, translateEngine, vehic
 import { alternatesFor, localizedPath } from "@/lib/i18n/alternates";
 import { localeTags, locales, type Locale } from "@/lib/i18n/locales";
 import { buildWhatsAppLink, siteConfig } from "@/lib/config";
+import { breadcrumbSchema } from "@/lib/seo/json-ld";
+import { JsonLd } from "@/components/seo/json-ld";
 import type { Vehicle } from "@/types";
 
 type Params = Promise<{ locale: Locale; id: string }>;
@@ -118,31 +120,16 @@ export default async function VehicleDetailPage({ params }: { params: Params }) 
     url: vehicleUrl,
   };
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: t("vehicle.home"), item: `${siteConfig.url}${localizedPath("/", locale)}` },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: t("vehicle.breadcrumb"),
-        item: `${siteConfig.url}${localizedPath("/vehicles", locale)}`,
-      },
-      { "@type": "ListItem", position: 3, name: vehicleName, item: vehicleUrl },
-    ],
-  };
+  const breadcrumbJsonLd = breadcrumbSchema([
+    { name: t("vehicle.home"), url: `${siteConfig.url}${localizedPath("/", locale)}` },
+    { name: t("vehicle.breadcrumb"), url: `${siteConfig.url}${localizedPath("/vehicles", locale)}` },
+    { name: vehicleName, url: vehicleUrl },
+  ]);
 
   return (
     <div className="mx-auto max-w-7xl px-4 pb-28 pt-6 sm:px-6 lg:px-8 lg:pb-16">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(vehicleJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
+      <JsonLd data={vehicleJsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
 
       <nav aria-label="Breadcrumb" className="text-small text-muted-foreground">
         <ol className="flex min-w-0 items-center gap-1.5">

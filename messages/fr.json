@@ -1,7 +1,7 @@
 {
   "meta": {
-    "siteTitle": "China2Ghana Motors | Importer des véhicules de Chine au Ghana",
-    "siteDescription": "Nous trouvons, vérifions, expédions et dédouanons des véhicules auprès de fournisseurs fiables en Chine, livrés au Ghana. Berlines, SUV, pick-up et véhicules électriques, avec un devis personnalisé pour chaque demande."
+    "siteTitle": "Importer et expédier une voiture de Chine au Ghana | China2Ghana Motors",
+    "siteDescription": "Importez et expédiez une voiture de Chine au Ghana avec China2Ghana Motors. Recherche, inspection, expédition jusqu’au port de Tema et dédouanement. Devis complet."
   },
   "common": {
     "tagline": "De la Chine au Ghana. Portés par la confiance.",
@@ -34,7 +34,8 @@
     "insights": "Conseils",
     "faq": "Questions fréquentes",
     "whatsapp": "Écrire sur WhatsApp",
-    "rights": "Tous droits réservés."
+    "rights": "Tous droits réservés.",
+    "shipping": "Expédition au Ghana"
   },
   "errors": {
     "title": "Une erreur s’est produite",
@@ -82,7 +83,8 @@
     ],
     "ctaTitle": "Prêt à commencer ?",
     "ctaBody": "Dites-nous ce qu’il vous faut, ou parlez directement à un spécialiste.",
-    "ctaContact": "Contacter un spécialiste"
+    "ctaContact": "Contacter un spécialiste",
+    "journeyLink": "Comment expédier une voiture de Chine au Ghana"
   },
   "labels": {
     "bodyType": {
@@ -131,8 +133,8 @@
     }
   },
   "vehicles": {
-    "metaTitle": "Véhicules d’occasion de Chine, disponibles maintenant",
-    "metaDescription": "Toyota, Honda, BYD, Geely et d’autres véhicules d’occasion, inspectés en Chine et expédiés au Ghana. Filtrez par marque, carrosserie, énergie et année, puis demandez un devis complet.",
+    "metaTitle": "Voitures d’occasion de Chine à vendre au Ghana",
+    "metaDescription": "Toyota, Honda, BYD, Geely et d’autres voitures d’occasion en Chine, inspectées et expédiées au port de Tema, au Ghana. Filtrez, puis demandez un devis complet.",
     "title": "Véhicules disponibles",
     "intro": "Des véhicules d’occasion de notre partenaire en Chine, inspectés avant l’achat et expédiés au Ghana. Choisissez un véhicule et nous vous enverrons un devis complet, expédition et dédouanement compris.",
     "count": "{count, plural, one {<b>#</b> véhicule} other {<b>#</b> véhicules}}",
@@ -162,7 +164,7 @@
     "sortMileage": "Kilométrage le plus bas"
   },
   "vehicle": {
-    "metaTitle": "{name} : {type} d’occasion de Chine",
+    "metaTitle": "{name} : {type} d’occasion de Chine au Ghana",
     "metaDescription": "{name}{trim} : {type} d’occasion, {fuel}, boîte {gearbox}, {mileage}. Inspecté en Chine et expédié au Ghana.",
     "notFound": "Véhicule introuvable",
     "home": "Accueil",
@@ -188,8 +190,8 @@
     "showPhoto": "Afficher la photo {n}"
   },
   "ev": {
-    "metaTitle": "Véhicules électriques et hybrides de Chine",
-    "metaDescription": "Véhicules électriques et hybrides d’occasion disponibles en Chine : BYD, Toyota, Geely et d’autres, inspectés et expédiés au Ghana.",
+    "metaTitle": "Voitures électriques et hybrides de Chine au Ghana",
+    "metaDescription": "Importez une voiture électrique ou hybride de Chine au Ghana. BYD, Toyota, Geely et d’autres d’occasion, inspectées en Chine et expédiées au port de Tema.",
     "title": "Véhicules électriques et hybrides",
     "intro": "Des véhicules électriques et hybrides d’occasion disponibles chez notre partenaire en Chine, inspectés avant l’achat et expédiés au Ghana.",
     "rangeTerm": "Autonomie et batterie",
@@ -204,8 +206,8 @@
     "hybrid": "Hybrides"
   },
   "source": {
-    "metaTitle": "Trouver mon véhicule",
-    "metaDescription": "Indiquez le véhicule souhaité, votre budget et vos critères : nous trouvons des options auprès de fournisseurs vérifiés en Chine et vous envoyons un devis personnalisé.",
+    "metaTitle": "Importer une voiture de Chine au Ghana : devis",
+    "metaDescription": "Indiquez la voiture souhaitée et votre budget. Nous la trouvons auprès de fournisseurs vérifiés en Chine, l’expédions au Ghana et vous envoyons un devis complet.",
     "title": "Trouver un véhicule",
     "intro": "Dites-nous ce qu’il vous faut. Nous le trouvons, l’inspectons, l’expédions et vous le livrons au Ghana.",
     "afterTitle": "Après l’envoi de votre demande",
@@ -218,7 +220,14 @@
     "knowTitle": "Vous savez déjà ce que vous voulez ?",
     "knowBody": "Notre partenaire dispose en Chine de véhicules d’occasion prêts à être inspectés et expédiés.",
     "browse": "Voir les véhicules disponibles",
-    "steps": ["Véhicule", "Budget", "Critères", "Quantité", "Vos coordonnées", "Récapitulatif"],
+    "steps": [
+      "Véhicule",
+      "Budget",
+      "Critères",
+      "Quantité",
+      "Vos coordonnées",
+      "Récapitulatif"
+    ],
     "stepOf": "Étape {n} sur {total} : {name}",
     "vehicleLabel": "Quel véhicule recherchez-vous ?",
     "vehiclePlaceholder": "ex. Toyota Corolla Cross ou un SUV hybride",
@@ -257,7 +266,7 @@
     "autoReply": "Merci pour votre demande de recherche de véhicule auprès de China2Ghana Motors. Votre numéro de référence est {reference}. Suivez son avancement à tout moment sur {url}. Notre équipe vous contactera très bientôt."
   },
   "fleet": {
-    "metaTitle": "Approvisionnement pour flottes et entreprises",
+    "metaTitle": "Véhicules de flotte de Chine au Ghana",
     "metaDescription": "Recherche de véhicules pour les VTC, les entreprises de logistique, les concessionnaires, les entreprises et les institutions : trouvés, vérifiés, expédiés et livrés de la Chine au Ghana.",
     "title": "Flottes et entreprises",
     "intro": "Dites-nous ce dont votre flotte a besoin. Nous trouvons, inspectons, expédions et dédouanons les véhicules, puis revenons vers vous avec des options et un devis.",
@@ -338,8 +347,8 @@
     "delivered": "Livré"
   },
   "faq": {
-    "metaTitle": "Questions fréquentes",
-    "metaDescription": "Réponses aux questions courantes sur la recherche, l’expédition, le suivi et l’importation d’un véhicule de la Chine au Ghana avec China2Ghana Motors.",
+    "metaTitle": "Importer une voiture de Chine au Ghana : FAQ",
+    "metaDescription": "Réponses sur l’importation et l’expédition d’une voiture de Chine au Ghana : fonctionnement, coût, expédition, dédouanement au port de Tema et suivi.",
     "title": "Questions fréquentes",
     "intro": "Questions courantes sur la recherche, l’expédition, le suivi et l’importation d’un véhicule de la Chine au Ghana.",
     "items": {
@@ -351,7 +360,7 @@
       "shippingTime": {
         "q": "Combien de temps dure l’expédition ?",
         "a": "Cela dépend du véhicule, du mode d’expédition (RoRo ou conteneur) et de l’itinéraire, c’est pourquoi nous n’annonçons pas de délai unique. Une fois le véhicule choisi, nous vous donnons une estimation propre à votre demande.",
-        "link": "RoRo ou conteneur : les explications"
+        "link": "Expédier une voiture de Chine au Ghana : les explications"
       },
       "price": {
         "q": "Puis-je connaître le prix avant de m’engager ?",
@@ -393,7 +402,7 @@
     }
   },
   "insights": {
-    "metaTitle": "Conseils : achat, importation et expédition",
+    "metaTitle": "Guides d’importation automobile : Chine–Ghana",
     "metaDescription": "Guides d’achat, étapes de l’importation et de l’expédition, dédouanement au Ghana et éclairages sur le marché automobile chinois.",
     "title": "Conseils",
     "intro": "Guides d’achat, bases de l’importation et de l’expédition, et éclairages sur le marché automobile chinois.",
@@ -414,5 +423,95 @@
       "vehicle-reviews": "Choisir un véhicule",
       "china-automotive-market": "Marché automobile chinois"
     }
+  },
+  "shipping": {
+    "metaTitle": "Expédier une voiture de Chine au Ghana (port de Tema)",
+    "metaDescription": "Comment expédier une voiture de Chine au Ghana : recherche, inspection, expédition RoRo ou conteneur jusqu’au port de Tema, dédouanement et livraison. Devis complet.",
+    "breadcrumb": "Expédition au Ghana",
+    "title": "Expédier une voiture de Chine au Ghana",
+    "answer": "China2Ghana Motors expédie pour vous des voitures de Chine au Ghana. Nous trouvons le véhicule souhaité auprès de fournisseurs vérifiés en Chine, l’inspectons avant l’achat, l’expédions en RoRo ou en conteneur jusqu’au port de Tema, le dédouanons auprès de la douane ghanéenne et vous le livrons. Vous recevez un devis complet et une référence de suivi pour tout le trajet.",
+    "stepsTitle": "Comment se passe l’expédition d’une voiture de Chine au Ghana",
+    "steps": [
+      {
+        "title": "Dites-nous ce qu’il vous faut",
+        "body": "Indiquez le véhicule, le budget et les critères indispensables, ou choisissez un véhicule que nous avons déjà en Chine."
+      },
+      {
+        "title": "Choisissez parmi les options",
+        "body": "Nous vous envoyons des options de fournisseurs vérifiés avec un devis complet : véhicule, inspection, expédition et dédouanement."
+      },
+      {
+        "title": "Inspection avant l’achat",
+        "body": "Le véhicule est inspecté en Chine pour confirmer que son état et ses caractéristiques correspondent à la description, avant que vous ne payiez."
+      },
+      {
+        "title": "Achat et export",
+        "body": "Après votre accord, nous achetons le véhicule et préparons le véhicule et ses documents d’export pour l’expédition."
+      },
+      {
+        "title": "Expédition jusqu’au port de Tema",
+        "body": "Le véhicule est expédié de Chine au port de Tema, au Ghana, en RoRo ou en conteneur. Vous suivez chaque étape avec votre référence de suivi."
+      },
+      {
+        "title": "Dédouanement et livraison",
+        "body": "Nous nous occupons du dédouanement au port de Tema et organisons la livraison de votre véhicule."
+      }
+    ],
+    "methodsTitle": "Expédition en RoRo ou en conteneur",
+    "roroTitle": "RoRo (roulier)",
+    "roroBody": "Le véhicule est conduit à bord d’un navire spécialisé dans le transport de voitures, puis débarqué au port de Tema. C’est la méthode la plus courante et généralement la plus économique pour une voiture classique.",
+    "containerTitle": "Conteneur",
+    "containerBody": "Le véhicule est chargé dans un conteneur maritime, seul ou avec d’autres marchandises. Il est mieux protégé pendant le trajet ; c’est adapté aux véhicules de plus grande valeur.",
+    "costTitle": "Ce qui influence le coût d’expédition d’une voiture de Chine au Ghana",
+    "costIntro": "Il n’existe pas de prix unique, car le total dépend :",
+    "costFactors": [
+      "Du véhicule : marque, modèle, année et état",
+      "Du mode d’expédition : RoRo ou conteneur",
+      "De l’inspection et de la préparation à l’export en Chine",
+      "Des droits, taxes et frais perçus par la douane ghanéenne, qui dépendent de la valeur, de l’âge et du type du véhicule",
+      "Des taux de change au moment de l’achat"
+    ],
+    "costNote": "Chaque demande reçoit un devis écrit complet avant tout engagement, pour que vous connaissiez le coût total de votre voiture au Ghana.",
+    "clearingTitle": "Dédouanement au port de Tema",
+    "clearingBody": "À son arrivée au port de Tema, le véhicule doit être dédouané auprès de la douane ghanéenne avant d’être libéré. Nous préparons et déposons les documents, vous informons des droits et frais dès qu’ils sont confirmés, et organisons la livraison une fois le véhicule libéré.",
+    "faqTitle": "Expédier une voiture de Chine au Ghana : questions",
+    "faq": {
+      "howTo": {
+        "q": "Comment expédier une voiture de Chine au Ghana ?",
+        "a": "Indiquez-nous le véhicule souhaité ou choisissez-en un dans notre stock en Chine. Nous l’inspectons, l’achetons après votre accord, l’expédions au port de Tema en RoRo ou en conteneur, le dédouanons et vous le livrons. Un seul interlocuteur et un seul devis du début à la fin."
+      },
+      "time": {
+        "q": "Combien de temps faut-il pour expédier une voiture de Chine au Ghana ?",
+        "a": "Cela dépend du véhicule, du mode d’expédition et du calendrier des navires, c’est pourquoi nous n’annonçons pas de délai fixe. Une fois votre véhicule choisi, nous vous donnons une estimation pour votre envoi, et vous suivez chaque étape avec votre référence."
+      },
+      "cost": {
+        "q": "Combien coûte l’expédition d’une voiture de Chine au Ghana ?",
+        "a": "Le coût dépend du véhicule, du mode d’expédition (RoRo ou conteneur), de l’inspection, des droits d’importation ghanéens et des taux de change. Envoyez une demande et nous vous répondrons avec un devis complet : véhicule, expédition et dédouanement."
+      },
+      "port": {
+        "q": "Dans quel port du Ghana arrivent les voitures venant de Chine ?",
+        "a": "Nous expédions les véhicules de Chine au port de Tema, au Ghana, où ils sont dédouanés avant la livraison."
+      },
+      "method": {
+        "q": "RoRo ou conteneur : quelle est la meilleure option pour une voiture ?",
+        "a": "Le RoRo est généralement le choix le plus économique pour une voiture classique. Le conteneur protège mieux et convient aux véhicules de plus grande valeur. Nous recommandons la méthode adaptée à votre véhicule et à votre budget."
+      },
+      "ev": {
+        "q": "Puis-je importer une voiture électrique ou hybride de Chine au Ghana ?",
+        "a": "Oui. Nous avons des véhicules électriques, hybrides et hybrides rechargeables d’occasion disponibles en Chine, qui passent par la même inspection, la même expédition et le même dédouanement que les autres."
+      },
+      "clearing": {
+        "q": "Vous occupez-vous du dédouanement au Ghana ?",
+        "a": "Oui. Nous préparons les documents, gérons le dédouanement au port de Tema et vous informons des droits et frais dès qu’ils sont confirmés."
+      },
+      "tracking": {
+        "q": "Puis-je suivre ma voiture pendant l’expédition ?",
+        "a": "Oui. Chaque demande reçoit une référence de suivi. Saisissez-la sur notre page Suivi pour voir à quelle étape se trouve votre véhicule, de la recherche à la livraison."
+      }
+    },
+    "ctaTitle": "Prêt à expédier votre voiture de Chine au Ghana ?",
+    "ctaBody": "Dites-nous ce qu’il vous faut et nous vous enverrons des véhicules correspondants avec un devis complet.",
+    "ctaRequest": "Demander un véhicule",
+    "ctaBrowse": "Voir les véhicules en Chine"
   }
 }

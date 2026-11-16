@@ -3,6 +3,7 @@ import { getVehicles } from "@/lib/data/vehicles";
 import { getArticles } from "@/lib/data/articles";
 import { alternatesFor } from "@/lib/i18n/alternates";
 import { locales } from "@/lib/i18n/locales";
+import { SHIPPING_PATH } from "@/lib/seo/llms";
 import { siteConfig } from "@/lib/config";
 
 const BASE_URL = siteConfig.url;
@@ -31,6 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: Entry[] = [
     { path: "/", changeFrequency: "weekly", priority: 1 },
     { path: "/vehicles", changeFrequency: "daily", priority: 0.9 },
+    { path: SHIPPING_PATH, changeFrequency: "monthly", priority: 0.9 },
     { path: "/source", changeFrequency: "monthly", priority: 0.8 },
     { path: "/fleet", changeFrequency: "monthly", priority: 0.7 },
     { path: "/ev", changeFrequency: "monthly", priority: 0.7 },

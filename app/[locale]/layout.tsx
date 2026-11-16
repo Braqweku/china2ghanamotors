@@ -7,7 +7,9 @@ import { Footer } from "@/components/layout/footer";
 import { siteConfig } from "@/lib/config";
 import { bodyClassName } from "@/lib/fonts";
 import { alternatesFor } from "@/lib/i18n/alternates";
-import { localeNames, type Locale } from "@/lib/i18n/locales";
+import type { Locale } from "@/lib/i18n/locales";
+import { organizationSchema, websiteSchema } from "@/lib/seo/json-ld";
+import { JsonLd } from "@/components/seo/json-ld";
 import { routing } from "@/i18n/routing";
 
 const ogLocale: Record<Locale, string> = { en: "en_GH", fr: "fr_FR", pt: "pt_PT", zh: "zh_CN" };
@@ -58,33 +60,12 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
   const t = await getTranslations("meta");
 
-  const organizationJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: siteConfig.name,
-    url: siteConfig.url,
-    logo: `${siteConfig.url}/logo/china2ghana-logo.png`,
-    image: `${siteConfig.url}/opengraph-image.png`,
-    description: t("siteDescription"),
-    contactPoint: [
-      { contactType: "sales", email: siteConfig.contactEmail },
-      { contactType: "customer service", email: siteConfig.infoEmail },
-    ].map((point) => ({
-      "@type": "ContactPoint",
-      ...point,
-      areaServed: "GH",
-      availableLanguage: Object.values(localeNames),
-    })),
-  };
-
   return (
     <html lang={locale}>
       <body className={bodyClassName}>
         <NextIntlClientProvider>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-          />
+          <JsonLd data={organizationSchema(t("siteDescription"))} />
+          <JsonLd data={websiteSchema(locale)} />
           <Header />
           <main>{children}</main>
           <Footer />

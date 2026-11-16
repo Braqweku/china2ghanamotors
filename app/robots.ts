@@ -1,15 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/config";
-
-const BASE_URL = siteConfig.url;
+import { robotsConfig } from "@/lib/seo/robots";
 
 export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-      disallow: ["/admin", "/admin/"],
-    },
-    sitemap: `${BASE_URL}/sitemap.xml`,
-  };
+  return robotsConfig(siteConfig.url);
 }

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "siteTitle": "China2Ghana Motors | Importar veículos da China para o Gana",
-    "siteDescription": "Encontramos, verificamos, enviamos e desalfandegamos veículos de fornecedores de confiança na China, entregues no Gana. Sedans, SUV, pick-ups e veículos elétricos, com um orçamento personalizado para cada pedido."
+    "siteTitle": "Importar e enviar carros da China para o Gana | China2Ghana Motors",
+    "siteDescription": "Importe e envie carros da China para o Gana com a China2Ghana Motors. Pesquisa, inspeção, envio para o Porto de Tema e desalfandegamento. Orçamento completo."
   },
   "common": {
     "tagline": "Da China para o Gana. Movidos pela confiança.",
@@ -34,7 +34,8 @@
     "insights": "Guias",
     "faq": "Perguntas frequentes",
     "whatsapp": "Falar no WhatsApp",
-    "rights": "Todos os direitos reservados."
+    "rights": "Todos os direitos reservados.",
+    "shipping": "Envio para o Gana"
   },
   "errors": {
     "title": "Ocorreu um erro",
@@ -82,7 +83,8 @@
     ],
     "ctaTitle": "Pronto para começar?",
     "ctaBody": "Diga-nos o que precisa ou fale diretamente com um especialista.",
-    "ctaContact": "Falar com um especialista"
+    "ctaContact": "Falar com um especialista",
+    "journeyLink": "Como funciona o envio de um carro da China para o Gana"
   },
   "labels": {
     "bodyType": {
@@ -131,8 +133,8 @@
     }
   },
   "vehicles": {
-    "metaTitle": "Veículos usados da China, disponíveis agora",
-    "metaDescription": "Toyota, Honda, BYD, Geely e outros veículos usados, inspecionados na China e enviados para o Gana. Filtre por marca, carroçaria, combustível e ano e peça um orçamento completo.",
+    "metaTitle": "Carros usados da China à venda no Gana",
+    "metaDescription": "Toyota, Honda, BYD, Geely e outros carros usados na China, inspecionados e enviados para o Porto de Tema, no Gana. Filtre e peça um orçamento completo.",
     "title": "Veículos disponíveis",
     "intro": "Veículos usados do nosso parceiro na China, inspecionados antes da compra e enviados para o Gana. Escolha um veículo e enviamos um orçamento completo, com envio e desalfandegamento incluídos.",
     "count": "{count, plural, one {<b>#</b> veículo} other {<b>#</b> veículos}}",
@@ -162,7 +164,7 @@
     "sortMileage": "Menor quilometragem"
   },
   "vehicle": {
-    "metaTitle": "{name}: {type} usado da China",
+    "metaTitle": "{name}: {type} usado da China para o Gana",
     "metaDescription": "{name}{trim}: {type} usado, {fuel}, caixa {gearbox}, {mileage}. Inspecionado na China e enviado para o Gana.",
     "notFound": "Veículo não encontrado",
     "home": "Início",
@@ -188,8 +190,8 @@
     "showPhoto": "Mostrar fotografia {n}"
   },
   "ev": {
-    "metaTitle": "Veículos elétricos e híbridos da China",
-    "metaDescription": "Veículos elétricos e híbridos usados disponíveis na China: BYD, Toyota, Geely e outros, inspecionados e enviados para o Gana.",
+    "metaTitle": "Carros elétricos e híbridos da China para o Gana",
+    "metaDescription": "Importe um carro elétrico ou híbrido da China para o Gana. BYD, Toyota, Geely e outros usados, inspecionados na China e enviados para o Porto de Tema.",
     "title": "Veículos elétricos e híbridos",
     "intro": "Veículos elétricos e híbridos usados disponíveis no nosso parceiro na China, inspecionados antes da compra e enviados para o Gana.",
     "rangeTerm": "Autonomia e bateria",
@@ -204,8 +206,8 @@
     "hybrid": "Híbridos"
   },
   "source": {
-    "metaTitle": "Encontrar o meu veículo",
-    "metaDescription": "Diga-nos o veículo que procura, o seu orçamento e especificações: encontramos opções junto de fornecedores verificados na China e enviamos um orçamento personalizado.",
+    "metaTitle": "Importar um carro da China para o Gana: orçamento",
+    "metaDescription": "Diga-nos o carro que procura e o seu orçamento. Encontramo-lo em fornecedores verificados na China, enviamo-lo para o Gana e enviamos um orçamento completo.",
     "title": "Encontrar um veículo",
     "intro": "Diga-nos o que precisa. Nós encontramos, inspecionamos, enviamos e entregamos no Gana.",
     "afterTitle": "Depois de enviar o pedido",
@@ -218,7 +220,14 @@
     "knowTitle": "Já sabe o que quer?",
     "knowBody": "O nosso parceiro tem veículos usados na China prontos a inspecionar e enviar.",
     "browse": "Ver veículos disponíveis",
-    "steps": ["Veículo", "Orçamento", "Especificações", "Quantidade", "Os seus dados", "Revisão"],
+    "steps": [
+      "Veículo",
+      "Orçamento",
+      "Especificações",
+      "Quantidade",
+      "Os seus dados",
+      "Revisão"
+    ],
     "stepOf": "Passo {n} de {total}: {name}",
     "vehicleLabel": "Que veículo procura?",
     "vehiclePlaceholder": "ex. Toyota Corolla Cross ou um SUV híbrido",
@@ -257,7 +266,7 @@
     "autoReply": "Obrigado pelo seu pedido de aquisição de veículo à China2Ghana Motors. O seu número de referência é {reference}. Acompanhe o estado a qualquer momento em {url}. A nossa equipa entrará em contacto em breve."
   },
   "fleet": {
-    "metaTitle": "Aquisição para frotas e empresas",
+    "metaTitle": "Veículos de frota da China para o Gana",
     "metaDescription": "Aquisição de veículos para operadores de TVDE, empresas de logística, concessionários, empresas e instituições: encontrados, verificados, enviados e entregues da China para o Gana.",
     "title": "Frotas e empresas",
     "intro": "Diga-nos do que a sua frota precisa. Encontramos, inspecionamos, enviamos e desalfandegamos os veículos e respondemos com opções e um orçamento.",
@@ -338,8 +347,8 @@
     "delivered": "Entregue"
   },
   "faq": {
-    "metaTitle": "Perguntas frequentes",
-    "metaDescription": "Respostas a perguntas comuns sobre aquisição, envio, acompanhamento e importação de um veículo da China para o Gana com a China2Ghana Motors.",
+    "metaTitle": "Importar carros da China para o Gana: perguntas",
+    "metaDescription": "Respostas sobre importar e enviar um carro da China para o Gana: como funciona, custo, envio, desalfandegamento no Porto de Tema e acompanhamento.",
     "title": "Perguntas frequentes",
     "intro": "Perguntas comuns sobre aquisição, envio, acompanhamento e importação de um veículo da China para o Gana.",
     "items": {
@@ -351,7 +360,7 @@
       "shippingTime": {
         "q": "Quanto tempo demora o envio?",
         "a": "Depende do veículo, do método de envio (RoRo ou contentor) e da rota, por isso não indicamos um prazo fixo. Depois de escolher o veículo, damos-lhe uma estimativa específica para o seu pedido.",
-        "link": "RoRo ou contentor: explicação"
+        "link": "Enviar carros da China para o Gana: explicação"
       },
       "price": {
         "q": "Posso saber o preço antes de me comprometer?",
@@ -393,7 +402,7 @@
     }
   },
   "insights": {
-    "metaTitle": "Guias: compra, importação e envio",
+    "metaTitle": "Guias de importação de carros: China–Gana",
     "metaDescription": "Guias de compra, importação e envio passo a passo, desalfandegamento no Gana e contexto sobre o mercado automóvel chinês.",
     "title": "Guias",
     "intro": "Guias de compra, noções de importação e envio e contexto sobre o mercado automóvel chinês.",
@@ -414,5 +423,95 @@
       "vehicle-reviews": "Escolher um veículo",
       "china-automotive-market": "Mercado automóvel chinês"
     }
+  },
+  "shipping": {
+    "metaTitle": "Enviar carros da China para o Gana (Porto de Tema)",
+    "metaDescription": "Como enviar um carro da China para o Gana: pesquisa, inspeção, envio RoRo ou em contentor para o Porto de Tema, desalfandegamento e entrega. Orçamento completo.",
+    "breadcrumb": "Envio para o Gana",
+    "title": "Enviar carros da China para o Gana",
+    "answer": "A China2Ghana Motors envia carros da China para o Gana por si. Encontramos o veículo que procura junto de fornecedores verificados na China, inspecionamo-lo antes da compra, enviamo-lo por RoRo ou em contentor para o Porto de Tema, desalfandegamo-lo na alfândega do Gana e entregamo-lo. Recebe um orçamento completo e uma referência de acompanhamento para todo o percurso.",
+    "stepsTitle": "Como funciona o envio de um carro da China para o Gana",
+    "steps": [
+      {
+        "title": "Diga-nos o que precisa",
+        "body": "Indique o veículo, o orçamento e as especificações essenciais, ou escolha um veículo que já temos na China."
+      },
+      {
+        "title": "Escolha entre as opções",
+        "body": "Enviamos opções de fornecedores verificados com um orçamento completo: veículo, inspeção, envio e desalfandegamento."
+      },
+      {
+        "title": "Inspeção antes da compra",
+        "body": "O veículo é inspecionado na China para confirmar que o estado e as especificações correspondem ao descrito, antes de pagar."
+      },
+      {
+        "title": "Compra e exportação",
+        "body": "Depois da sua aprovação, compramos o veículo e preparamos o veículo e os documentos de exportação para o envio."
+      },
+      {
+        "title": "Envio para o Porto de Tema",
+        "body": "O veículo é enviado da China para o Porto de Tema, no Gana, por RoRo ou em contentor. Acompanha cada fase com a sua referência."
+      },
+      {
+        "title": "Desalfandegamento e entrega",
+        "body": "Tratamos do desalfandegamento no Porto de Tema e organizamos a entrega do seu veículo."
+      }
+    ],
+    "methodsTitle": "Envio RoRo ou em contentor",
+    "roroTitle": "RoRo (roll-on/roll-off)",
+    "roroBody": "O veículo entra pelos próprios meios num navio especializado no transporte de carros e sai no Porto de Tema. É o método mais comum e normalmente o mais económico para um carro comum.",
+    "containerTitle": "Contentor",
+    "containerBody": "O veículo é colocado num contentor marítimo, sozinho ou com outra carga. Fica mais protegido durante a viagem e é indicado para veículos de maior valor.",
+    "costTitle": "O que influencia o custo de enviar um carro da China para o Gana",
+    "costIntro": "Não existe um preço único, porque o total depende:",
+    "costFactors": [
+      "Do veículo: marca, modelo, ano e estado",
+      "Do método de envio: RoRo ou contentor",
+      "Da inspeção e da preparação para exportação na China",
+      "Dos direitos, impostos e taxas cobrados pela alfândega do Gana, que dependem do valor, da idade e do tipo do veículo",
+      "Das taxas de câmbio no momento da compra"
+    ],
+    "costNote": "Cada pedido recebe um orçamento completo por escrito antes de se comprometer, para saber o custo total do seu carro no Gana.",
+    "clearingTitle": "Desalfandegamento no Porto de Tema",
+    "clearingBody": "Quando chega ao Porto de Tema, o veículo tem de ser desalfandegado na alfândega do Gana antes de ser libertado. Preparamos e entregamos os documentos, informamo-lo dos direitos e taxas à medida que são confirmados e organizamos a entrega depois de o veículo ser libertado.",
+    "faqTitle": "Enviar um carro da China para o Gana: perguntas",
+    "faq": {
+      "howTo": {
+        "q": "Como envio um carro da China para o Gana?",
+        "a": "Diga-nos o veículo que quer ou escolha um do nosso stock na China. Inspecionamo-lo, compramo-lo depois da sua aprovação, enviamo-lo para o Porto de Tema por RoRo ou em contentor, desalfandegamo-lo e entregamo-lo. Trata com uma única empresa e um único orçamento do início ao fim."
+      },
+      "time": {
+        "q": "Quanto tempo demora enviar um carro da China para o Gana?",
+        "a": "Depende do veículo, do método de envio e do calendário dos navios, por isso não prometemos um prazo fixo. Depois de escolher o veículo damos-lhe uma estimativa para o seu envio, e acompanha cada fase com a sua referência."
+      },
+      "cost": {
+        "q": "Quanto custa enviar um carro da China para o Gana?",
+        "a": "O custo depende do veículo, do envio RoRo ou em contentor, da inspeção, dos direitos de importação do Gana e das taxas de câmbio. Envie um pedido e respondemos com um orçamento completo: veículo, envio e desalfandegamento."
+      },
+      "port": {
+        "q": "Em que porto do Gana chegam os carros vindos da China?",
+        "a": "Enviamos os veículos da China para o Porto de Tema, no Gana, onde são desalfandegados antes da entrega."
+      },
+      "method": {
+        "q": "Para um carro, é melhor RoRo ou contentor?",
+        "a": "O RoRo é normalmente a escolha mais económica para um carro comum. O contentor dá mais proteção e é indicado para veículos de maior valor. Recomendamos o método adequado ao seu veículo e orçamento."
+      },
+      "ev": {
+        "q": "Posso importar um carro elétrico ou híbrido da China para o Gana?",
+        "a": "Sim. Temos veículos elétricos, híbridos e híbridos plug-in usados disponíveis na China, que passam pela mesma inspeção, envio e desalfandegamento que qualquer outro veículo."
+      },
+      "clearing": {
+        "q": "Tratam do desalfandegamento no Gana?",
+        "a": "Sim. Preparamos os documentos, tratamos do desalfandegamento no Porto de Tema e informamo-lo dos direitos e taxas à medida que são confirmados."
+      },
+      "tracking": {
+        "q": "Posso acompanhar o meu carro durante o envio?",
+        "a": "Sim. Cada pedido recebe uma referência de acompanhamento. Introduza-a na nossa página Acompanhar para ver em que fase está o seu veículo, da pesquisa à entrega."
+      }
+    },
+    "ctaTitle": "Pronto para enviar o seu carro da China para o Gana?",
+    "ctaBody": "Diga-nos o que precisa e enviamos veículos adequados com um orçamento completo.",
+    "ctaRequest": "Pedir um veículo",
+    "ctaBrowse": "Ver veículos na China"
   }
 }

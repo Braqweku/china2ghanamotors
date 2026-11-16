@@ -1,5 +1,7 @@
 import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
+import { Link } from "@/i18n/navigation";
+import { SHIPPING_PATH } from "@/lib/seo/llms";
 
 export function Journey() {
   const t = useTranslations("home");
@@ -27,6 +29,13 @@ export function Journey() {
           </li>
         ))}
       </ol>
+      <Link
+        href={SHIPPING_PATH}
+        className="group mt-6 inline-flex items-center gap-1 text-small font-medium text-foreground underline-offset-4 hover:underline"
+      >
+        {t("journeyLink")}
+        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+      </Link>
     </section>
   );
 }
