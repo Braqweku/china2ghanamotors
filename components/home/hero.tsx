@@ -1,51 +1,36 @@
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
-import { HeroSlideshow } from "@/components/home/hero-slideshow";
 
-const stats = [
-  { value: "15+", key: "statSuppliers" },
-  { value: "500+", key: "statSourced" },
-  { value: "100%", key: "statInspected" },
-] as const;
-
+/** Full-bleed photo hero; the header floats over it (see Header `overlay`). */
 export function Hero() {
   const t = useTranslations("home");
+  const tNav = useTranslations("nav");
 
   return (
-    <section className="relative w-full overflow-hidden bg-primary">
-      <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8 lg:py-24">
-        <div className="order-last animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-700 lg:order-none">
-          <p className="text-label font-medium uppercase tracking-wide text-accent">{t("eyebrow")}</p>
-          <h1 className="mt-4 text-h1 font-semibold tracking-tight text-primary-foreground lg:text-display">
-            {t("title")}
-          </h1>
-          <p className="mt-5 max-w-xl text-body text-primary-foreground/85">{t("body")}</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="lg" variant="secondary">
-              <Link href="/source">{t("sourceCta")}</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
-            >
-              <Link href="/vehicles">{t("exploreCta")}</Link>
-            </Button>
-          </div>
-          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-4 border-t border-primary-foreground/20 pt-6">
-            {stats.map((stat) => (
-              <div key={stat.key}>
-                <p className="text-h3 font-semibold text-primary-foreground">{stat.value}</p>
-                <p className="text-small text-primary-foreground/70">{t(stat.key)}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+    <section className="relative isolate flex min-h-[640px] items-end overflow-hidden bg-[#070707] lg:min-h-[min(100svh,860px)] lg:items-center">
+      <Image
+        src="/stock/hero-car-carrier.jpg"
+        alt={t("heroAlt")}
+        fill
+        priority
+        sizes="100vw"
+        className="-z-20 object-cover object-[70%_center]"
+      />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/55 to-black/20" />
+      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-gradient-to-t from-black/60 to-transparent" />
 
-        <div className="order-first mx-auto w-full max-w-xl animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-700 delay-150 lg:order-none lg:max-w-none">
-          <HeroSlideshow />
+      <div className="mx-auto w-full max-w-7xl px-4 pt-40 pb-16 sm:px-6 lg:px-8 lg:pt-32 lg:pb-0">
+        <h1 className="max-w-2xl text-display font-medium text-white">{t("title")}</h1>
+        <p className="mt-6 max-w-lg text-body text-white/80">{t("body")}</p>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <Button asChild size="lg" variant="light">
+            <Link href="/vehicles">{t("exploreCta")}</Link>
+          </Button>
+          <Button asChild size="lg" variant="outline-light">
+            <Link href="/source">{tNav("requestVehicle")}</Link>
+          </Button>
         </div>
       </div>
     </section>

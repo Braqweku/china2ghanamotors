@@ -8,7 +8,8 @@
     "whatsappGreeting": "Olá {name}, gostaria de falar com um especialista em aquisição de veículos.",
     "language": "Idioma",
     "backHome": "Voltar à página inicial",
-    "logoHome": "Página inicial da China2Ghana Motors"
+    "logoHome": "Página inicial da China2Ghana Motors",
+    "shippedToTema": "Veículos enviados para o Porto de Tema, no Gana"
   },
   "nav": {
     "vehicles": "Veículos",
@@ -20,7 +21,8 @@
     "requestVehicle": "Pedir um veículo",
     "whatsappUs": "Fale connosco no WhatsApp",
     "openMenu": "Abrir menu",
-    "menu": "Navegação"
+    "menu": "Navegação",
+    "shipping": "Envio"
   },
   "footer": {
     "explore": "Explorar",
@@ -45,46 +47,65 @@
     "notFoundBody": "A página que procura não existe ou pode ter sido movida."
   },
   "home": {
-    "eyebrow": "Da China para o Gana. Movidos pela confiança.",
-    "title": "O seu próximo veículo, encontrado na China e entregue no Gana.",
-    "body": "Encontramos, verificamos, enviamos e desalfandegamos veículos de fornecedores de confiança na China, para um caminho mais claro, seguro e prático até ao seu próximo veículo.",
+    "title": "O seu próximo veículo, enviado da China para o Gana",
+    "body": "Encontramos, inspecionamos, enviamos e desalfandegamos veículos de fornecedores de confiança na China: o carro certo, um orçamento e um único contacto.",
     "sourceCta": "Encontrar o meu veículo",
     "exploreCta": "Ver veículos",
-    "statSuppliers": "Fornecedores verificados",
-    "statSourced": "Veículos encontrados",
-    "statInspected": "Inspecionados antes do envio",
-    "slideAlt": "{name}, um dos veículos encontrados pela China2Ghana Motors",
-    "slideLabel": "Mostrar diapositivo {n} de {total}",
     "brandsTitle": "Marcas em stock",
-    "dealsEyebrow": "Oportunidades",
-    "dealsTitle": "Veículos populares disponíveis",
     "dealsViewAll": "Ver todos os veículos",
-    "trust": {
-      "sourceTitle": "Encontrar",
-      "sourceCopy": "Identificamos o veículo certo junto de fornecedores verificados na China, de acordo com as suas especificações e orçamento.",
-      "verifyTitle": "Verificar",
-      "verifyCopy": "Cada veículo é inspecionado e o seu estado confirmado antes de aprovar a compra.",
-      "shipTitle": "Enviar",
-      "shipCopy": "Coordenamos o envio e tratamos da alfândega e do desalfandegamento, para que nunca tenha de lidar com o processo sozinho.",
-      "deliverTitle": "Entregar",
-      "deliverCopy": "O seu veículo é entregue no Gana, com atualizações e documentação em todas as etapas."
+    "ctaTitle": "Pronto para encontrar o seu próximo veículo?",
+    "ctaBody": "Veja os veículos em stock ou diga-nos o que precisa e nós encontramos.",
+    "previous": "Anterior",
+    "next": "Seguinte",
+    "typesLabel": "Tipos de veículo",
+    "typesTitle": "Ver por tipo de veículo",
+    "typesAll": "Todos os veículos",
+    "typesEv": "Elétricos e híbridos",
+    "featuredLabel": "Em stock",
+    "featuredTitle": "Veículos em destaque",
+    "servicesLabel": "Serviços",
+    "servicesTitle": "Pesquisa, envio e desalfandegamento num só lugar",
+    "services": {
+      "sourcingTitle": "Pesquisa de veículos",
+      "sourcingBody": "Indique o veículo e o orçamento. Encontramos opções em fornecedores verificados na China e inspecionamo-las antes da compra.",
+      "shippingTitle": "Envio para o Porto de Tema",
+      "shippingBody": "Enviamos o seu veículo da China para o Porto de Tema por RoRo ou em contentor e tratamos do desalfandegamento.",
+      "fleetTitle": "Frotas e empresas",
+      "fleetBody": "Vários veículos para uma empresa, frota TVDE ou concessionário, encontrados e enviados em conjunto.",
+      "exploreMore": "Saber mais"
     },
-    "journeyTitle": "Como funciona",
-    "journeyIntro": "Do pedido à entrega, este é o percurso de cada veículo.",
-    "journeySteps": [
-      "Pedido do cliente",
-      "Pesquisa de opções",
-      "Preço e especificações enviados",
-      "Inspeção e verificação",
-      "Aprovação e pagamento",
-      "Envio para o Gana",
-      "Desalfandegamento e documentos",
-      "Entrega do veículo"
+    "brandsLabel": "Marcas",
+    "aboutLabel": "Sobre nós",
+    "aboutTitle": "Conheça a China2Ghana Motors",
+    "aboutBody": "Ajudamos compradores no Gana a obter o veículo certo da China, com inspeção antes da compra e um único contacto da pesquisa à entrega.",
+    "aboutCta": "Como enviamos",
+    "howLabel": "Como funciona",
+    "howTitle": "Da China para o Gana em quatro passos",
+    "howStep": "Passo {n}",
+    "how": [
+      {
+        "title": "Pesquisa",
+        "body": "Encontramos veículos que correspondem ao seu pedido em fornecedores verificados na China."
+      },
+      {
+        "title": "Inspeção",
+        "body": "Cada veículo é inspecionado antes da compra, para conhecer o seu estado real."
+      },
+      {
+        "title": "Envio para o Porto de Tema",
+        "body": "O seu veículo viaja da China para o Porto de Tema por RoRo ou em contentor."
+      },
+      {
+        "title": "Desalfandegamento e entrega",
+        "body": "Tratamos do desalfandegamento no Porto de Tema e organizamos a entrega."
+      }
     ],
-    "ctaTitle": "Pronto para começar?",
-    "ctaBody": "Diga-nos o que precisa ou fale diretamente com um especialista.",
-    "ctaContact": "Falar com um especialista",
-    "journeyLink": "Como funciona o envio de um carro da China para o Gana"
+    "ctaBrowse": "Ver veículos",
+    "heroAlt": "Navio de transporte de automóveis no cais com veículos prontos a embarcar",
+    "bandAlt": "Navio de transporte de automóveis atracado num porto",
+    "aboutAlt": "Filas de veículos estacionados num terminal portuário",
+    "ctaAlt": "Navio de transporte de automóveis num porto",
+    "stepShipAlt": "Navio de transporte de automóveis no porto"
   },
   "labels": {
     "bodyType": {

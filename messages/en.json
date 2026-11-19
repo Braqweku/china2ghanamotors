@@ -8,7 +8,8 @@
     "whatsappGreeting": "Hi {name}, I'd like to speak with a sourcing specialist.",
     "language": "Language",
     "backHome": "Back to homepage",
-    "logoHome": "China2Ghana Motors home"
+    "logoHome": "China2Ghana Motors home",
+    "shippedToTema": "Vehicles shipped to Tema Port, Ghana"
   },
   "nav": {
     "vehicles": "Vehicles",
@@ -20,7 +21,8 @@
     "requestVehicle": "Request a vehicle",
     "whatsappUs": "WhatsApp us",
     "openMenu": "Open menu",
-    "menu": "Menu"
+    "menu": "Menu",
+    "shipping": "Shipping"
   },
   "footer": {
     "explore": "Explore",
@@ -45,46 +47,65 @@
     "notFoundBody": "The page you're looking for doesn't exist or may have moved."
   },
   "home": {
-    "eyebrow": "China to Ghana. Driven by trust.",
-    "title": "Your next vehicle, sourced from China, delivered in Ghana.",
-    "body": "We source, verify, ship and clear vehicles from trusted suppliers in China — giving you a clearer, safer and more convenient route to your next vehicle.",
+    "title": "Your next vehicle, shipped from China to Ghana",
+    "body": "We source, inspect, ship and clear vehicles from trusted suppliers in China, so you get the right car with one quote and one point of contact.",
     "sourceCta": "Source My Vehicle",
     "exploreCta": "Explore Vehicles",
-    "statSuppliers": "Verified suppliers",
-    "statSourced": "Vehicles sourced",
-    "statInspected": "Inspected before shipping",
-    "slideAlt": "{name}, one of the vehicles sourced by China2Ghana Motors",
-    "slideLabel": "Show slide {n} of {total}",
     "brandsTitle": "Brands in our current stock",
-    "dealsEyebrow": "Hot deals",
-    "dealsTitle": "Popular vehicles available now",
     "dealsViewAll": "View all vehicles",
-    "trust": {
-      "sourceTitle": "Source",
-      "sourceCopy": "We identify the right vehicle from verified suppliers in China, based on your specifications and budget.",
-      "verifyTitle": "Verify",
-      "verifyCopy": "Every vehicle is inspected and its condition confirmed before you approve the purchase.",
-      "shipTitle": "Ship",
-      "shipCopy": "We coordinate shipping and handle customs and clearing, so the process is never on you alone.",
-      "deliverTitle": "Deliver",
-      "deliverCopy": "Your vehicle is delivered to you in Ghana, with updates and documentation the whole way."
+    "ctaTitle": "Ready to find your next vehicle?",
+    "ctaBody": "Browse vehicles in stock, or tell us what you need and we will source it.",
+    "previous": "Previous",
+    "next": "Next",
+    "typesLabel": "Vehicle types",
+    "typesTitle": "Browse by vehicle type",
+    "typesAll": "All vehicles",
+    "typesEv": "Electric & hybrid",
+    "featuredLabel": "In stock now",
+    "featuredTitle": "Featured vehicles",
+    "servicesLabel": "Services",
+    "servicesTitle": "Sourcing, shipping and clearing in one place",
+    "services": {
+      "sourcingTitle": "Vehicle sourcing",
+      "sourcingBody": "Tell us the vehicle and budget. We find matching options from verified suppliers in China and inspect them before you buy.",
+      "shippingTitle": "Shipping to Tema Port",
+      "shippingBody": "We ship your vehicle from China to Tema Port by RoRo or container and handle customs clearing for you.",
+      "fleetTitle": "Fleet and business",
+      "fleetBody": "Several vehicles for a company, ride-hailing fleet or dealership, sourced and shipped together.",
+      "exploreMore": "Explore more"
     },
-    "journeyTitle": "How it works",
-    "journeyIntro": "From request to delivery, here's the path every vehicle takes.",
-    "journeySteps": [
-      "Customer Request",
-      "Vehicle Options Sourced",
-      "Price & Specifications Shared",
-      "Inspection / Verification",
-      "Customer Approval & Payment",
-      "Shipping to Ghana",
-      "Clearing & Documentation",
-      "Vehicle Delivery"
+    "brandsLabel": "Brands",
+    "aboutLabel": "About us",
+    "aboutTitle": "Get to know China2Ghana Motors",
+    "aboutBody": "We help buyers in Ghana get the right vehicle from China, with inspection before purchase and one point of contact from sourcing to delivery.",
+    "aboutCta": "How we ship",
+    "howLabel": "How it works",
+    "howTitle": "From China to Ghana in four steps",
+    "howStep": "Step {n}",
+    "how": [
+      {
+        "title": "Source",
+        "body": "We find vehicles that match your request from verified suppliers in China."
+      },
+      {
+        "title": "Inspect",
+        "body": "Each vehicle is inspected before purchase, so you know its real condition."
+      },
+      {
+        "title": "Ship to Tema Port",
+        "body": "Your vehicle travels from China to Tema Port by RoRo or container."
+      },
+      {
+        "title": "Clear and deliver",
+        "body": "We handle customs clearing at Tema Port and arrange delivery to you."
+      }
     ],
-    "ctaTitle": "Ready to start?",
-    "ctaBody": "Tell us what you need, or talk to a sourcing specialist directly.",
-    "ctaContact": "Contact Specialist",
-    "journeyLink": "How shipping a car from China to Ghana works"
+    "ctaBrowse": "View vehicles",
+    "heroAlt": "Car carrier ship at the quay with vehicles waiting to be loaded",
+    "bandAlt": "Car carrier ship berthed at a port",
+    "aboutAlt": "Rows of vehicles parked at a port terminal",
+    "ctaAlt": "Car carrier ship in a harbour",
+    "stepShipAlt": "Car carrier ship in port"
   },
   "labels": {
     "bodyType": {

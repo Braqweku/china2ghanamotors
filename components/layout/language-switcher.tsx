@@ -8,7 +8,15 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import { LOCALE_COOKIE, localeNames, locales, type Locale } from "@/lib/i18n/locales";
 import { cn } from "@/lib/utils";
 
-export function LanguageSwitcher({ id, className }: { id: string; className?: string }) {
+export function LanguageSwitcher({
+  id,
+  className,
+  tone = "dark",
+}: {
+  id: string;
+  className?: string;
+  tone?: "dark" | "light";
+}) {
   const t = useTranslations("common");
   const locale = useLocale() as Locale;
   const router = useRouter();
@@ -25,7 +33,16 @@ export function LanguageSwitcher({ id, className }: { id: string; className?: st
 
   return (
     <Select value={locale} onValueChange={change} disabled={isPending}>
-      <SelectTrigger id={id} size="sm" aria-label={t("language")} className={cn("gap-1.5", className)}>
+      <SelectTrigger
+        id={id}
+        size="sm"
+        aria-label={t("language")}
+        className={cn(
+          "gap-1.5",
+          tone === "light" && "border-white/30 bg-transparent text-white hover:bg-white/10 [&_svg]:!text-white/80",
+          className
+        )}
+      >
         <Languages className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
         <SelectValue>{localeNames[locale]}</SelectValue>
       </SelectTrigger>

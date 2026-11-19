@@ -29,7 +29,7 @@ export default async function SourcePage({ params }: { params: Promise<{ locale:
   const t = await getTranslations("source");
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl px-4 pt-14 pb-24 sm:px-6 lg:px-8">
       <PageHeader title={t("title")} intro={t("intro")} />
 
       <FormPage

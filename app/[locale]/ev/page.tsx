@@ -27,7 +27,7 @@ function VehicleSection({ id, title, vehicles }: { id: string; title: string; ve
   if (vehicles.length === 0) return null;
   return (
     <section className="mt-14" aria-labelledby={`${id}-heading`}>
-      <h2 id={`${id}-heading`} className="text-h2 font-semibold text-foreground">
+      <h2 id={`${id}-heading`} className="text-h2 font-medium text-foreground">
         {title} <span className="font-normal text-muted-foreground">({vehicles.length})</span>
       </h2>
       <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
@@ -49,13 +49,13 @@ export default async function EvPage({ params }: { params: Promise<{ locale: Loc
   ]);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl px-4 pt-14 pb-24 sm:px-6 lg:px-8">
       <PageHeader title={t("title")} intro={t("intro")} />
 
       <dl className="mt-8 grid border-t border-border sm:grid-cols-2 sm:gap-x-10">
         {facts.map((fact) => (
           <div key={fact} className="border-b border-border py-5">
-            <dt className="text-body font-semibold text-foreground">{t(`${fact}Term`)}</dt>
+            <dt className="text-body font-medium text-foreground">{t(`${fact}Term`)}</dt>
             <dd className="mt-1 text-small text-muted-foreground">{t(`${fact}Detail`)}</dd>
           </div>
         ))}

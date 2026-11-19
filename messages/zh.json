@@ -8,7 +8,8 @@
     "whatsappGreeting": "您好 {name}，我想咨询寻车专员。",
     "language": "语言",
     "backHome": "返回首页",
-    "logoHome": "China2Ghana Motors 首页"
+    "logoHome": "China2Ghana Motors 首页",
+    "shippedToTema": "车辆运抵加纳特马港"
   },
   "nav": {
     "vehicles": "车辆",
@@ -20,7 +21,8 @@
     "requestVehicle": "提交寻车需求",
     "whatsappUs": "通过 WhatsApp 联系我们",
     "openMenu": "打开菜单",
-    "menu": "菜单"
+    "menu": "菜单",
+    "shipping": "运输"
   },
   "footer": {
     "explore": "浏览",
@@ -45,46 +47,65 @@
     "notFoundBody": "您要找的页面不存在或已被移动。"
   },
   "home": {
-    "eyebrow": "从中国到加纳，以信任为本。",
-    "title": "您的下一辆车：在中国寻得，在加纳交付。",
-    "body": "我们从中国可靠的供应商处寻车、验车、运输并办理清关，让您购车的过程更清晰、更安全、更省心。",
+    "title": "您的下一辆车，从中国运到加纳",
+    "body": "我们从中国可靠的供应商处寻车、检测、运输并办理清关，让您以一份报价、一个联系人买到合适的车。",
     "sourceCta": "为我寻车",
     "exploreCta": "浏览车辆",
-    "statSuppliers": "认证供应商",
-    "statSourced": "已寻得车辆",
-    "statInspected": "发运前全部检测",
-    "slideAlt": "{name}，China2Ghana Motors 寻得的车辆之一",
-    "slideLabel": "显示第 {n} 张，共 {total} 张",
     "brandsTitle": "现有库存品牌",
-    "dealsEyebrow": "热门推荐",
-    "dealsTitle": "现货热门车辆",
     "dealsViewAll": "查看全部车辆",
-    "trust": {
-      "sourceTitle": "寻车",
-      "sourceCopy": "根据您的配置要求和预算，我们从中国的认证供应商中找到合适的车辆。",
-      "verifyTitle": "验车",
-      "verifyCopy": "每辆车在您确认购买前都会经过检测，并核实车况。",
-      "shipTitle": "运输",
-      "shipCopy": "我们统筹运输，并负责报关和清关，您无需独自处理繁琐流程。",
-      "deliverTitle": "交付",
-      "deliverCopy": "车辆交付到您在加纳的手中，全程提供进度更新和相关文件。"
+    "ctaTitle": "准备好找到您的下一辆车了吗？",
+    "ctaBody": "浏览现有车辆，或告诉我们您的需求，我们为您寻找。",
+    "previous": "上一个",
+    "next": "下一个",
+    "typesLabel": "车型分类",
+    "typesTitle": "按车型浏览",
+    "typesAll": "全部车辆",
+    "typesEv": "电动与混动",
+    "featuredLabel": "现车供应",
+    "featuredTitle": "精选车辆",
+    "servicesLabel": "服务",
+    "servicesTitle": "寻车、运输和清关，一站完成",
+    "services": {
+      "sourcingTitle": "代寻车辆",
+      "sourcingBody": "告诉我们车型和预算。我们从中国的认证供应商处找到匹配车源，并在您购买前进行检测。",
+      "shippingTitle": "运至特马港",
+      "shippingBody": "我们通过滚装船或集装箱把您的车从中国运到特马港，并为您办理清关。",
+      "fleetTitle": "车队与企业",
+      "fleetBody": "为企业、网约车车队或经销商批量寻车并统一运输。",
+      "exploreMore": "了解更多"
     },
-    "journeyTitle": "服务流程",
-    "journeyIntro": "从提交需求到交车，每辆车都经过以下流程。",
-    "journeySteps": [
-      "客户提交需求",
-      "寻找车源",
-      "提供价格和配置",
-      "检测与核验",
-      "客户确认并付款",
-      "运往加纳",
-      "清关与文件办理",
-      "交付车辆"
+    "brandsLabel": "品牌",
+    "aboutLabel": "关于我们",
+    "aboutTitle": "认识 China2Ghana Motors",
+    "aboutBody": "我们帮助加纳的买家从中国买到合适的车辆：购买前检测，从寻车到交付只需对接一个联系人。",
+    "aboutCta": "我们如何运输",
+    "howLabel": "服务流程",
+    "howTitle": "四步把车从中国运到加纳",
+    "howStep": "第 {n} 步",
+    "how": [
+      {
+        "title": "寻车",
+        "body": "我们从中国的认证供应商处寻找符合您需求的车辆。"
+      },
+      {
+        "title": "检测",
+        "body": "每辆车在购买前都会检测，让您了解真实车况。"
+      },
+      {
+        "title": "运至特马港",
+        "body": "车辆通过滚装船或集装箱从中国运至特马港。"
+      },
+      {
+        "title": "清关与交付",
+        "body": "我们在特马港办理清关，并安排把车辆交付给您。"
+      }
     ],
-    "ctaTitle": "准备好开始了吗？",
-    "ctaBody": "告诉我们您的需求，或直接与寻车专员沟通。",
-    "ctaContact": "联系专员",
-    "journeyLink": "从中国运车到加纳的流程"
+    "ctaBrowse": "查看车辆",
+    "heroAlt": "停靠在码头的汽车运输船，车辆在岸上等待装船",
+    "bandAlt": "停靠在港口的汽车运输船",
+    "aboutAlt": "港口码头上成排停放的车辆",
+    "ctaAlt": "港口中的汽车运输船",
+    "stepShipAlt": "停靠在港口的汽车运输船"
   },
   "labels": {
     "bodyType": {

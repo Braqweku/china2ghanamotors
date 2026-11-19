@@ -12,7 +12,7 @@ export function FormPage({ aside, children }: { aside: ReactNode; children: Reac
 export function AsideSection({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section>
-      <h2 className="text-small font-semibold text-foreground">{title}</h2>
+      <h2 className="text-small font-medium text-foreground">{title}</h2>
       <div className="mt-3 text-small text-muted-foreground">{children}</div>
     </section>
   );

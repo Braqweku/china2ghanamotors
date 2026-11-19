@@ -1,34 +1,30 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
-import { buildWhatsAppLink, siteConfig } from "@/lib/config";
+import { PhotoBand } from "@/components/site/photo-band";
 
 export function CtaBand() {
   const t = useTranslations("home");
-  const tCommon = useTranslations("common");
-  const whatsappHref = buildWhatsAppLink(tCommon("whatsappGreeting", { name: siteConfig.name }));
+  const tNav = useTranslations("nav");
 
   return (
-    <section className="bg-primary py-20 text-primary-foreground">
-      <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-        <h2 className="text-h2 font-semibold">{t("ctaTitle")}</h2>
-        <p className="mt-3 text-body text-primary-foreground/80">{t("ctaBody")}</p>
-        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Button asChild size="lg" variant="secondary">
-            <Link href="/source">{t("sourceCta")}</Link>
-          </Button>
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
-          >
-            <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-              {t("ctaContact")}
-            </a>
-          </Button>
-        </div>
+    <PhotoBand
+      src="/stock/cta-car-carrier.jpg"
+      alt={t("ctaAlt")}
+      overlay="full"
+      className="min-h-[480px] lg:min-h-[560px]"
+      contentClassName="min-h-[480px] justify-start pt-16 lg:min-h-[560px] lg:pt-20"
+    >
+      <h2 className="max-w-xl text-h1 font-medium text-white">{t("ctaTitle")}</h2>
+      <p className="mt-4 max-w-md text-body text-white/80">{t("ctaBody")}</p>
+      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <Button asChild size="lg" variant="light">
+          <Link href="/vehicles">{t("ctaBrowse")}</Link>
+        </Button>
+        <Button asChild size="lg" variant="outline-light">
+          <Link href="/source">{tNav("requestVehicle")}</Link>
+        </Button>
       </div>
-    </section>
+    </PhotoBand>
   );
 }

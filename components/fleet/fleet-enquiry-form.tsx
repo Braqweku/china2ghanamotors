@@ -111,7 +111,7 @@ export function FleetEnquiryForm() {
   if (reference) {
     return (
       <div className="rounded-lg border border-border p-6 text-center">
-        <p className="text-h3 font-semibold text-foreground">{t("received")}</p>
+        <p className="text-h3 font-medium text-foreground">{t("received")}</p>
         <p className="mt-2 font-mono text-body text-foreground">{reference}</p>
         <p className="mt-4 text-body text-muted-foreground">{t("receivedBody")}</p>
         <Button asChild className="mt-6">

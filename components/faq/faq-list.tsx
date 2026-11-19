@@ -15,7 +15,7 @@ export function FaqList({ items, className }: { items: FaqItem[]; className?: st
       {items.map((item) => (
         <AccordionItem key={item.id} value={item.id} className="border-b border-border">
           <AccordionTrigger className="gap-4 py-5 text-left hover:no-underline">
-            <span className="text-body font-semibold text-foreground">{item.question}</span>
+            <span className="text-body font-medium text-foreground">{item.question}</span>
           </AccordionTrigger>
           <AccordionContent className="pb-5">
             <p className="text-body text-muted-foreground">{item.answer}</p>

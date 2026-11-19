@@ -45,7 +45,7 @@ export default async function TrackPage({
   const events = ref ? await getTrackingEvents(ref) : undefined;
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-3xl px-4 pt-14 pb-24 sm:px-6 lg:px-8">
       <PageHeader title={t("title")} intro={t("intro")} />
 
       <div className="mt-8 rounded-lg border border-border bg-card p-5 sm:p-6">
@@ -81,7 +81,7 @@ export default async function TrackPage({
       </div>
 
       <section aria-labelledby="how-heading" className="mt-10">
-        <h2 id="how-heading" className="text-small font-semibold text-foreground">
+        <h2 id="how-heading" className="text-small font-medium text-foreground">
           {t("howTitle")}
         </h2>
         <ol className="mt-4 grid gap-x-6 gap-y-5 border-t border-border pt-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -90,7 +90,7 @@ export default async function TrackPage({
               <p className="text-caption font-medium tabular-nums text-muted-foreground">
                 {t("step", { n: i + 1 })}
               </p>
-              <p className="mt-0.5 text-small font-semibold text-foreground">{t(phase.key)}</p>
+              <p className="mt-0.5 text-small font-medium text-foreground">{t(phase.key)}</p>
               <p className="mt-1 text-caption text-muted-foreground">
                 {phase.stages.map((s) => tStages(s)).join(" · ")}
               </p>

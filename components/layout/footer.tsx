@@ -3,10 +3,11 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { buildWhatsAppLink, siteConfig } from "@/lib/config";
+import { SHIPPING_PATH } from "@/lib/seo/llms";
 
 const exploreLinks = [
   { href: "/vehicles", key: "vehicles" },
-  { href: "/shipping-cars-from-china-to-ghana", key: "shipping" },
+  { href: SHIPPING_PATH, key: "shipping" },
   { href: "/ev", key: "ev" },
   { href: "/source", key: "source" },
   { href: "/track", key: "track" },
@@ -18,7 +19,16 @@ const companyLinks = [
   { href: "/faq", key: "faq" },
 ] as const;
 
-const linkClass = "text-small text-muted-foreground transition-colors hover:text-foreground";
+const linkClass = "text-small text-white/85 transition-colors hover:text-white";
+
+function Column({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <p className="text-small text-white/50">{title}</p>
+      <ul className="mt-4 space-y-2.5">{children}</ul>
+    </div>
+  );
+}
 
 export function Footer({ showLanguageSwitcher = true }: { showLanguageSwitcher?: boolean }) {
   const t = useTranslations("footer");
@@ -26,84 +36,73 @@ export function Footer({ showLanguageSwitcher = true }: { showLanguageSwitcher?:
   const whatsappHref = buildWhatsAppLink(tCommon("whatsappGreeting", { name: siteConfig.name }));
 
   return (
-    <footer className="border-t border-border bg-muted/40">
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4">
-          <div className="col-span-2 sm:col-span-1">
+    <footer className="overflow-hidden bg-[#070707] text-white">
+      <div className="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:px-8">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+          <div>
             <Image
-              src="/logo/china2ghana-logo-transparent.png"
+              src="/logo/china2ghana-logo-white.png"
               alt="China2Ghana Motors"
               width={1020}
               height={530}
-              className="h-8 w-auto"
+              className="h-10 w-auto"
             />
-            <p className="mt-2 text-small text-muted-foreground">{tCommon("tagline")}</p>
+            <p className="mt-4 max-w-xs text-small text-white/60">{tCommon("tagline")}</p>
+            <p className="mt-1 text-small text-white/60">
+              © {new Date().getFullYear()} {siteConfig.name}. {t("rights")}
+            </p>
             {showLanguageSwitcher && (
-              <LanguageSwitcher id="language-footer" className="mt-4 w-40 bg-background" />
+              <LanguageSwitcher id="language-footer" tone="light" className="mt-6 w-40" />
             )}
           </div>
 
-          <div>
-            <p className="text-label font-semibold tracking-wide text-foreground uppercase">
-              {t("explore")}
-            </p>
-            <ul className="mt-3 space-y-2">
-              {exploreLinks.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className={linkClass}>
-                    {t(link.key)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="text-label font-semibold tracking-wide text-foreground uppercase">
-              {t("company")}
-            </p>
-            <ul className="mt-3 space-y-2">
-              {companyLinks.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className={linkClass}>
-                    {t(link.key)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="text-label font-semibold tracking-wide text-foreground uppercase">
-              {t("contact")}
-            </p>
-            <ul className="mt-3 space-y-2">
-              <li>
-                <a href={`mailto:${siteConfig.contactEmail}`} className={linkClass}>
-                  {siteConfig.contactEmail}
-                </a>
+          <Column title={t("explore")}>
+            {exploreLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className={linkClass}>
+                  {t(link.key)}
+                </Link>
               </li>
-              <li>
-                <a href={`mailto:${siteConfig.infoEmail}`} className={linkClass}>
-                  {siteConfig.infoEmail}
-                </a>
-              </li>
-              <li>
-                <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className={linkClass}>
-                  {t("whatsapp")}
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+            ))}
+          </Column>
 
-        <div className="mt-8 flex flex-col gap-1 border-t border-border pt-5 text-caption text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {new Date().getFullYear()} {siteConfig.name}. {t("rights")}
-          </p>
-          <p>{tCommon("tagline")}</p>
+          <Column title={t("company")}>
+            {companyLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className={linkClass}>
+                  {t(link.key)}
+                </Link>
+              </li>
+            ))}
+          </Column>
+
+          <Column title={t("contact")}>
+            <li>
+              <a href={`mailto:${siteConfig.contactEmail}`} className={linkClass}>
+                {siteConfig.contactEmail}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${siteConfig.infoEmail}`} className={linkClass}>
+                {siteConfig.infoEmail}
+              </a>
+            </li>
+            <li>
+              <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                {t("whatsapp")}
+              </a>
+            </li>
+          </Column>
         </div>
       </div>
+
+      {/* Oversized wordmark, as on DriveHub. Decorative: the logo above already names the company. */}
+      <p
+        aria-hidden="true"
+        className="mt-16 select-none text-center text-[17.5vw] leading-[0.78] font-semibold tracking-[-0.06em] whitespace-nowrap text-white/[0.06]"
+      >
+        China2Ghana
+      </p>
     </footer>
   );
 }

@@ -11,7 +11,7 @@ export function PageHeader({
 }) {
   return (
     <header>
-      <h1 className="text-h1 font-semibold tracking-tight text-foreground">{title}</h1>
+      <h1 className="text-h1 font-medium tracking-tight text-foreground">{title}</h1>
       {intro && <p className="mt-2 max-w-2xl text-body text-muted-foreground">{intro}</p>}
       {children}
     </header>

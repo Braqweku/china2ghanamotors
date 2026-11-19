@@ -50,7 +50,7 @@ export default async function FaqPage({ params }: { params: Promise<{ locale: Lo
   }));
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-3xl px-4 pt-14 pb-24 sm:px-6 lg:px-8">
       <JsonLd data={faqSchema(items)} />
       <PageHeader title={t("title")} intro={t("intro")} />
       <FaqList items={items} className="mt-8" />

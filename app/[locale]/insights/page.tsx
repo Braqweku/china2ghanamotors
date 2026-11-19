@@ -31,7 +31,7 @@ export default async function InsightsPage({ params }: { params: Promise<{ local
   const [featured, ...rest] = articles;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl px-4 pt-14 pb-24 sm:px-6 lg:px-8">
       <PageHeader title={t("title")} intro={t("intro")} />
 
       {featured && (
@@ -40,7 +40,7 @@ export default async function InsightsPage({ params }: { params: Promise<{ local
           className="group mt-8 block rounded-lg border border-border bg-card p-6 transition-colors hover:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:p-8"
         >
           <ArticleMeta article={featured} />
-          <h2 className="mt-3 max-w-3xl text-h2 font-semibold text-foreground underline-offset-4 group-hover:underline">
+          <h2 className="mt-3 max-w-3xl text-h2 font-medium text-foreground underline-offset-4 group-hover:underline">
             {featured.title}
           </h2>
           <p className="mt-3 max-w-2xl text-body text-muted-foreground">{featured.excerpt}</p>
@@ -55,7 +55,7 @@ export default async function InsightsPage({ params }: { params: Promise<{ local
               className="group block py-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <ArticleMeta article={article} />
-              <h2 className="mt-2 text-h3 font-semibold text-foreground underline-offset-4 group-hover:underline">
+              <h2 className="mt-2 text-h3 font-medium text-foreground underline-offset-4 group-hover:underline">
                 {article.title}
               </h2>
               <p className="mt-2 text-small text-muted-foreground">{article.excerpt}</p>

@@ -86,7 +86,7 @@ function ReviewItem({
   return (
     <div>
       <div className="flex items-center justify-between">
-        <h3 className="text-h3 font-semibold text-foreground">{title}</h3>
+        <h3 className="text-h3 font-medium text-foreground">{title}</h3>
         <button type="button" onClick={onEdit} className="text-small text-accent underline">
           {editLabel}
         </button>
@@ -322,7 +322,7 @@ export function SourcingWizard() {
 
         {step === CONFIRMATION_STEP && reference && (
           <div className="rounded-lg border border-border p-6 text-center">
-            <p className="text-h3 font-semibold text-foreground">{t("received")}</p>
+            <p className="text-h3 font-medium text-foreground">{t("received")}</p>
             <p className="mt-2 font-mono text-body text-foreground">{reference}</p>
             <p className="mt-4 text-body text-muted-foreground">{t("receivedBody")}</p>
             <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">

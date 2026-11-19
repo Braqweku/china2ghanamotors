@@ -63,8 +63,8 @@ export default async function VehiclesPage({
   const [vehicles, makes] = await Promise.all([getVehicles(filters), getMakes()]);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-      <h1 className="text-h1 font-semibold text-foreground">{t("title")}</h1>
+    <div className="mx-auto max-w-7xl px-4 pt-14 pb-24 sm:px-6 lg:px-8">
+      <h1 className="text-h1 font-medium text-foreground">{t("title")}</h1>
       <p className="mt-2 max-w-2xl text-body text-muted-foreground">{t("intro")}</p>
 
       <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[240px_minmax(0,1fr)]">

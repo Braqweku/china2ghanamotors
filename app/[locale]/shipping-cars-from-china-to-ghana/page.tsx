@@ -31,7 +31,7 @@ const faqIds = ["howTo", "time", "cost", "port", "method", "ev", "clearing", "tr
 function Section({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
   return (
     <section aria-labelledby={id} className="mt-12">
-      <h2 id={id} className="text-h2 font-semibold text-foreground">
+      <h2 id={id} className="text-h2 font-medium text-foreground">
         {title}
       </h2>
       <div className="mt-4">{children}</div>
@@ -57,7 +57,7 @@ export default async function ShippingPage({ params }: { params: Promise<{ local
   const homeUrl = `${siteConfig.url}${localizedPath("/", locale)}`;
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-3xl px-4 pt-14 pb-24 sm:px-6 lg:px-8">
       <JsonLd
         data={serviceSchema({ locale, url: pageUrl, name: t("title"), description: t("metaDescription") })}
       />
@@ -84,7 +84,7 @@ export default async function ShippingPage({ params }: { params: Promise<{ local
       </nav>
 
       <header className="mt-4">
-        <h1 className="text-h1 font-semibold tracking-tight text-foreground">{t("title")}</h1>
+        <h1 className="text-h1 font-medium tracking-tight text-foreground">{t("title")}</h1>
         <p className="mt-4 text-body leading-relaxed text-foreground">{t("answer")}</p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <Button asChild>
@@ -102,12 +102,12 @@ export default async function ShippingPage({ params }: { params: Promise<{ local
             <li key={step.title} className="flex gap-4">
               <span
                 aria-hidden="true"
-                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-muted text-small font-semibold tabular-nums text-foreground"
+                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-muted text-small font-medium tabular-nums text-foreground"
               >
                 {i + 1}
               </span>
               <div>
-                <h3 className="text-body font-semibold text-foreground">{step.title}</h3>
+                <h3 className="text-body font-medium text-foreground">{step.title}</h3>
                 <p className="mt-1 text-body text-muted-foreground">{step.body}</p>
               </div>
             </li>
@@ -119,7 +119,7 @@ export default async function ShippingPage({ params }: { params: Promise<{ local
         <dl className="grid border-t border-border sm:grid-cols-2 sm:gap-x-8">
           {(["roro", "container"] as const).map((method) => (
             <div key={method} className="border-b border-border py-5">
-              <dt className="text-body font-semibold text-foreground">{t(`${method}Title`)}</dt>
+              <dt className="text-body font-medium text-foreground">{t(`${method}Title`)}</dt>
               <dd className="mt-1 text-body text-muted-foreground">{t(`${method}Body`)}</dd>
             </div>
           ))}
@@ -145,7 +145,7 @@ export default async function ShippingPage({ params }: { params: Promise<{ local
       </Section>
 
       <aside className="mt-12 rounded-lg border border-border bg-card p-6">
-        <h2 className="text-h3 font-semibold text-foreground">{t("ctaTitle")}</h2>
+        <h2 className="text-h3 font-medium text-foreground">{t("ctaTitle")}</h2>
         <p className="mt-2 text-small text-muted-foreground">{t("ctaBody")}</p>
         <div className="mt-5 flex flex-col gap-3 sm:flex-row">
           <Button asChild>

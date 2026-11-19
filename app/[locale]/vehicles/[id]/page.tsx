@@ -150,7 +150,7 @@ export default async function VehicleDetailPage({ params }: { params: Params }) 
           <VehicleGallery images={vehicle.images} alt={vehicleName} />
 
           <section className="mt-10" aria-labelledby="specs-heading">
-            <h2 id="specs-heading" className="text-h3 font-semibold text-foreground">
+            <h2 id="specs-heading" className="text-h3 font-medium text-foreground">
               {t("vehicle.specs")}
             </h2>
             <dl className="mt-4 grid border-t border-border sm:grid-cols-2 sm:gap-x-8">
@@ -166,7 +166,7 @@ export default async function VehicleDetailPage({ params }: { params: Params }) 
 
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <div className="rounded-lg border border-border bg-card p-6">
-            <h1 className="text-h2 font-semibold text-foreground">{vehicleName}</h1>
+            <h1 className="text-h2 font-medium text-foreground">{vehicleName}</h1>
             {vehicle.specs.trim && (
               <p className="mt-1 text-body text-muted-foreground">{vehicle.specs.trim}</p>
             )}
@@ -205,7 +205,7 @@ export default async function VehicleDetailPage({ params }: { params: Params }) 
 
       {similar.length > 0 && (
         <section className="mt-16" aria-labelledby="similar-heading">
-          <h2 id="similar-heading" className="text-h3 font-semibold text-foreground">
+          <h2 id="similar-heading" className="text-h3 font-medium text-foreground">
             {t("vehicle.similar")}
           </h2>
           <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">

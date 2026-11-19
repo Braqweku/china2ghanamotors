@@ -57,7 +57,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
   const articleUrl = `${siteConfig.url}${localizedPath(`/insights/${slug}`, locale)}`;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl px-4 pt-14 pb-24 sm:px-6 lg:px-8">
       <JsonLd
         data={articleSchema({
           locale,
@@ -88,7 +88,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
           </ol>
         </nav>
 
-        <h1 className="mt-4 text-h1 font-semibold tracking-tight text-foreground">{article.title}</h1>
+        <h1 className="mt-4 text-h1 font-medium tracking-tight text-foreground">{article.title}</h1>
         <div className="mt-3">
           <ArticleMeta article={article} />
         </div>
@@ -103,7 +103,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
         </div>
 
         <aside className="mt-12 rounded-lg border border-border bg-card p-6">
-          <h2 className="text-h3 font-semibold text-foreground">{t("ctaTitle")}</h2>
+          <h2 className="text-h3 font-medium text-foreground">{t("ctaTitle")}</h2>
           <p className="mt-2 text-small text-muted-foreground">{t("ctaBody")}</p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <Button asChild>
@@ -119,7 +119,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
       {more.length > 0 && (
         <section aria-labelledby="more-heading" className="mx-auto mt-16 max-w-2xl">
           <div className="flex items-baseline justify-between gap-4">
-            <h2 id="more-heading" className="text-h3 font-semibold text-foreground">
+            <h2 id="more-heading" className="text-h3 font-medium text-foreground">
               {t("more")}
             </h2>
             <Link
@@ -135,7 +135,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
               <li key={a.slug} className="border-b border-border">
                 <Link href={`/insights/${a.slug}`} className="group block py-5">
                   <ArticleMeta article={a} />
-                  <p className="mt-1 text-body font-semibold text-foreground underline-offset-4 group-hover:underline">
+                  <p className="mt-1 text-body font-medium text-foreground underline-offset-4 group-hover:underline">
                     {a.title}
                   </p>
                 </Link>

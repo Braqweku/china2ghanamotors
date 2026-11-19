@@ -1,14 +1,16 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { cn } from "@/lib/utils";
 
-export function Logo() {
+/** Brand logo linking home. Use `tone="light"` on photos and dark backgrounds. */
+export function Logo({ tone = "dark", className }: { tone?: "dark" | "light"; className?: string }) {
   const t = useTranslations("common");
 
   return (
-    <Link href="/" className="flex shrink-0 items-center gap-2" aria-label={t("logoHome")}>
+    <Link href="/" className={cn("flex shrink-0 items-center", className)} aria-label={t("logoHome")}>
       <Image
-        src="/logo/china2ghana-logo-transparent.png"
+        src={tone === "light" ? "/logo/china2ghana-logo-white.png" : "/logo/china2ghana-logo-transparent.png"}
         alt="China2Ghana Motors"
         width={1020}
         height={530}

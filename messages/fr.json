@@ -8,7 +8,8 @@
     "whatsappGreeting": "Bonjour {name}, je souhaite parler à un spécialiste de l’approvisionnement.",
     "language": "Langue",
     "backHome": "Retour à l’accueil",
-    "logoHome": "Accueil China2Ghana Motors"
+    "logoHome": "Accueil China2Ghana Motors",
+    "shippedToTema": "Véhicules expédiés au port de Tema, au Ghana"
   },
   "nav": {
     "vehicles": "Véhicules",
@@ -20,7 +21,8 @@
     "requestVehicle": "Demander un véhicule",
     "whatsappUs": "Écrivez-nous sur WhatsApp",
     "openMenu": "Ouvrir le menu",
-    "menu": "Navigation"
+    "menu": "Navigation",
+    "shipping": "Expédition"
   },
   "footer": {
     "explore": "Découvrir",
@@ -45,46 +47,65 @@
     "notFoundBody": "La page que vous cherchez n’existe pas ou a peut-être été déplacée."
   },
   "home": {
-    "eyebrow": "De la Chine au Ghana. Portés par la confiance.",
-    "title": "Votre prochain véhicule, trouvé en Chine, livré au Ghana.",
-    "body": "Nous trouvons, vérifions, expédions et dédouanons des véhicules auprès de fournisseurs fiables en Chine, pour un accès plus clair, plus sûr et plus pratique à votre prochain véhicule.",
+    "title": "Votre prochain véhicule, expédié de Chine au Ghana",
+    "body": "Nous trouvons, inspectons, expédions et dédouanons des véhicules auprès de fournisseurs fiables en Chine : la bonne voiture, un seul devis et un seul interlocuteur.",
     "sourceCta": "Trouver mon véhicule",
     "exploreCta": "Voir les véhicules",
-    "statSuppliers": "Fournisseurs vérifiés",
-    "statSourced": "Véhicules trouvés",
-    "statInspected": "Inspectés avant expédition",
-    "slideAlt": "{name}, l’un des véhicules trouvés par China2Ghana Motors",
-    "slideLabel": "Afficher la diapositive {n} sur {total}",
     "brandsTitle": "Marques actuellement en stock",
-    "dealsEyebrow": "Bonnes affaires",
-    "dealsTitle": "Véhicules populaires disponibles",
     "dealsViewAll": "Voir tous les véhicules",
-    "trust": {
-      "sourceTitle": "Trouver",
-      "sourceCopy": "Nous identifions le bon véhicule auprès de fournisseurs vérifiés en Chine, selon vos critères et votre budget.",
-      "verifyTitle": "Vérifier",
-      "verifyCopy": "Chaque véhicule est inspecté et son état confirmé avant que vous n’approuviez l’achat.",
-      "shipTitle": "Expédier",
-      "shipCopy": "Nous organisons l’expédition et gérons la douane et le dédouanement, pour que vous ne soyez jamais seul face aux démarches.",
-      "deliverTitle": "Livrer",
-      "deliverCopy": "Votre véhicule vous est livré au Ghana, avec des mises à jour et les documents à chaque étape."
+    "ctaTitle": "Prêt à trouver votre prochain véhicule ?",
+    "ctaBody": "Parcourez les véhicules en stock, ou dites-nous ce qu’il vous faut et nous le trouverons.",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "typesLabel": "Types de véhicules",
+    "typesTitle": "Parcourir par type de véhicule",
+    "typesAll": "Tous les véhicules",
+    "typesEv": "Électriques et hybrides",
+    "featuredLabel": "En stock",
+    "featuredTitle": "Véhicules à la une",
+    "servicesLabel": "Services",
+    "servicesTitle": "Recherche, expédition et dédouanement au même endroit",
+    "services": {
+      "sourcingTitle": "Recherche de véhicules",
+      "sourcingBody": "Indiquez le véhicule et le budget. Nous trouvons des options auprès de fournisseurs vérifiés en Chine et les inspectons avant votre achat.",
+      "shippingTitle": "Expédition au port de Tema",
+      "shippingBody": "Nous expédions votre véhicule de Chine au port de Tema en RoRo ou en conteneur et gérons le dédouanement pour vous.",
+      "fleetTitle": "Flottes et entreprises",
+      "fleetBody": "Plusieurs véhicules pour une entreprise, une flotte VTC ou un concessionnaire, trouvés et expédiés ensemble.",
+      "exploreMore": "En savoir plus"
     },
-    "journeyTitle": "Comment ça marche",
-    "journeyIntro": "De la demande à la livraison, voici le parcours de chaque véhicule.",
-    "journeySteps": [
-      "Demande du client",
-      "Recherche de véhicules",
-      "Prix et caractéristiques envoyés",
-      "Inspection et vérification",
-      "Accord du client et paiement",
-      "Expédition vers le Ghana",
-      "Dédouanement et documents",
-      "Livraison du véhicule"
+    "brandsLabel": "Marques",
+    "aboutLabel": "À propos",
+    "aboutTitle": "Découvrez China2Ghana Motors",
+    "aboutBody": "Nous aidons les acheteurs au Ghana à obtenir le bon véhicule de Chine, avec une inspection avant l’achat et un seul interlocuteur de la recherche à la livraison.",
+    "aboutCta": "Notre méthode d’expédition",
+    "howLabel": "Fonctionnement",
+    "howTitle": "De la Chine au Ghana en quatre étapes",
+    "howStep": "Étape {n}",
+    "how": [
+      {
+        "title": "Recherche",
+        "body": "Nous trouvons des véhicules correspondant à votre demande auprès de fournisseurs vérifiés en Chine."
+      },
+      {
+        "title": "Inspection",
+        "body": "Chaque véhicule est inspecté avant l’achat, pour que vous connaissiez son état réel."
+      },
+      {
+        "title": "Expédition au port de Tema",
+        "body": "Votre véhicule voyage de Chine jusqu’au port de Tema en RoRo ou en conteneur."
+      },
+      {
+        "title": "Dédouanement et livraison",
+        "body": "Nous gérons le dédouanement au port de Tema et organisons la livraison jusqu’à vous."
+      }
     ],
-    "ctaTitle": "Prêt à commencer ?",
-    "ctaBody": "Dites-nous ce qu’il vous faut, ou parlez directement à un spécialiste.",
-    "ctaContact": "Contacter un spécialiste",
-    "journeyLink": "Comment expédier une voiture de Chine au Ghana"
+    "ctaBrowse": "Voir les véhicules",
+    "heroAlt": "Navire transporteur de voitures à quai, avec des véhicules prêts à être chargés",
+    "bandAlt": "Navire transporteur de voitures amarré dans un port",
+    "aboutAlt": "Rangées de véhicules stationnés dans un terminal portuaire",
+    "ctaAlt": "Navire transporteur de voitures dans un port",
+    "stepShipAlt": "Navire transporteur de voitures au port"
   },
   "labels": {
     "bodyType": {
